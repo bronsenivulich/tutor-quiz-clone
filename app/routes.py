@@ -1,4 +1,4 @@
-from flask import render_template, redirect
+from flask import render_template, redirect, url_for
 from app import app
 from app.forms import LoginForm
 
@@ -12,6 +12,6 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        return redirect('/index')
+        return redirect(url_for("index"))
 
     return render_template('login.html', title="Login", form=form)
