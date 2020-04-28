@@ -42,3 +42,4 @@ instance/
 
 # Environments
 env/
+.env
