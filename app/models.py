@@ -10,7 +10,7 @@ class User(db.Model):
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
-        return f"<User {self.username}"
+        return f"<User {self.username}>"
 
 
 class Quiz(db.Model):
@@ -20,4 +20,4 @@ class Quiz(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f"<User {self.body}"
+        return f"<User {self.body}>"
