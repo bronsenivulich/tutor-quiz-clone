@@ -1,12 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hi, {{ current_user.username }}! </h1>
-{% for quiz in quizzes %}
-<div>
-    <p>
-        {{ quiz.creator.username }} Created a quiz with: <strong>{{ quiz.body }}</strong>
-    </p>
-</div>
-{% endfor %}
+<h1>Welcome to Tutor Quiz</h1> 
 {% endblock %}

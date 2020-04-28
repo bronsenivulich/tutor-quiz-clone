@@ -5,17 +5,23 @@ from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
+# Landing Page
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
-    return render_template('index.html', title="Home Page")
+    return render_template('index.html', title="Welcome")
+
+# Home Page for User Logged-In
+@app.route('/home')
+@login_required
+def home():
+    return render_template("home.html", title="Home Page")
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("index"))
+        return redirect(url_for("home"))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -25,7 +31,7 @@ def login():
         login_user(user, remember=form.rememberMe.data)
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for("index")
+            next_page = url_for("home")
         return redirect(next_page)
     return render_template('login.html', title="Login", form=form)
 
