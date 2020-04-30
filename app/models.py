@@ -12,8 +12,11 @@ def load_user(id):
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
+    firstname = db.Column(db.String(64))
+    lastname = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    user_type = db.Column(db.Integer, db.ForeignKey('user_type.id'))
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
@@ -35,3 +38,10 @@ class Quiz(db.Model):
 
     def __repr__(self):
         return f"<User {self.body}>"
+
+class UserType(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    userType = db.Column(db.String(64))
+
+    def __repr__(self):
+        return f"<User {self.userType}>"
