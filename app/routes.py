@@ -17,7 +17,7 @@ def index():
 def home():
     # Convert UserType.id to userType
     userType = UserType.query.filter_by(id=current_user.userType).first().userType
-    return render_template("home.html", title="Home Page", userType=userType)
+    return render_template("home_student.html", title="Home Page", userType=userType)
 
 
 @app.route('/login', methods=['GET', 'POST'])
