@@ -5,24 +5,24 @@ from app.models import User, UserType
 
 class LoginForm(FlaskForm):
 
-    username = StringField("Username", validators = [DataRequired()])
+    userName = StringField("Username", validators = [DataRequired()])
     password = PasswordField("Password", validators = [DataRequired()])
     rememberMe = BooleanField("Remember Me")
     submit = SubmitField("Sign In")
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    userName = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField(
+    passwordAgain = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     # Each choice is (userType, label)
     userType = RadioField('User Type', choices=[("student","Student"),("tutor","Tutor")], validators=[DataRequired()])
     submit = SubmitField('Register')
 
-    def validate_username(self, username):
-        user = User.query.filter_by(username=username.data).first()
+    def validate_username(self, userName):
+        user = User.query.filter_by(userName=userName.data).first()
         if user is not None:
             raise ValidationError('Please use a different username.')
 

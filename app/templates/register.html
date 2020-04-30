@@ -5,9 +5,9 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
+            {{ form.userName.label }}<br>
+            {{ form.userName(size=32) }}<br>
+            {% for error in form.userName.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
@@ -26,9 +26,9 @@
             {% endfor %}
         </p>
         <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
+            {{ form.passwordAgain.label }}<br>
+            {{ form.passwordAgain(size=32) }}<br>
+            {% for error in form.passwordAgain.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>

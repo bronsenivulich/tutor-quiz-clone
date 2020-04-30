@@ -11,26 +11,26 @@ def load_user(id):
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    firstname = db.Column(db.String(64))
-    lastname = db.Column(db.String(64))
+    userName = db.Column(db.String(64), index=True, unique=True)
+    firstName = db.Column(db.String(64))
+    lastName = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-    user_type = db.Column(db.Integer, db.ForeignKey('user_type.id'))
+    passwordHash = db.Column(db.String(128))
+    userType = db.Column(db.Integer, db.ForeignKey('user_type.id'))
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
         return f"<User {self.username}>"
 
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+        self.passwordHash = generate_password_hash(password)
 
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return check_password_hash(self.passwordHash, password)
 
     # set user_type as foreign_key for userType
     def set_userType(self, userType):
-        self.user_type =  UserType.query.filter_by(userType=userType).first().id
+        self.userType =  UserType.query.filter_by(userType=userType).first().id
 
 
 
@@ -38,7 +38,7 @@ class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140)) # TODO Change later
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return f"<User {self.body}>"

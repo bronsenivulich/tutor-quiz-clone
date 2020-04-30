@@ -16,7 +16,7 @@ def index():
 @login_required
 def home():
     # Convert UserType.id to userType
-    userType = UserType.query.filter_by(id=current_user.user_type).first().userType
+    userType = UserType.query.filter_by(id=current_user.userType).first().userType
     return render_template("home.html", title="Home Page", userType=userType)
 
 
@@ -26,7 +26,7 @@ def login():
         return redirect(url_for("home"))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(userName=form.userName.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
             return redirect(url_for("login"))
@@ -49,7 +49,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(userName=form.userName.data, email=form.email.data)
         user.set_userType(form.userType.data)
         user.set_password(form.password.data)
         db.session.add(user)
