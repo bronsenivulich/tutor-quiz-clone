@@ -1,0 +1,16 @@
+#homeStudentContainer {
+    background-color: lightgrey;
+}
+
+#welcomeMessage {
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+.announcements {
+    padding: 1%;
+}
+
+.subjects {
+    padding: 1%;
+}

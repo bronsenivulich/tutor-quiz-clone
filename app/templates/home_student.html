@@ -1,12 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hi, {{ current_user.username }}! </h1>
-{% for quiz in quizzes %}
-<div>
-    <p>
-        {{ quiz.creator.username }} Created a quiz with: <strong>{{ quiz.body }}</strong>
-    </p>
+
+<!--Welcome Message-->
+<div class="container" id="welcomeMessage">
+    <h1>Welcome, {{ current_user.username }}! </h1>
+    {% for quiz in quizzes %}
+    <div>
+        <p>
+            {{ quiz.creator.username }} Created a quiz with: <strong>{{ quiz.body }}</strong>
+        </p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
+<hr>
+
+<section>
+    <div class="container" id="homeStudentContainer">
+        <!--Announcements card-->
+        <div class="announcements">
+            <div class="card">
+                <h3 class="card-header" data-unsp-sanitized="clean">Announcements</h3>
+                <div class="card-body">
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+        </div>
+
+        <br>
+
+        <!--Subjects Title-->
+        <div class="container" id="subjectTitle">
+            <h2>
+                <strong>Subjects</strong>
+            </h2>
+        </div>
+
+        <!--Subjects cards (will implement a jinja system later)-->
+        <div class="subjects">
+            <div class="card">
+                <h3 class="card-header" data-unsp-sanitized="clean">Subject Title</h3>
+                <div class="card-body">
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+        </div>
+
+        
+
+    </div>
+</section>
+
 {% endblock %}
