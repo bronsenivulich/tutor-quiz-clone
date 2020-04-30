@@ -32,6 +32,16 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.userType.label }}<br>
+            {% for subfield in form.userType %}
+                {{ subfield }}
+                {{ subfield.label }}<br>
+            {% endfor %}
+            {% for error in form.userType.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>{{ form.submit() }}</p>
     </form>
 {% endblock %}

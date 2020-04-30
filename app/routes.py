@@ -3,7 +3,7 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, UserType
 
 # Landing Page
 @app.route('/')
@@ -15,7 +15,9 @@ def index():
 @app.route('/home')
 @login_required
 def home():
-    return render_template("home.html", title="Home Page")
+    # Convert UserType.id to userType
+    userType = UserType.query.filter_by(id=current_user.user_type).first().userType
+    return render_template("home.html", title="Home Page", userType=userType)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -48,6 +50,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
+        user.set_userType(form.userType.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()

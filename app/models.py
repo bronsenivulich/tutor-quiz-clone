@@ -28,6 +28,10 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    # set user_type as foreign_key for userType
+    def set_userType(self, userType):
+        self.user_type =  UserType.query.filter_by(userType=userType).first().id
+
 
 
 class Quiz(db.Model):
