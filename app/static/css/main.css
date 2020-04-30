@@ -14,3 +14,30 @@
 .subjects {
     padding: 1%;
 }
+
+#loginContainer {
+    padding: 3%;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 3%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    background-color: #e6e6e6;
+
+}
+
+.loginPage {
+    padding-top: 8%;
+}
+
+#signupContainer {
+    padding: 3%;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 3%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    background-color: #e6e6e6;
+}
+
+.signupPage {
+    padding-top: 8%;
+}
