@@ -5,6 +5,20 @@
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
+            {{ form.firstName.label }}<br>
+            {{ form.firstName(size=32) }}<br>
+            {% for error in form.firstName.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.lastName.label }}<br>
+            {{ form.lastName(size=32) }}<br>
+            {% for error in form.lastName.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
             {{ form.userName.label }}<br>
             {{ form.userName(size=32) }}<br>
             {% for error in form.userName.errors %}
