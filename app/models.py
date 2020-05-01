@@ -35,7 +35,7 @@ class User(UserMixin, db.Model):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
 
 
-class Job(db.Model):
+class UserRelationship(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -66,7 +66,7 @@ class Question(db.Model):
     def __repr__(self):
         return f"<User {self.question}>"
 
-class MultiAnswer(db.Model):
+class MultiSolution(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
     possibleAnswer = db.Column(db.String(104))
