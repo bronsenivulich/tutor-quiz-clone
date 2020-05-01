@@ -9,12 +9,6 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-class Job(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
-    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(64), index=True, unique=True)
@@ -41,6 +35,18 @@ class User(UserMixin, db.Model):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
 
 
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+class UserType(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    userType = db.Column(db.String(64))
+
+    def __repr__(self):
+        return f"<User {self.userType}>"
+
 
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -51,12 +57,6 @@ class Quiz(db.Model):
     def __repr__(self):
         return f"<User {self.body}>"
 
-class UserType(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    userType = db.Column(db.String(64))
-
-    def __repr__(self):
-        return f"<User {self.userType}>"
 
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
