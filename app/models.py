@@ -9,6 +9,12 @@ def load_user(id):
     return User.query.get(int(id))
 
 
+
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(64), index=True, unique=True)
@@ -34,11 +40,6 @@ class User(UserMixin, db.Model):
     def set_userType(self, userType):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
 
-
-class Job(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
-    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class UserType(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -74,3 +75,11 @@ class MultiAnswer(db.Model):
 
     def __repr__(self):
         return f"<User {self.possibleAnswer}>"
+
+class ShortAnswer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    correctAnswer = db.Column(db.String(140))
+    questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+
+    def __repr__(self):
+        return f"<User {self.correctAnswer}>"
