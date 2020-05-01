@@ -9,6 +9,12 @@ def load_user(id):
     return User.query.get(int(id))
 
 
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(64), index=True, unique=True)
@@ -17,10 +23,12 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     passwordHash = db.Column(db.String(128))
     userType = db.Column(db.Integer, db.ForeignKey('user_type.id'))
+    students = db.relationship("User",secondary="job",primaryjoin=id==Job.tutorId,secondaryjoin=id==Job.studentId,backref="tutor")
+    tutors = db.relationship("User",secondary="job",primaryjoin=id==Job.studentId,secondaryjoin=id==Job.tutorId,backref="student")
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<User {self.userName}>"
 
     def set_password(self, password):
         self.passwordHash = generate_password_hash(password)
