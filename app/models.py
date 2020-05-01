@@ -46,7 +46,7 @@ class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140)) # TODO Change later
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return f"<User {self.body}>"
@@ -57,3 +57,20 @@ class UserType(db.Model):
 
     def __repr__(self):
         return f"<User {self.userType}>"
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
+    question = db.Column(db.String(140))
+
+    def __repr__(self):
+        return f"<User {self.question}>"
+
+# class MultiAnswer(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+#     possibleAnswer = db.Column(db.String(104))
+#     correctAnswer = db.Column(db.Boolean(name='ck_multi_answer_boolean'))
+
+#     def __repr__(self):
+#         return f"<User {self.possibleAnswer}>"
