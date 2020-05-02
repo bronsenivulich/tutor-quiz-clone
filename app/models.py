@@ -74,3 +74,11 @@ class MultiSolution(db.Model):
 
     def __repr__(self):
         return f"<User {self.possibleAnswer}>"
+
+class ShortAnswer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    correctAnswer = db.Column(db.String(140))
+    questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+
+    def __repr__(self):
+        return f"<User {self.correctAnswer}>"
