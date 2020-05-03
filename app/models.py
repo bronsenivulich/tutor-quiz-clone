@@ -9,29 +9,76 @@ def load_user(id):
     return User.query.get(int(id))
 
 
+class UserRelationship(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
+    userName = db.Column(db.String(64), index=True, unique=True)
+    firstName = db.Column(db.String(64))
+    lastName = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
+    passwordHash = db.Column(db.String(128))
+    userType = db.Column(db.Integer, db.ForeignKey('user_type.id'))
+    students = db.relationship("User",secondary="user_relationship",primaryjoin=id==UserRelationship.tutorId,secondaryjoin=id==UserRelationship.studentId,backref="tutor")
+    tutors = db.relationship("User",secondary="user_relationship",primaryjoin=id==UserRelationship.studentId,secondaryjoin=id==UserRelationship.tutorId,backref="student")
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<User {self.userName}>"
 
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+        self.passwordHash = generate_password_hash(password)
 
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return check_password_hash(self.passwordHash, password)
 
+    # set user_type as foreign_key for userType
+    def set_userType(self, userType):
+        self.userType =  UserType.query.filter_by(userType=userType).first().id
+
+
+class UserType(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    userType = db.Column(db.String(64))
+
+    def __repr__(self):
+        return f"<User {self.userType}>"
 
 
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140)) # TODO Change later
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
         return f"<User {self.body}>"
+
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
+    question = db.Column(db.String(140))
+
+    def __repr__(self):
+        return f"<User {self.question}>"
+
+class MultiSolution(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+    possibleAnswer = db.Column(db.String(104))
+    correctAnswer = db.Column(db.Boolean(name='ck_multi_answer_boolean'))
+
+    def __repr__(self):
+        return f"<User {self.possibleAnswer}>"
+
+class ShortAnswer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    correctAnswer = db.Column(db.String(140))
+    questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+
+    def __repr__(self):
+        return f"<User {self.correctAnswer}>"
