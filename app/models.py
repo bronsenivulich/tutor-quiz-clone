@@ -17,6 +17,16 @@ class UserRelationship(db.Model):
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    def __repr__(self):
+        return f"<User {self.tutorId}>"
+
+class Request(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    request = db.Column(db.String(64))
+
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(64), index=True, unique=True)
