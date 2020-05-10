@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
-
+{%block head%}
+    <link rel="stylesheet" href="../static/css/landingstyle.css">
+{%endblock%}
 {% block content %}
-<h1>Welcome to Tutor Quiz</h1> 
+<a href="index.html">
+    <img id="logo" src="../static/img/logo.svg">
+</a>
+<p 
+    id="logobackground">
+</p>
+
+<header>
+    <div id="showcase">
+        <h1>Your future is back OnTrack</h1>
+        <p>OnTrack delivers tailored learning experiences from teachers to students around the world.
+        </p>
+        <a href="/login" class="button">Propel yoursel<span>f</span></a>
+    </div>
+</header>
+
+<section id="section-a">
+    <p>
+        OnTrack is a specialised education service allowing teachers and students to work together by uploading and completing tasks.
+    </p>
+</section>
+
+<section id="section-b">
+    <div class="box-1">
+        OnTrack is free for educators and students in primary, secondary or tertiary schools. For other pricing, please <a href="/login" class="loginPricing">login</a>
+    </div>
+    <div class="box-2">
+        Want to find out more? Click <a href="/aboutUs" class="aboutUsButton">here</a>
+        
+    </div>
+</section>
 {% endblock %}
