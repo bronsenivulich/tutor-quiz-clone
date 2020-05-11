@@ -41,3 +41,8 @@
 .signupPage {
     padding-top: 8%;
 }
+
+.form-fields {  
+    width: 100%;
+    max-width: 400px;
+}
