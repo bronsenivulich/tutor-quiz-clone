@@ -3,6 +3,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from app import db
 from flask_login import UserMixin
+from time import time
+import jwt
+from app import app
 
 @login.user_loader
 def load_user(id):
@@ -13,6 +16,16 @@ class UserRelationship(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return f"<User {self.tutorId}>"
+
+class Request(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
+    request = db.Column(db.String(64))
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -38,6 +51,20 @@ class User(UserMixin, db.Model):
     # set user_type as foreign_key for userType
     def set_userType(self, userType):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
+
+    def get_reset_password_token(self, expires_in=600):
+        return jwt.encode(
+            {'reset_password': self.id, 'exp': time() + expires_in},
+            app.config['SECRET_KEY'], algorithm='HS256').decode('utf-8')
+
+    @staticmethod
+    def verify_reset_password_token(token):
+        try:
+            id = jwt.decode(token, app.config['SECRET_KEY'],
+                            algorithms=['HS256'])['reset_password']
+        except:
+            return
+        return User.query.get(id)
 
 
 class UserType(db.Model):

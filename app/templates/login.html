@@ -5,6 +5,7 @@
 <div class="loginPage">
     <div class="col-md-4" id="loginContainer" style="text-align: center;">
         <h1>Sign In</h1>
+      
         <form action='' method='post'>
             {{ form.hidden_tag() }}
             <p>
@@ -30,8 +31,16 @@
             </p>
         </form>
 
+
+
         <p>
-            New User? <a href="{{ url_for('register') }}">Click to Register!</a>
+            Forgot Your Password?
+            <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
+        </p>
+
+        <p>
+            New User? 
+            <a href="{{ url_for('register') }}">Click to Register!</a>
         </p>
     </div>
 </div>
