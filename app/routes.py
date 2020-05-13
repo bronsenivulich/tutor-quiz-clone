@@ -1,9 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, UserType
+from app.models import User, UserType, Request
 from app.email import send_password_reset_email
 
 # Landing Page
@@ -91,3 +91,15 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
+
+@app.route('/request_student', methods=['GET', 'POST'])
+def request_student():
+    form = RequestStudentForm()
+    if form.validate_on_submit():
+        studentUserName = User.query.filter_by(userName=form.student.data).first()
+        studentId = studentUserName.id
+        request = Request(tutorId=current_user.id, studentId=studentId, request='pending')
+        db.session.add(request)
+        db.session.commit()
+        flash('Your request has been sent')
+    return render_template('request.html', title='Request', form=form)
