@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
-from app.models import User, UserType
+from app.models import User, UserType, Request
 
 class LoginForm(FlaskForm):
 
@@ -48,3 +48,22 @@ class ResetPasswordForm(FlaskForm):
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Request Password Reset')
+
+class RequestStudentForm(FlaskForm):
+    student = StringField('Student User Name', validators=[DataRequired()])
+    submit = SubmitField('Request Student')
+
+    def validate_student(self, student):
+        checkUserName = User.query.filter_by(userName=student.data).first()
+        if checkUserName is None:
+            raise ValidationError('Username does not exist')
+        checkUserType = checkUserName.userType
+        if checkUserType != 2:
+            raise ValidationError('User is not a student')
+
+    # def validate_userType(self, student):
+    #     studentUserType = User.query.filter_by(userName=student.data).first().userType
+    #     #checkUserType = studentUser.userType
+    #     if studentUserType != 2:
+    #         raise ValidationError('User is not a student')
+        
