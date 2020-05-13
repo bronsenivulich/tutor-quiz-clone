@@ -117,3 +117,11 @@ class ShortAnswer(db.Model):
 
     def __repr__(self):
         return f"<User {self.correctAnswer}>"
+
+class Score(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    studentQuizId = db.Column(db.Integer, db.ForeignKey('student_quiz.id'))
+    score = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f"<User {self.score}>"
