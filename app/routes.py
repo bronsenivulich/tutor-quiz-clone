@@ -18,7 +18,10 @@ def index():
 def home():
     # Convert UserType.id to userType
     userType = UserType.query.filter_by(id=current_user.userType).first().userType
-    return render_template("home_student.html", title="Home Page", userType=userType)
+    if userType == "student":
+        return render_template("home_student.html", title="Home Page", userType=userType)
+    elif userType == "tutor":
+        return render_template("home_tutor.html", title="Home Page", userType=userType)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -88,6 +91,3 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
-@app.route('/home_tutor')
-def home_tutor():
-    return render_template('home_tutor.html', title="Tutor Home")

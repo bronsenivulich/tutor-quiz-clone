@@ -23,7 +23,9 @@
     {% endblock%}
 </head>
 
+{% block image %}
 <body style="background-image: url('../static/img/background-image.jpg'); opacity: 0.9;"></body>
+{% endblock %}
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
         <a class="navbar-brand" href="{{ url_for('index') }}">Tutor Quiz</a>
