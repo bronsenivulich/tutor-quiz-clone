@@ -2,6 +2,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from app.models import User, UserType, Request, Quiz
+from flask_login import current_user
+
 
 class LoginForm(FlaskForm):
 
@@ -60,6 +62,11 @@ class RequestStudentForm(FlaskForm):
         checkUserType = checkUserName.userType
         if checkUserType != 2:
             raise ValidationError('User is not a student')
+        studentId = User.query.filter_by(userName=student.data).first().id
+        tutorId = current_user.id
+        existingRequest = Request.query.filter_by(tutorId=tutorId, studentId=studentId).first()
+        if existingRequest is not None:
+            raise ValidationError("You have already sent a request to this student.")
 
 class AssignStudentForm(FlaskForm):
     student = StringField('Student User Name', validators=[DataRequired()])
@@ -81,7 +88,5 @@ class AssignStudentForm(FlaskForm):
         checkQuizCreator = Quiz.query.filter_by(name=quizName.data).first().tutorId
         if checkQuizCreator != current_user.Id:
             raise ValidationError('Quiz does not exist')
-        
-    
 
         
