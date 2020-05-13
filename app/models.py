@@ -26,6 +26,12 @@ class Request(db.Model):
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
     request = db.Column(db.String(64))
 
+    def accept(self):
+        self.request = "accepted"
+
+    def decline(self):
+        self.request = "declined"
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
