@@ -1,37 +1,51 @@
-{% extends 'base.html' %}
-{%block head%}
-    <link rel="stylesheet" href="../static/css/landingstyle.css">
-{%endblock%}
-{% block content %}
-<a href="index.html">
-    <img id="logo" src="../static/img/logo.svg">
-</a>
-<p 
-    id="logobackground">
-</p>
+{% extends "base.html" %}
 
-<header>
-    <div id="showcase">
-        <h1>Your future is back OnTrack</h1>
-        <p>OnTrack delivers tailored learning experiences from teachers to students around the world.
-        </p>
-        <a href="/login" class="button">Propel yoursel<span>f</span></a>
+{% block image %}
+
+<!-- <body style="background-image: url('../static/img/Landing.jpg'); opacity: 0.9;"></body> -->
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/css/landingstyle.css">
+{% endblock %}
+
+{% block content %}
+
+<header class="full-header" style="background-image: url('../static/img/Landing.jpg');">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="text-center">
+
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7 header-text">
+                        Your future is back OnTrack
+                    </div>
+                    <div class="col-sm-2"></div>
+
+                    <div class="col-sm-12 header-description">
+                        OnTrack delivers tailored learning experiences from teachers to students around the world.
+                    </div>
+
+                    <br>
+
+                </div>
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6 text-description">
+                        OnTrack is a specialised education service that allows teachers to interact with students by
+                        setting announcements and assigning quizzes,
+                        which will be automatically assessed by our proprietary OnTrack grading software. OnTrack is
+                        free for
+                        educators and students in primary, secondary and
+                        tertiary schools.
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
-<section id="section-a">
-    <p>
-        OnTrack is a specialised education service allowing teachers and students to work together by uploading and completing tasks.
-    </p>
-</section>
 
-<section id="section-b">
-    <div class="box-1">
-        OnTrack is free for educators and students in primary, secondary or tertiary schools. For other pricing, please <a href="/login" class="loginPricing">login</a>
-    </div>
-    <div class="box-2">
-        Want to find out more? Click <a href="/aboutUs" class="aboutUsButton">here</a>
-        
-    </div>
-</section>
 {% endblock %}
