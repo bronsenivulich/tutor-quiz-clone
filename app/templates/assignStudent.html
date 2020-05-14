@@ -1,23 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Assign Student</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.student.label }}<br>
-            {{ form.student(class="form-fields") }}<br>
-            {% for error in form.student.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.quizName.label }}<br>
-            {{ form.quizName(class="form-fields") }}<br>
-            {% for error in form.quizName.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+
+<div class="loginPage">
+    <div class="col-md-4" id="loginContainer" style="text-align: center;">
+        <h1>Assign Student</h1>
+        <br>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.student.label(class="form-headers") }}<br>
+                {{ form.student(class="form-fields") }}<br>
+                {% for error in form.student.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.quizName.label(class="form-headers") }}<br>
+                {{ form.quizName(class="form-fields") }}<br>
+                {% for error in form.quizName.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(class="submitButton") }}</p>
+        </form>
+    </div>
+</div>
 {% endblock %}
