@@ -75,3 +75,7 @@
     color: #181818;
     cursor: pointer;
 }
+
+.logo {
+    max-width: 90%;
+}
