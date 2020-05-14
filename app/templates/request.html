@@ -1,16 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Add student</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.student.label }}<br>
-            {{ form.student(size=64) }}<br>
-            {% for error in form.student.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+
+<div class="loginPage">
+    <div class="col-md-4" id="loginContainer" style="text-align: center;">
+        <h1>Request a student</h1>
+        <br>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.student.label(class="form-headers") }}<br>
+                {{ form.student(class="form-fields") }}<br>
+                {% for error in form.student.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(class="submitButton") }}</p>
+        </form>
+
+    </div>
+</div>
+
 {% endblock %}
