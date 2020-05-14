@@ -5,6 +5,8 @@ from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, Res
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, UserType, Request, Quiz, StudentQuiz
 from app.email import send_password_reset_email
+import os
+from flask import send_from_directory
 
 # Landing Page
 @app.route('/')
@@ -116,3 +118,8 @@ def student_assignment():
         db.session.commit()
         flash('Student has been assigned')
     return render_template('assignStudent.html', title='Assign Student to a Quiz', form = form)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
