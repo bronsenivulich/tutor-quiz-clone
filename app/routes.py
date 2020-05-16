@@ -1,9 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm, AddShortAnswerQuestion
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, UserType, Request
+from app.models import User, UserType, Request, Quiz
 from app.email import send_password_reset_email
 
 # Landing Page
@@ -103,3 +103,22 @@ def request_student():
         db.session.commit()
         flash('Your request has been sent')
     return render_template('request.html', title='Request', form=form)
+
+
+@app.route('/quiz/create', methods=['GET', 'POST'])
+def create_quiz():
+    form = CreateQuizForm()
+    if form.validate_on_submit():
+        tutorId = current_user.id
+        quiz = Quiz(tutorId=tutorId, name=form.quizTitle.data, body=form.quizBody.data)
+        db.session.add(quiz)
+        db.session.commit()
+        flash(quiz.id)
+        flash("Your quiz has been created")
+        return redirect(url_for('add_question', id=quiz.id))
+    return render_template('create-quiz.html', form=form)
+
+@app.route('/quiz/<int:id>/add')
+def add_question(id):
+    form=AddShortAnswerQuestion()
+    return render_template('add-question.html', form=form)

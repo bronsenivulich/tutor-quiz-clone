@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField, TextAreaField, FieldList
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 from app.models import User, UserType, Request
 from flask_login import current_user
@@ -74,4 +74,15 @@ class RequestStudentForm(FlaskForm):
     #     #checkUserType = studentUser.userType
     #     if studentUserType != 2:
     #         raise ValidationError('User is not a student')
-        
+
+
+class CreateQuizForm(FlaskForm):
+
+    quizTitle = StringField('Quiz Title', validators=[DataRequired()])
+    quizBody = TextAreaField('Quiz Description', validators=[DataRequired()])
+    submit = SubmitField('Create Quiz')
+
+class AddShortAnswerQuestion(FlaskForm):
+    questions = FieldList(StringField('What is the question?', validators=[DataRequired()]))
+    answers = FieldList(StringField('What is the answer?', validators=[DataRequired()]))
+    submit = SubmitField('Submit Question')
