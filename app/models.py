@@ -88,6 +88,21 @@ class Quiz(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'name': self.name,
+            'body': self.body,
+            'timestamp': self.timestamp,
+            'tutorId': self.tutorId,
+        }
+        return data
+
+    def from_dict(self, data, new_quiz=False):
+        for field in ['name', 'body', 'tutorId']:
+            if field in data:
+                setattr(self, field, data[field])
+
     def __repr__(self):
         return f"<User {self.body}>"
 
@@ -104,6 +119,11 @@ class Question(db.Model):
     quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
     question = db.Column(db.String(140))
 
+    def from_dict(self, data, new_question=False):
+        for field in ['quizId', 'question']:
+            if field in data:
+                setattr(self, field, data[field])
+    
     def __repr__(self):
         return f"<User {self.question}>"
 
@@ -120,6 +140,11 @@ class ShortAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     correctAnswer = db.Column(db.String(140))
     questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
+
+    def from_dict(self, data, new_answer=False):
+        for field in ['correctAnswer', 'questionId']:
+            if field in data:
+                setattr(self, field, data[field])
 
     def __repr__(self):
         return f"<User {self.correctAnswer}>"

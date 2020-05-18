@@ -25,9 +25,17 @@
                 <div class="card-body">
                     <div class="row d-flex justify-content-between">
                         <form id="newQuiz">
+                            <div>
+                                <label for="quiz-name">Quiz Name</label>
+                                <input type="text" id="quiz-name" name="quiz-name">
+                            </div>
+                            <div>
+                                <label for="quiz-body">Quiz Body</label>
+                                <input type="text" id="quiz-body" name="quiz-body">
+                            </div>
                             <div id="question-button">Add question</div>
                         </form>
-                        <button onclick="submitQuestions()">Submit</button>
+                        <button id="submit_button" onclick="submitQuestions()">Submit</button>
                     </div>
                 </div>
             </div>

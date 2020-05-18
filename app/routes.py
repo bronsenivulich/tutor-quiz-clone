@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm, AddShortAnswerQuestion
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, UserType, Request, Quiz, Question, ShortAnswer
 from app.email import send_password_reset_email
@@ -120,13 +120,4 @@ def create_quiz():
 
 @app.route('/quiz/<int:quizId>/add', methods=['GET', 'POST'])
 def add_question(quizId):
-    form=AddShortAnswerQuestion()
-    if form.validate_on_submit():
-        question = Question(quizId=quizId, question=form.question.data)
-        db.session.add(question)
-        db.session.commit()
-        shortAnswer = ShortAnswer(questionId=question.id, correctAnswer=form.answer.data)
-        db.session.add(shortAnswer)
-        db.session.commit()
-        return redirect(url_for('add_question', quizId=quizId))
-    return render_template('add-question.html', form=form)
+    return render_template('add-question.html')
