@@ -4,20 +4,13 @@
 
 <br><br>
 
-<!--Welcome Message-->
-<div class="container" id="welcomeMessageStudent">
-    <h1 style="color:#F1F1F1; text-shadow: 7px 7px 10px black; padding-top: 1%;">Welcome, {{ current_user.userName }}!
-    </h1>
-</div>
-
-<br>
 
 <section>
     <div class="container" id="homeStudentContainer">
         <!--Announcements card-->
         <div class="announcements">
             <div class="card">
-                <h3 class="card-header" data-unsp-sanitized="clean">Quiz Title</h3>
+                <h3 class="card-header" data-unsp-sanitized="clean">Create A Quiz</h3>
                 <div class="card-body">
                     <div class="row d-flex justify-content-between">
                         <form action='' method='post'>
@@ -40,7 +33,6 @@
                                 {{ form.submit(class="submitButton") }}
                             </p>
                         </form>
-                        <div id="add-question">Add question</div>
                     </div>
                 </div>
             </div>

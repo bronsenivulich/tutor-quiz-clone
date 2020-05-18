@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/add-question.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
 <br><br>
@@ -20,13 +24,10 @@
                 <h3 class="card-header" data-unsp-sanitized="clean">Quiz Title</h3>
                 <div class="card-body">
                     <div class="row d-flex justify-content-between">
-                        <form action='' method='post'>
-                            {{ form.hidden_tag() }}
-                            <p>
-                                {{ form.submit(class="submitButton") }}
-                            </p>
+                        <form id="newQuiz">
+                            <div id="question-button">Add question</div>
                         </form>
-                        <div id="add-question">Add question</div>
+                        <button onclick="submitQuestions()">Submit</button>
                     </div>
                 </div>
             </div>
