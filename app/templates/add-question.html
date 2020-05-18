@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/add-question.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+<br><br>
+
+<!--Welcome Message-->
+<div class="container" id="welcomeMessageStudent">
+    <h1 style="color:#F1F1F1; text-shadow: 7px 7px 10px black; padding-top: 1%;">Welcome, {{ current_user.userName }}!
+    </h1>
+</div>
+
+<br>
+
+<section>
+    <div class="container" id="homeStudentContainer">
+        <!--Announcements card-->
+        <div class="announcements">
+            <div class="card">
+                <h3 class="card-header" data-unsp-sanitized="clean">Quiz Title</h3>
+                <div class="card-body">
+                    <div class="row d-flex justify-content-between">
+                        <form id="newQuiz">
+                            <div>
+                                <label for="quiz-name">Quiz Name</label>
+                                <input type="text" id="quiz-name" name="quiz-name">
+                            </div>
+                            <div>
+                                <label for="quiz-body">Quiz Body</label>
+                                <input type="text" id="quiz-body" name="quiz-body">
+                            </div>
+                            <div id="question-button">Add question</div>
+                        </form>
+                        <button id="submit_button" onclick="submitQuestions()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

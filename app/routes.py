@@ -1,9 +1,11 @@
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, AssignStudentForm
+
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm, AssignStudentForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, UserType, Request, Quiz, StudentQuiz
+from app.models import User, UserType, Request, Quiz, Question, ShortAnswer, StudentQuiz
+
 from app.email import send_password_reset_email
 import os
 from flask import send_from_directory
@@ -106,6 +108,23 @@ def request_student():
         flash('Your request has been sent')
     return render_template('request.html', title='Request', form=form)
 
+@app.route('/quiz/create', methods=['GET', 'POST'])
+def create_quiz():
+    form = CreateQuizForm()
+    if form.validate_on_submit():
+        tutorId = current_user.id
+        quiz = Quiz(tutorId=tutorId, name=form.quizTitle.data, body=form.quizBody.data)
+        db.session.add(quiz)
+        db.session.commit()
+        flash(quiz.id)
+        flash("Your quiz has been created")
+        return redirect(url_for('add_question', quizId=quiz.id))
+    return render_template('create-quiz.html', form=form)
+
+@app.route('/quiz/<int:quizId>/add', methods=['GET', 'POST'])
+def add_question(quizId):
+    return render_template('add-question.html')
+
 @app.route('/assign_student', methods=['GET', 'POST'])
 def student_assignment():
     form = AssignStudentForm()
@@ -123,3 +142,4 @@ def student_assignment():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+

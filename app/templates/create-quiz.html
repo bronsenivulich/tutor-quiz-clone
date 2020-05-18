@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br>
+
+
+<section>
+    <div class="container" id="homeStudentContainer">
+        <!--Announcements card-->
+        <div class="announcements">
+            <div class="card">
+                <h3 class="card-header" data-unsp-sanitized="clean">Create A Quiz</h3>
+                <div class="card-body">
+                    <div class="row d-flex justify-content-between">
+                        <form action='' method='post'>
+                            {{ form.hidden_tag() }}
+                            <p>
+                                {{ form.quizTitle.label(class="form-headers") }} <br>
+                                {{ form.quizTitle(class="form-fields")}}
+                                {% for error in form.quizTitle.errors %}
+                                <span style='color: red'> {{error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.quizBody.label(class="form-headers") }} <br>
+                                {{ form.quizBody(class="form-fields")}}
+                                {% for error in form.quizBody.errors %}
+                                <span style='color: red'> {{error }}</span>
+                                {% endfor %}
+                            </p>
+                            <p>
+                                {{ form.submit(class="submitButton") }}
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
