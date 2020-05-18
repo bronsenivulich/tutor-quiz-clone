@@ -1,9 +1,5 @@
 .full-header {
-    height: 100vh;
-    min-height: 500px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding-top: 10%;
 }
 
 .header-text {
@@ -60,22 +56,4 @@
 
 .landing-button-text:hover {
     opacity: 1;
-}
-
-.navbar {
-    font-size: 130%;
-    background: rgba(218, 218, 218, 0.8);
-}
-
-.nav-link {
-    color: #181818;
-}
-
-.nav-link:hover {
-    color: #181818;
-    cursor: pointer;
-}
-
-.logo {
-    max-width: 90%;
 }

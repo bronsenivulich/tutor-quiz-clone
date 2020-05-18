@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="../static/css/homeStudent.css">
+{% endblock %}
+
 {% block content %}
 
-<br><br>
-
-<!--Welcome Message-->
-<div class="container" id="welcomeMessageStudent">
+<div class="container" id="welcomeMessage">
   <h1 style="color:#F1F1F1; text-shadow: 7px 7px 10px black; padding-top: 1%;">Welcome, {{ current_user.userName }}!
   </h1>
 </div>
 
-<br>
-
-<section>
-  <div class="container" id="homeStudentContainer">
-    <!--Announcements card-->
+<section class="mt-4">
+  <div class="container" id="homeContainer">
     <div class="announcements">
       <div class="card">
         <h3 class="card-header" data-unsp-sanitized="clean">Announcements</h3>

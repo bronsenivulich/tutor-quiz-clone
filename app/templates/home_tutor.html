@@ -1,21 +1,16 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link rel="stylesheet" href="../static/css/homeTutor.css">
+{% endblock %}
+
 {% block content %}
-
-<br><br>
-
-<!--Welcome Message-->
-<div class="container" id="welcomeMessageTutor">
+<div class="container" id="welcomeMessage">
     <h1 style="color: #ececec; text-shadow: 7px 7px 10px black; padding-top: 1%;">Welcome, {{ current_user.userName }}!
     </h1>
 </div>
-
-<br>
-
-<section>
-    <div class="container" id="homeTutorContainer">
-        <!--Announcements card-->
-
+<section class="mt-4">
+    <div class="container" id="homeContainer">
         <div class="row d-flex justify-content-between" id="tutorButtons">
             <div class="col-sm-6 add-quiz-card">
                 <button class="add-quiz">
