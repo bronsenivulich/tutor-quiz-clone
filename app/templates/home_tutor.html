@@ -28,13 +28,15 @@
             </div>
 
             <div class="col-sm-6 add-quiz-card">
-                <button class="add-quiz">
-                    <div class="row d-flex justify-content-between">
-                        <div id="message" class="message col-sm-12" style="text-align: center;">
-                            <h1>Add Student</h1>
+                <a href="{{ url_for('request_student') }}" style="text-decoration: none;">
+                    <button class="add-quiz">
+                        <div class="row d-flex justify-content-between">
+                            <div id="message" class="message col-sm-12" style="text-align: center;">
+                                <h1>Request a student</h1>
+                            </div>
                         </div>
-                    </div>
-                </button>
+                    </button>
+                </a>
             </div>
         </div>
 

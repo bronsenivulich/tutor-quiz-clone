@@ -4,7 +4,7 @@
 
 <div class="loginPage">
     <div class="col-md-4" id="loginContainer" style="text-align: center;">
-        <h1>Request a student</h1>
+        <h1>Assign Student</h1>
         <br>
         <form action="" method="post">
             {{ form.hidden_tag() }}
@@ -15,10 +15,15 @@
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
+            <p>
+                {{ form.quizName.label(class="form-headers") }}<br>
+                {{ form.quizName(class="form-fields") }}<br>
+                {% for error in form.quizName.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
             <p>{{ form.submit(class="submitButton") }}</p>
         </form>
-
     </div>
 </div>
-
 {% endblock %}
