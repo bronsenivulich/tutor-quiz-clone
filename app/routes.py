@@ -1,10 +1,14 @@
 from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm
+
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm, AssignStudentForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, UserType, Request, Quiz, Question, ShortAnswer
+from app.models import User, UserType, Request, Quiz, Question, ShortAnswer, StudentQuiz
+
 from app.email import send_password_reset_email
+import os
+from flask import send_from_directory
 
 # Landing Page
 @app.route('/')
@@ -104,7 +108,6 @@ def request_student():
         flash('Your request has been sent')
     return render_template('request.html', title='Request', form=form)
 
-
 @app.route('/quiz/create', methods=['GET', 'POST'])
 def create_quiz():
     form = CreateQuizForm()
@@ -121,3 +124,22 @@ def create_quiz():
 @app.route('/quiz/<int:quizId>/add', methods=['GET', 'POST'])
 def add_question(quizId):
     return render_template('add-question.html')
+
+@app.route('/assign_student', methods=['GET', 'POST'])
+def student_assignment():
+    form = AssignStudentForm()
+    if form.validate_on_submit():
+        studentId = User.query.filter_by(userName=form.student.data).first().id
+        checkQuizName = Quiz.query.filter_by(name=form.quizName.data).first()
+        quizId = checkQuizName.id
+        studentQuiz = StudentQuiz(quizId=quizId, studentId=studentId)
+        db.session.add(studentQuiz)
+        db.session.commit()
+        flash('Student has been assigned')
+    return render_template('assignStudent.html', title='Assign Student to a Quiz', form = form)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
