@@ -1,50 +1,46 @@
 $(document).ready(() => {
 
-
-
-    console.log("quiz-test");
-
+    let qNum = 1
 
     $('#question-button').click(function () {
 
-
-
-        let qNum = $('#newQuiz').children().length - 2
-
-        $(this).parent().append(`
+        $('#newQuiz').append(`
         <div id="question_${qNum}" class="wholeQuestion">
-        <input type='text' class="question"></input>
-        <input type='text' class="answer"></input>
+        <h4>Question: ${qNum}</h4>
+        <p>
+            <label class="form-headers">Question</label><br>
+            <textarea class="form-fields question"></textarea><br>
+            <label class="form-headers">Answer</label><br>
+            <input type='text' class="form-fields answer"></input>
+        </p>
         </div>`);
+
+        qNum = qNum + 1;
     });
 
-    $("#submit_button").click(function () {
+    $("#submit-quiz").click(function () {
         let questions = $("#newQuiz").children(".wholeQuestion").toArray()
-
 
         let allQuestions = []
 
-
-        questions.forEach(function(entry) {
+        questions.forEach(function (entry) {
             question = {
-                "question": $(entry).children(".question").val(),
-                "answer": $(entry).children(".answer").val()
+                "question": $(entry).find(".question").val(),
+                "answer": $(entry).find(".answer").val()
             }
             allQuestions.push(question)
         });
 
-        console.log(allQuestions)
-        
-        myObj = {
+        data = {
             "body": $("#quiz-body").val(),
             "name": $("#quiz-name").val(),
             "questions": allQuestions,
             "tutorId": 69
-          };
+        };
         $.ajax({
             url: "/api/quizzes",
             type: "post",
-            data: JSON.stringify(myObj),
+            data: JSON.stringify(data),
             contentType: "application/json",
             success: function (data) {
                 console.log(data);

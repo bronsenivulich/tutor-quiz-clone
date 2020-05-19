@@ -6,162 +6,153 @@
 
 {% block content %}
 
-<div class="container" id="welcomeMessage">
-  <h1 style="color:#F1F1F1; text-shadow: 7px 7px 10px black; padding-top: 1%;">Welcome, {{ current_user.userName }}!
-  </h1>
-</div>
 
-<section class="mt-4">
-  <div class="container" id="homeContainer">
-    <div class="announcements">
-      <div class="card">
-        <h3 class="card-header" data-unsp-sanitized="clean">Announcements</h3>
-        <div class="card-body">
+<div class="container homeContainer">
+  <div class="announcements pt-4">
+    <div class="card">
+      <h3 class="card-header" data-unsp-sanitized="clean">Announcement</h3>
+      <div class="card-body">
 
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-6" style="text-align: left;">
-              Hey guys, could you please read this before attempting the quiz. Cheers
-            </div>
-            <div class="col-sm-6" style="text-align: right;">
-              <u>Link to file</u>
-            </div>
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-6" style="text-align: left;">
+            Hey guys, could you please read this before attempting the quiz. Cheers
           </div>
-
+          <div class="col-sm-6" style="text-align: right;">
+            <u>Link to file</u>
+          </div>
         </div>
+
       </div>
     </div>
-
-    <div class="uncompleted">
-      <div class="card">
-        <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
-        <div class="card-body">
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              Physics Quiz 1
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Due Date
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                Complete Quiz
-              </button>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              Maths Quiz 1
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Due Date
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                Complete Quiz
-              </button>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              Economics Quiz 2
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Due Date
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                Complete Quiz
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="completed">
-      <div class="card">
-        <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
-        <div class="card-body">
-
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              Accounting Quiz 1
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Date Completed
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                View Quiz
-              </button>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              Literature Quiz 1
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Date Completed
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                View Quiz
-              </button>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="row d-flex justify-content-between">
-            <div id="message" class="message col-sm-3" style="text-align: left;">
-              PE Studies Quiz 1
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Author of quiz
-            </div>
-            <div class="col-sm-3" style="text-align: center;">
-              Date Completed
-            </div>
-            <div class="col-sm-3" style="text-align: right;">
-              <button class="complete-quiz">
-                View Quiz
-              </button>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-
   </div>
-</section>
+
+  <div class="container p-2 pb-4">
+    <div class="card">
+      <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
+      <div class="card-body">
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            Physics Quiz 1
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Due Date
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              Complete Quiz
+            </button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            Maths Quiz 1
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Due Date
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              Complete Quiz
+            </button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            Economics Quiz 2
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Due Date
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              Complete Quiz
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container p-2 pb-4">
+    <div class="card">
+      <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
+      <div class="card-body">
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            Accounting Quiz 1
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Date Completed
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              View Quiz
+            </button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            Literature Quiz 1
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Date Completed
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              View Quiz
+            </button>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row d-flex justify-content-between">
+          <div class="col-sm-3" style="text-align: left;">
+            PE Studies Quiz 1
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Author of quiz
+          </div>
+          <div class="col-sm-3" style="text-align: center;">
+            Date Completed
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
+            <button class="complete-quiz">
+              View Quiz
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {% endblock %}

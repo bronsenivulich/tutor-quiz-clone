@@ -1,32 +1,22 @@
-.add-quiz-card {
-    padding: 1%;
-    padding-top: 2%;
-}
-
-.add-quiz {
+#homeHeader button {
     background-color: #efefef;
     display: block;
     width: 100%;
     border: 1px solid black;
     text-align: center;
-    padding: 3%;
     border-radius: 12px;
     cursor: pointer;
 }
 
-.add-quiz:hover {
+#homeHeader button:hover {
     background-color: #c4c4c4;
     cursor: pointer;
 }
 
-.add-quiz:active {
+#homeHeader button:active {
     cursor: pointer;
 }
 
-.add-card-text {
-    padding: 2%;
-    text-align: center;
-}
 
 .assigned-quiz {
     background-color: #c4c4c4;
