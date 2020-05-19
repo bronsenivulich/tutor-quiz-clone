@@ -108,22 +108,15 @@ def request_student():
         flash('Your request has been sent')
     return render_template('request.html', title='Request', form=form)
 
-@app.route('/quiz/create', methods=['GET', 'POST'])
-def create_quiz():
-    form = CreateQuizForm()
-    if form.validate_on_submit():
-        tutorId = current_user.id
-        quiz = Quiz(tutorId=tutorId, name=form.quizTitle.data, body=form.quizBody.data)
-        db.session.add(quiz)
-        db.session.commit()
-        flash(quiz.id)
-        flash("Your quiz has been created")
-        return redirect(url_for('add_question', quizId=quiz.id))
-    return render_template('create-quiz.html', form=form)
 
-@app.route('/quiz/<int:quizId>/add', methods=['GET', 'POST'])
-def add_question(quizId):
-    return render_template('add-question.html')
+@app.route('/quiz/create', methods=['GET'])
+def create_quiz():
+    userType = UserType.query.filter_by(id=current_user.userType).first().userType
+    if userType == "tutor":
+        return render_template('create-quiz.html')
+    else:
+        flash("You must be a tutor to create quizzes.")
+        return redirect(url_for("home"))
 
 @app.route('/assign_student', methods=['GET', 'POST'])
 def student_assignment():
