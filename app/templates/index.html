@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 
-{% block image %}
-
-<!-- <body style="background-image: url('../static/img/Landing.jpg'); opacity: 0.9;"></body> -->
-{% endblock %}
-
-{% block style %}
+{% block head %}
 <link rel="stylesheet" href="../static/css/landingstyle.css">
 {% endblock %}
 
-{% block content %}
+{% block image %}
+<body class="bg" style="background-image: url('../static/img/Landing.jpg'); opacity: 0.9;"></body>
+{% endblock %}
 
-<header class="full-header" style="background-image: url('../static/img/Landing.jpg');">
+
+{% block content %}
+<header class="full-header">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="text-center">

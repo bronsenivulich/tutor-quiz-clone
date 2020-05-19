@@ -1,0 +1,52 @@
+.add-quiz-card {
+    padding: 1%;
+    padding-top: 2%;
+}
+
+.add-quiz {
+    background-color: #efefef;
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 3%;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.add-quiz:hover {
+    background-color: #c4c4c4;
+    cursor: pointer;
+}
+
+.add-quiz:active {
+    cursor: pointer;
+}
+
+.add-card-text {
+    padding: 2%;
+    text-align: center;
+}
+
+.assigned-quiz {
+    background-color: #c4c4c4;
+    border: 1px solid black;
+    text-align: center;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.assigned-quiz:hover {
+    background-color: #efefef;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    content: "View Quiz";
+    cursor: pointer;
+}
+
+.assigned-quiz:active {
+    transform: translateY(2px);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    cursor: pointer;
+}

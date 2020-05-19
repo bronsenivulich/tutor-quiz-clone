@@ -1,23 +1,28 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/login.css">
+{% endblock %}
 
 {% block content %}
 
 <div class="loginPage">
     <div class="col-md-4" id="loginContainer" style="text-align: center;">
-        <h1>Request a student</h1>
+        <h1>Request a New Student</h1>
         <br>
-        <form action="" method="post">
+        <form action='' method='post'>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.student.label(class="form-headers") }}<br>
-                {{ form.student(class="form-fields") }}<br>
+                {{ form.student.label(class="form-headers") }} <br>
+                {{ form.student(class="form-fields")}} <br>
                 {% for error in form.student.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style='color: red'> {{error }}</span>
                 {% endfor %}
             </p>
-            <p>{{ form.submit(class="submitButton") }}</p>
+            <p>
+                {{ form.submit(class="submitButton") }}
+            </p>
         </form>
-
     </div>
 </div>
 
