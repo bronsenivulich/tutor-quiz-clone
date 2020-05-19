@@ -6,69 +6,65 @@
 
 
 {% block content %}
-<div class="signupPage">
-    <div class="col-md-4" id="signupContainer" style="text-align: center;">
-        <br>
-        <h1>Register</h1>
-        <br>
-        <!-- <div class="container" id="signupBoxes" style="text-align: left;"> -->
-            <form action="" method="post">
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.firstName.label(class="form-headers") }}<br>
-                    {{ form.firstName(class="form-fields") }}<br>
-                    {% for error in form.firstName.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.lastName.label(class="form-headers") }}<br>
-                    {{ form.lastName(class="form-fields") }}<br>
-                    {% for error in form.lastName.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.userName.label(class="form-headers") }}<br>
-                    {{ form.userName(class="form-fields") }}<br>
-                    {% for error in form.userName.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.email.label(class="form-headers") }}<br>
-                    {{ form.email(class="form-fields") }}<br>
-                    {% for error in form.email.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.password.label(class="form-headers") }}<br>
-                    {{ form.password(class="form-fields") }}<br>
-                    {% for error in form.password.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.passwordAgain.label(class="form-headers") }}<br>
-                    {{ form.passwordAgain(class="form-fields") }}<br>
-                    {% for error in form.passwordAgain.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>
-                    {{ form.userType.label(class="form-headers") }}<br>
-                    {% for subfield in form.userType %}
-                    {{ subfield }}
-                    {{ subfield.label }}<br>
-                    {% endfor %}
-                    {% for error in form.userType.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-                <p>{{ form.submit(class="submitButton") }}</p>
-            </form>
-        <!-- </div> -->
+<div class="container mt-5">
+    <div class="col-md-6 p-4" id="signupContainer">
+        <h1 class="mt-3">Register</h1>
+        <form class="mt-4" action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.firstName.label(class="form-headers") }}<br>
+                {{ form.firstName(class="form-fields") }}<br>
+                {% for error in form.firstName.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.lastName.label(class="form-headers") }}<br>
+                {{ form.lastName(class="form-fields") }}<br>
+                {% for error in form.lastName.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.userName.label(class="form-headers") }}<br>
+                {{ form.userName(class="form-fields") }}<br>
+                {% for error in form.userName.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.email.label(class="form-headers") }}<br>
+                {{ form.email(class="form-fields") }}<br>
+                {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label(class="form-headers") }}<br>
+                {{ form.password(class="form-fields") }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.passwordAgain.label(class="form-headers") }}<br>
+                {{ form.passwordAgain(class="form-fields") }}<br>
+                {% for error in form.passwordAgain.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.userType.label(class="form-headers") }}<br>
+                {% for subfield in form.userType %}
+                {{ subfield }}
+                {{ subfield.label }}<br>
+                {% endfor %}
+                {% for error in form.userType.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(class="submitButton") }}</p>
+        </form>
     </div>
 </div>
 {% endblock %}
