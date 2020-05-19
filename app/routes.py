@@ -115,7 +115,8 @@ def request_student():
 def create_quiz():
     userType = UserType.query.filter_by(id=current_user.userType).first().userType
     if userType == "tutor":
-        return render_template('create-quiz.html')
+        token = current_user.token
+        return render_template('create-quiz.html', token=token)
     else:
         flash("You must be a tutor to create quizzes.")
         return redirect(url_for("home"))
