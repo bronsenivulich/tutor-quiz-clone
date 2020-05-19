@@ -1,10 +1,12 @@
+import jwt
+import base64
+import os
 from app import login
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+from datetime import datetime, timedelta
 from app import db
 from flask_login import UserMixin
 from time import time
-import jwt
 from app import app
 
 @login.user_loader
@@ -35,18 +37,20 @@ class Request(db.Model):
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    userName = db.Column(db.String(64), index=True, unique=True)
+    username = db.Column(db.String(64), index=True, unique=True)
     firstName = db.Column(db.String(64))
     lastName = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
     passwordHash = db.Column(db.String(128))
     userType = db.Column(db.Integer, db.ForeignKey('user_type.id'))
+    token = db.Column(db.String(32), index=True, unique=True)
+    token_expiration = db.Column(db.DateTime)
     students = db.relationship("User",secondary="user_relationship",primaryjoin=id==UserRelationship.tutorId,secondaryjoin=id==UserRelationship.studentId,backref="tutor")
     tutors = db.relationship("User",secondary="user_relationship",primaryjoin=id==UserRelationship.studentId,secondaryjoin=id==UserRelationship.tutorId,backref="student")
     quizzes = db.relationship('Quiz', backref='creator', lazy='dynamic')
 
     def __repr__(self):
-        return f"<User {self.userName}>"
+        return f"<User {self.username}>"
 
     def set_password(self, password):
         self.passwordHash = generate_password_hash(password)
@@ -54,9 +58,31 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.passwordHash, password)
 
+    def get_token(self, expires_in=3600):
+        now = datetime.utcnow()
+        if self.token and self.token_expiration > now + timedelta(seconds=60):
+            return self.token
+        self.token = base64.b64encode(os.urandom(24)).decode('utf-8')
+        self.token_expiration = now + timedelta(seconds=expires_in)
+        db.session.add(self)
+        return self.token
+
+    def revoke_token(self):
+        self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
+
+    @staticmethod
+    def check_token(token):
+        user = User.query.filter_by(token=token).first()
+        if user is None or user.token_expiration < datetime.utcnow():
+            return None
+        return user
+
     # set user_type as foreign_key for userType
     def set_userType(self, userType):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
+
+    def get_userType(self):
+        return UserType.query.filter_by(id=self.userType).first().userType
 
     def get_reset_password_token(self, expires_in=600):
         return jwt.encode(

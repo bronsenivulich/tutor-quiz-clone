@@ -7,7 +7,7 @@ from flask_login import current_user
 
 class LoginForm(FlaskForm):
 
-    userName = StringField("Username", validators = [DataRequired()])
+    username = StringField("Username", validators = [DataRequired()])
     password = PasswordField("Password", validators = [DataRequired()])
     rememberMe = BooleanField("Remember Me")
     submit = SubmitField("Sign In")
@@ -16,7 +16,7 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     firstName = StringField('First Name', validators=[DataRequired()])
     lastName = StringField('Last Name', validators=[DataRequired()])
-    userName = StringField('Username', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     passwordAgain = PasswordField(
@@ -25,8 +25,8 @@ class RegistrationForm(FlaskForm):
     userType = RadioField('User Type', choices=[("student","Student"),("tutor","Tutor")], validators=[DataRequired()])
     submit = SubmitField('Register')
 
-    def validate_username(self, userName):
-        user = User.query.filter_by(userName=userName.data).first()
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('Please use a different username.')
 
@@ -56,13 +56,13 @@ class RequestStudentForm(FlaskForm):
     submit = SubmitField('Request Student')
 
     def validate_student(self, student):
-        checkUserName = User.query.filter_by(userName=student.data).first()
+        checkUserName = User.query.filter_by(username=student.data).first()
         if checkUserName is None:
             raise ValidationError('Username does not exist')
         checkUserType = checkUserName.userType
         if checkUserType != 2:
             raise ValidationError('User is not a student')
-        studentId = User.query.filter_by(userName=student.data).first().id
+        studentId = User.query.filter_by(username=student.data).first().id
         tutorId = current_user.id
         existingRequest = Request.query.filter_by(tutorId=tutorId, studentId=studentId).first()
         if existingRequest is not None:
@@ -80,7 +80,7 @@ class AssignStudentForm(FlaskForm):
     submit = SubmitField('Assign Student')
 
     def validate_student(self, student):
-        checkUserName = User.query.filter_by(userName=student.data).first()
+        checkUserName = User.query.filter_by(username=student.data).first()
         if checkUserName is None:
             raise ValidationError('Username does not exist')
         checkUserType = checkUserName.userType

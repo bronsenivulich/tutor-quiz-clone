@@ -1,15 +1,18 @@
 from app import db
 from app.api import bp
 from app.api.errors import bad_request
+from app.api.auth import token_auth
 from app.models import Quiz, Question, ShortAnswer
 from flask import jsonify, request, url_for
 
+
 @bp.route('/quizzes/<int:id>', methods=['GET'])
+@token_auth.login_required(role="tutor")
 def get_quiz(id):
     return jsonify(Quiz.query.get_or_404(id).to_dict())
 
-
 @bp.route('/quizzes', methods=['POST'])
+@token_auth.login_required
 def create_quiz():
     data = request.get_json() or {}
     print(data)

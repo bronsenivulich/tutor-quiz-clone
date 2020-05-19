@@ -34,7 +34,7 @@ def login():
         return redirect(url_for("home"))
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(userName=form.userName.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash("Invalid username or password")
             return redirect(url_for("login"))
@@ -57,7 +57,7 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(firstName=form.firstName.data, lastName=form.lastName.data, userName=form.userName.data, email=form.email.data)
+        user = User(firstName=form.firstName.data, lastName=form.lastName.data, username=form.username.data, email=form.email.data)
         user.set_userType(form.userType.data)
         user.set_password(form.password.data)
         db.session.add(user)
@@ -100,7 +100,7 @@ def reset_password(token):
 def request_student():
     form = RequestStudentForm()
     if form.validate_on_submit():
-        studentUserName = User.query.filter_by(userName=form.student.data).first()
+        studentUserName = User.query.filter_by(username=form.student.data).first()
         studentId = studentUserName.id
         request = Request(tutorId=current_user.id, studentId=studentId, request='pending')
         db.session.add(request)
@@ -122,7 +122,7 @@ def create_quiz():
 def student_assignment():
     form = AssignStudentForm()
     if form.validate_on_submit():
-        studentId = User.query.filter_by(userName=form.student.data).first().id
+        studentId = User.query.filter_by(username=form.student.data).first().id
         checkQuizName = Quiz.query.filter_by(name=form.quizName.data).first()
         quizId = checkQuizName.id
         studentQuiz = StudentQuiz(quizId=quizId, studentId=studentId)

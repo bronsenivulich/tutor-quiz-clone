@@ -12,9 +12,9 @@
         <form class="mt-4" action='' method='post'>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.userName.label(class="form-headers") }} <br>
-                {{ form.userName(class="form-fields")}}
-                {% for error in form.userName.errors %}
+                {{ form.username.label(class="form-headers") }} <br>
+                {{ form.username(class="form-fields")}}
+                {% for error in form.username.errors %}
                 <span style='color: red'> {{error }}</span>
                 {% endfor %}
             </p>
