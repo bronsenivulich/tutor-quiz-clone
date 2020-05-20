@@ -35,7 +35,7 @@
   
           <div class="row d-flex justify-content-between">
               <div id="token" data-token='{{ token }}'></div>
-              <div class="container col-md-6 homeContainer" style="text-align: center;">
+              <div class="container col-md-6 homeContainer" style="text-align: center;" id="requests">
                 {% if requests.count()== 0 %}
                   <p>You have no requests</p>
                   {% else %}
