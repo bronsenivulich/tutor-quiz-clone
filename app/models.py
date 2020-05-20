@@ -65,6 +65,7 @@ class User(UserMixin, db.Model):
         self.token = base64.b64encode(os.urandom(24)).decode('utf-8')
         self.token_expiration = now + timedelta(seconds=expires_in)
         db.session.add(self)
+        db.session.commit()
         return self.token
 
     def revoke_token(self):
@@ -125,7 +126,7 @@ class Quiz(db.Model):
         return data
 
     def from_dict(self, data, new_quiz=False):
-        for field in ['name', 'body', 'tutorId']:
+        for field in ['name', 'body']:
             if field in data:
                 setattr(self, field, data[field])
 

@@ -2,7 +2,7 @@ from app import db
 from app.api import bp
 from app.api.errors import bad_request
 from app.api.auth import token_auth
-from app.models import Quiz, Question, ShortAnswer
+from app.models import User, Quiz, Question, ShortAnswer
 from flask import jsonify, request, url_for
 
 
@@ -15,10 +15,13 @@ def get_quiz(id):
 @token_auth.login_required(role="tutor")
 def create_quiz():
     data = request.get_json() or {}
-    if 'name' not in data or 'body' not in data or 'tutorId' not in data:
-        return bad_request('must include quiz name, body and tutorId fields')
+    if 'name' not in data or 'body' not in data or 'questions' not in data:
+        return bad_request('must include quiz name, body and questions fields')
     quiz = Quiz()
     quiz.from_dict(data, new_quiz=True)
+    token = request.headers["Authorization"].replace('Bearer ', '')
+    tutorId = User.check_token(token).id
+    quiz.tutorId = tutorId
     db.session.add(quiz)
     db.session.commit()
     for questionAndAnswer in data["questions"]:
