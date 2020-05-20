@@ -27,7 +27,6 @@ def home():
     if userType == "student":
         token = current_user.get_token()
         requests = Request.query.filter_by(studentId=current_user.id, request="pending")
-        print(requests.count())
         return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests)
     elif userType == "tutor":
         return render_template("home_tutor.html", title="Home Page", userType=userType)
@@ -141,14 +140,3 @@ def student_assignment():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-@app.route('/accept_request', methods=['GET', 'POST'])
-def accept_request():
-    userType = UserType.query.filter_by(id=current_user.userType).first().userType
-    if userType == "student":
-        token = current_user.get_token()
-        requests = Request.query.filter_by(studentId=current_user.id)
-        return render_template('accept_tutor_request.html', token=token, User=User, requests=requests)
-    else:
-        flash("You must be a student to accept tutor requests.")
-        return redirect(url_for("home"))
