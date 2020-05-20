@@ -34,6 +34,15 @@ class Request(db.Model):
     def decline(self):
         self.request = "declined"
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'tutorId': self.tutorId,
+            'studentId': self.studentId,
+            'request': self.request
+        }
+        return data
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
