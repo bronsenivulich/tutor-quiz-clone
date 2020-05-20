@@ -2,6 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/css/homeStudent.css">
+<script type="text/javascript" src="{{ url_for('static', filename='js/accept-request.js') }}"></script>
 {% endblock %}
 
 {% block content %}
@@ -25,6 +26,34 @@
       </div>
     </div>
   </div>
+
+  <div class="container homeContainer">
+    <div class="announcements pt-4">
+      <div class="card">
+        <h3 class="card-header" data-unsp-sanitized="clean">Requests</h3>
+        <div class="card-body">
+  
+          <div class="row d-flex justify-content-between">
+              <div id="token" data-token='{{ token }}'></div>
+              <div class="container col-md-6 homeContainer" style="text-align: center;">
+                {% if requests.count()== 0 %}
+                  <p>You have no requests</p>
+                  {% else %}
+                      {% for request in requests %}
+                      <div id="{{ request.id }}">
+                          <span>You have a request from {{User.query.filter_by(id=request.tutorId).first().username}}</span>
+                          <button class="accept">Accept</button><button class="decline">Decline</button></div>
+                      {% endfor %}
+                  {% endif %}
+              </div>
+            <div class="col-sm-6" style="text-align: right;">
+              <u>Link to file</u>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
 
   <div class="container p-2 pb-4">
     <div class="card">

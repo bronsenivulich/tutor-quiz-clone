@@ -34,6 +34,15 @@ class Request(db.Model):
     def decline(self):
         self.request = "declined"
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'tutorId': self.tutorId,
+            'studentId': self.studentId,
+            'request': self.request
+        }
+        return data
+
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -65,6 +74,7 @@ class User(UserMixin, db.Model):
         self.token = base64.b64encode(os.urandom(24)).decode('utf-8')
         self.token_expiration = now + timedelta(seconds=expires_in)
         db.session.add(self)
+        db.session.commit()
         return self.token
 
     def revoke_token(self):
