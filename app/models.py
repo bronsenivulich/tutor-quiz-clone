@@ -135,7 +135,7 @@ class Quiz(db.Model):
         return data
 
     def from_dict(self, data, new_quiz=False):
-        for field in ['name', 'body', 'tutorId']:
+        for field in ['name', 'body']:
             if field in data:
                 setattr(self, field, data[field])
 
