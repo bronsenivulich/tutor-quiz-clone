@@ -28,10 +28,18 @@ def home():
         token = current_user.get_token()
         requests = Request.query.filter_by(studentId=current_user.id, request="pending")
         tutors = UserRelationship.query.filter_by(studentId=current_user.id)
-        quizzes = StudentQuiz.query.filter_by(studentId=current_user.id)
-        completedQuizzes = Score.query.filter_by(studentQuizId=quizzes.first().id)
 
-        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, quizzes=quizzes, Quiz=Quiz, completedQuizzes=completedQuizzes)
+        studentQuizzes = StudentQuiz.query.filter_by(studentId=current_user.id)
+        completedQuizzes = []
+        uncompletedQuizzes = []
+        for studentQuiz in studentQuizzes:
+            if Score.query.filter_by(studentQuizId=studentQuiz.id).first() is not None:
+                completedQuizzes.append(studentQuiz)
+            else :
+                uncompletedQuizzes.append(studentQuiz)
+
+
+        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()

@@ -77,17 +77,17 @@
           <div class="row d-flex justify-content-between">
 
             <div id="token" data-token='{{ token }}'></div>
-            {% if quizzes.count()== 0 %}
+            {% if uncompletedQuizzes|length == 0 %}
             <div class="col-sm-3" style="text-align: left;">
               You have no assigned quizzes
             </div>
             {% else %}
-            {% for quiz in quizzes %}
+            {% for uncompletedQuiz in uncompletedQuizzes %}
             <div class="col-sm-4" style="text-align: left;">
-              {{Quiz.query.filter_by(id=quiz.quizId).first().name}}
+              {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
             </div>
             <div class="col-sm-4" style="text-align: center;">
-              {{User.query.filter_by(id=Quiz.query.filter_by(id=quiz.quizId).first().tutorId).first().username}}
+              {{User.query.filter_by(id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().tutorId).first().username}}
             </div>
             <div class="col-sm-4" style="text-align: right;">
               <button class="complete-quiz">
@@ -102,24 +102,24 @@
       </div>
     </div>
 
-    <di<div class="container p-2 pb-4">
+    <div class="container p-2 pb-4">
       <div class="card">
         <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
         <div class="card-body">
           <div class="row d-flex justify-content-between">
 
             <div id="token" data-token='{{ token }}'></div>
-            {% if completedQuizzes.count()== 0 %}
+            {% if completedQuizzes|length == 0 %}
             <div class="col-sm-12" style="text-align: left;">
               You have no completed quizzes
             </div>
             {% else %}
-            {% for quiz in completedQuizzes %}
+            {% for completedQuiz in completedQuizzes %}
             <div class="col-sm-4" style="text-align: left;">
-              {{Quiz.query.filter_by(id=quiz.studentQuizId).first().name}}
+              {{Quiz.query.filter_by(id=completedQuiz.quizId).first().name}}
             </div>
             <div class="col-sm-4" style="text-align: center;">
-              {{User.query.filter_by(id=Quiz.query.filter_by(id=quiz.studentQuizId).first().tutorId).first().username}}
+              {{User.query.filter_by(id=Quiz.query.filter_by(id=completedQuiz.quizId).first().tutorId).first().username}}
             </div>
             <div class="col-sm-4" style="text-align: right;">
               <button class="complete-quiz">
@@ -135,5 +135,5 @@
     </div>
 
   </div>
-
+</div>
   {% endblock %}
