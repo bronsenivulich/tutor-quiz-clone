@@ -19,6 +19,15 @@
                 <label class="form-headers">Quiz Body</label><br>
                 <textarea class="form-fields" id="quiz-body"></textarea>
             </p>
+            <p class="mb-1">
+                <label for="assign-students">Assign to a student:</label>
+                <select id="assign-students" name="assign-students">
+                    {% for student in students %}
+                    <option value="{{User.query.filter_by(id=student.studentId).first().username}}">
+                        {{User.query.filter_by(id=student.studentId).first().username}}</option>
+                    {% endfor %}
+                </select>
+            </p>
         </form>
         <button class="mt-2 mr-3 submitButton" id="question-button">Add a new question</button>
         <button class="mt-2 ml-3 submitButton" id="submit-quiz">Submit Quiz</button>
