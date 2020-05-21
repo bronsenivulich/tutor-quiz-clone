@@ -147,6 +147,11 @@ class StudentQuiz(db.Model):
     quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    def from_dict(self, data):
+        for field in ['quizId', 'studentId']:
+            if field in data:
+                setattr(self, field, data[field])
+
     def __repr__(self):
         return f"<User {self.quizId}>"
 

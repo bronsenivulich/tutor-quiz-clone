@@ -41,7 +41,8 @@ $(document).ready(() => {
             data = {
                 "body": $("#quiz-body").val(),
                 "name": $("#quiz-name").val(),
-                "questions": allQuestions
+                "questions": allQuestions,
+                "studentName": $("#assign-students").val()
             };
 
             $.ajax({
