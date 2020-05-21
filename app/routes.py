@@ -4,7 +4,7 @@ from app import app, db
 
 from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, RequestStudentForm, CreateQuizForm, AssignStudentForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User, UserType, Request, Quiz, Question, ShortAnswer, StudentQuiz, UserRelationship
+from app.models import User, UserType, Request, Quiz, Question, ShortAnswer, StudentQuiz, UserRelationship, Score
 
 from app.email import send_password_reset_email
 import os
@@ -28,7 +28,18 @@ def home():
         token = current_user.get_token()
         requests = Request.query.filter_by(studentId=current_user.id, request="pending")
         tutors = UserRelationship.query.filter_by(studentId=current_user.id)
-        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors)
+
+        studentQuizzes = StudentQuiz.query.filter_by(studentId=current_user.id)
+        completedQuizzes = []
+        uncompletedQuizzes = []
+        for studentQuiz in studentQuizzes:
+            if Score.query.filter_by(studentQuizId=studentQuiz.id).first() is not None:
+                completedQuizzes.append(studentQuiz)
+            else :
+                uncompletedQuizzes.append(studentQuiz)
+
+
+        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()
