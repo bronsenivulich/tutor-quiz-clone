@@ -39,7 +39,7 @@ def home():
                 uncompletedQuizzes.append(studentQuiz)
 
 
-        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes)
+        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Score=Score)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()
