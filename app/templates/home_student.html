@@ -108,13 +108,16 @@
           </div>
           {% else %}
           {% for completedQuizzes in completedQuizzes %}
-          <div class="col-sm-4" style="text-align: left;">
+          <div class="col-sm-3" style="text-align: left;">
             {{Quiz.query.filter_by(id=completedQuizzes.quizId).first().name }}
           </div>
-          <div class="col-sm-4" style="text-align: center;">
+          <div class="col-sm-3" style="text-align: center;">
             {{User.query.filter_by(id=Quiz.query.filter_by(id=completedQuizzes.quizId).first().tutorId).first().username}}
           </div>
-          <div class="col-sm-4" style="text-align: right;">
+          <div class="col-sm-3" style="text-align: center;">
+            {{Score.query.filter_by(studentQuizId=completedQuizzes.id).first().score}}
+          </div>
+          <div class="col-sm-3" style="text-align: right;">
             <button class="complete-quiz">
               Review Quiz
             </button>
