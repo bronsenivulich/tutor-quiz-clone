@@ -158,3 +158,7 @@ def student_assignment():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/complete_quiz')
+def complete_quiz():
+    return render_template('complete_quiz.html', title='Complete a quiz')
