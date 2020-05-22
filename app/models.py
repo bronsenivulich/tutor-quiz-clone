@@ -174,6 +174,11 @@ class MultiSolution(db.Model):
     possibleAnswer = db.Column(db.String(104))
     correctAnswer = db.Column(db.Boolean(name='ck_multi_answer_boolean'))
 
+    def from_dict(self, data, new_answer=False):
+        for field in ['questionId', 'possibleAnswer', 'correctAnswer']:
+            if field in data:
+                setattr(self, field, data[field])
+
     def __repr__(self):
         return f"<User {self.possibleAnswer}>"
 
