@@ -7,7 +7,7 @@ $(document).ready(() => {
     $('#question-button').click(function () {
 
         $('#newQuiz').append(`
-        <div id="question_${qNum}" class="wholeQuestion">
+        <div id="question_${qNum}" class="wholeQuestion shortAnswer">
         <h4>Question: ${qNum}</h4>
         <p class="pb-1">
             <label class="form-headers">Question</label><br>
@@ -20,6 +20,35 @@ $(document).ready(() => {
         qNum = qNum + 1;
     });
 
+    $('#multiQuestion-button').click(function () {
+        $('#newQuiz').append(`
+        <div id="question_${qNum}" class="wholeQuestion multiSolution">
+        <h4>Question: ${qNum}</h4>
+        <p class="pb-1">
+            <label class="form-headers">Question</label><br>
+            <textarea class="form-fields question"></textarea><br>
+            <label class="form-headers">Possible Answers</label><br>
+            <div class="possibleAnswers">
+                <div id="optionA">
+                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>True</option><option>False</option></select>
+                </div>
+                <div id="optionB">
+                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>True</option><option>False</option></select>
+                </div>
+                <div id="optionC">
+                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>True</option><option>False</option></select>
+                </div>
+                <div id="optionD">
+                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>True</option><option>False</option></select>
+                </div>
+            </div>
+            </p>
+        </div>
+        `);
+
+        qNum = qNum + 1;
+    })
+
     $("#submit-quiz").click(function () {
         $("#newQuiz").submit();
     });
@@ -31,11 +60,31 @@ $(document).ready(() => {
             let allQuestions = []
 
             questions.forEach(function (entry) {
-                question = {
-                    "question": $(entry).find(".question").val(),
-                    "answer": $(entry).find(".answer").val()
+                if ($(entry).hasClass("shortAnswer")){
+                    question = {
+                        "questionType": "shortAnswer",
+                        "question": $(entry).find(".question").val(),
+                        "answer": $(entry).find(".answer").val()
+                    }
+                    allQuestions.push(question)
                 }
-                allQuestions.push(question)
+                else if( $(entry).hasClass("multiSolution")){
+                    let possibleAnswers = $(entry).find(".possibleAnswers").children("div").toArray()
+                    let answersToSend = []
+                    possibleAnswers.forEach(function (possibleAnswer) {
+                        answerToSend = {
+                            "answer": $(possibleAnswer).find("input").val(),
+                            "isTrue": $(possibleAnswer).find("select").val()
+                        }
+                        answersToSend.push(answerToSend)
+                    })
+                    question = {
+                        "questionType": "multiSolution",
+                        "question": $(entry).find(".question").val(),
+                        "options": answersToSend
+                    }
+                    allQuestions.push(question)
+                }
             });
 
             data = {
@@ -65,5 +114,6 @@ $(document).ready(() => {
             return false
         }
     })
+
 
 });
