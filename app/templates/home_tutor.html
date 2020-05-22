@@ -54,6 +54,36 @@
 
     <div class="container p-2 pb-4">
         <div class="card">
+          <h3 class="card-header" data-unsp-sanitized="clean">Assigned Quizzes</h3>
+          <div class="card-body">
+            <div class="row d-flex justify-content-between">
+              {% if assignedQuizzes.count()== 0 %}
+              <div class="col-sm-12" style="text-align: left;">
+                You have not assigned any quizzes
+              </div>
+              {% else %}
+              {% for assignedQuiz in assignedQuizzes %}
+              <div class="col-sm-4" style="text-align: left;">
+                {{Quiz.query.filter_by(id=assignedQuiz.quizId).first().name }}
+              </div>
+              <div class="col-sm-4" style="text-align: center;">
+                {{User.query.filter_by(id=Quiz.query.filter_by(id=assignedQuiz.quizId).first().studentId).first().username}}
+              </div>
+              <div class="col-sm-4" style="text-align: right;">
+                <button class="complete-quiz">
+                  Review Quiz
+                </button>
+              </div>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="container p-2 pb-4">
+        <div class="card">
             <h3 class="card-header" data-unsp-sanitized="clean">Students</h3>
             <div class="card-body">
                 <div style="text-align: center;" id="tutors">
@@ -70,6 +100,10 @@
             </div>
         </div>
     </div>
+
+    
+
+
 </div>
 
 {% endblock %}

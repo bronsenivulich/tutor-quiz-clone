@@ -43,7 +43,8 @@ def home():
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()
-        return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, User=User, students=students)
+        assignedQuizzes = StudentQuiz.query.filter_by(id=current_user.id)
+        return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, User=User, students=students, assignedQuizzes=assignedQuizzes)
 
 
 @app.route('/login', methods=['GET', 'POST'])
