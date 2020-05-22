@@ -10,7 +10,7 @@ from flask import jsonify, request, url_for
 def get_quiz(id):
     return jsonify(Quiz.query.get_or_404(id).to_dict())
 
-@bp.route('/quizzes', methods=['POST'])
+@bp.route('/quizzes/create', methods=['POST'])
 @token_auth.login_required(role="tutor")
 def create_quiz():
     data = request.get_json() or {}
