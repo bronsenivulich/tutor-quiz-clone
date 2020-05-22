@@ -6,9 +6,40 @@ from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolu
 from flask import jsonify, request, url_for
 
 @bp.route('/quizzes/<int:id>', methods=['GET'])
-@token_auth.login_required(role="tutor")
+@token_auth.login_required()
 def get_quiz(id):
-    return jsonify(Quiz.query.get_or_404(id).to_dict())
+    quiz = Quiz.query.filter_by(id=id).first()
+
+    responseData = {}
+    responseData["name"] = quiz.name
+    responseData["body"] = quiz.body
+    responseData["tutorId"] = quiz.tutorId
+
+    questions = Question.query.filter_by(quizId=id)
+    questionsToSend = []
+    for question in questions:
+        if ShortAnswer.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "shortAnswer"
+            questionToSend["question"] = question.question
+            questionToSend["answer"] = ShortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
+        elif MultiSolution.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "multiSolution"
+            questionToSend["question"] = question.question
+            multiSolutions = MultiSolution.query.filter_by(questionId=question.id)
+            choices = []
+            for multiSolution in multiSolutions:
+                choice = {}
+                choice["answer"] = multiSolution.possibleAnswer
+                choice["isTrue"] = multiSolution.correctAnswer
+                choices.append(choice)
+            questionToSend["options"] = choices
+        questionsToSend.append(questionToSend)
+
+    responseData["questions"] = questionToSend
+
+    return responseData
 
 @bp.route('/quizzes/create', methods=['POST'])
 @token_auth.login_required(role="tutor")
