@@ -40,14 +40,43 @@
             <div class="card-body">
 
                 <div class="row d-flex justify-content-between">
-                    <div class="col-sm-6" style="text-align: left;">
+                    <div class="col-sm-12" style="text-align: left;">
                         Hey guys, could you please read this before attempting the quiz. Cheers
-                    </div>
-                    <div class="col-sm-6" style="text-align: right;">
-                        <u>Link to file</u>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-2">
+        <div class="card">
+            <h3 class="card-header" data-unsp-sanitized="clean">Your Quizzes</h3>
+            <div class="card-body">
+                <div class="row d-flex justify-content-between">
+                    {% if tutorQuizzes.count()== 0 %}
+                    <div class="col-sm-12" style="text-align: left;">
+                        You have not assigned any quizzes
+                    </div>
+                    {% else %}
+                    <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
+                    <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Student</strong></div>
+                    <div class="col-sm-4 pb-2"></div>
+                    {% for tutorQuiz in tutorQuizzes %}
+                    <div class="col-sm-4 pt-2" style="text-align: left;">
+                        {{ tutorQuiz.name }}
+                    </div>
+                    <div class="col-sm-4 pt-2" style="text-align: center;">
+                        {{ User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=tutorQuiz.id).first().studentId).first().username }}
+                    </div>
+                    <div class="col-sm-4 pt-2" style="text-align: right;">
+                        <button class="assigned-quiz">
+                            Review Quiz
+                        </button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -58,7 +87,9 @@
             <div class="card-body">
                 <div style="text-align: center;" id="tutors">
                     {% if students.count()== 0 %}
-                    <p>You have no students</p>
+                    <div class="col-sm-12" style="text-align: center;">
+                        You have no students
+                    </div>
                     {% else %}
                     {% for student in students %}
                     <div id="{{ student.id }}">

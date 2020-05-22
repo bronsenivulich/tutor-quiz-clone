@@ -39,11 +39,14 @@ def home():
                 uncompletedQuizzes.append(studentQuiz)
 
 
-        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Score=Score)
+        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, 
+                                requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Score=Score)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
+        tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()
-        return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, User=User, students=students)
+        return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, 
+                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -155,3 +158,7 @@ def student_assignment():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+@app.route('/complete_quiz')
+def complete_quiz():
+    return render_template('complete_quiz.html', title='Complete a quiz')
