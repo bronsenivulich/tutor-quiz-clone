@@ -48,25 +48,15 @@ def create_quiz():
             question.from_dict(question_data, new_question=True)
             db.session.add(question)
             db.session.commit()
-            # questionList = []
             for option in questionAndAnswer["options"]:
                 answer_data = {}
                 answer_data["questionId"] = question.id
                 answer_data["possibleAnswer"] = option["answer"]
                 answer_data["correctAnswer"] = bool(option["isTrue"])
-                print(answer_data)
-            multiSolution = MultiSolution()
-            # multiSolution.from_dict(answer_data, new_answer=True)
-            multiSolution.questionId = 1
-            multiSolution.possibleAnswer = "a"
-            multiSolution.correctAnswer = 0
-            # questionList.append(multiSolution)
-            try:
-                db.sesion.add(multiSolution)
+                multiSolution = MultiSolution()
+                multiSolution.from_dict(answer_data, new_answer=True)
+                db.session.add(multiSolution)
                 db.session.commit()
-            except SQLAlchemyError as e:
-                error = str(e.__dict__['orig'])
-                print(error)
 
     
     studentQuiz = StudentQuiz()
