@@ -14,11 +14,8 @@
       <div class="card-body">
 
         <div class="row d-flex justify-content-between">
-          <div class="col-sm-6" style="text-align: left;">
+          <div class="col-sm-12" style="text-align: left;">
             Hey guys, could you please read this before attempting the quiz. Cheers
-          </div>
-          <div class="col-sm-6" style="text-align: right;">
-            <u>Link to file</u>
           </div>
         </div>
 
@@ -31,9 +28,11 @@
       <h3 class="card-header" data-unsp-sanitized="clean">Tutor Requests</h3>
       <div class="card-body">
         <div id="token" data-token='{{ token }}'></div>
-        <div style="text-align: center;" id="requests">
+        <div id="requests">
           {% if requests.count()== 0 %}
-          <p>You have no requests</p>
+          <div class="col-sm-12" style="text-align: center;">
+            You have no tutor requests
+          </div>
           {% else %}
           {% for request in requests %}
           <div id="{{ request.id }}">
@@ -53,7 +52,9 @@
       <div class="card-body">
         <div style="text-align: center;" id="tutors">
           {% if tutors.count()== 0 %}
-          <p>You have no tutors</p>
+          <div class="col-sm-12" style="text-align: left;">
+            You have no tutors
+          </div>
           {% else %}
           {% for tutor in tutors %}
           <div id="{{ tutor.id }}">
@@ -78,14 +79,17 @@
             You have no assigned quizzes
           </div>
           {% else %}
+          <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
+          <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Tutor</strong></div>
+          <div class="col-sm-4 pb-2"></div>
           {% for uncompletedQuiz in uncompletedQuizzes %}
-          <div class="col-sm-4" style="text-align: left;">
+          <div class="col-sm-4 pt-2" style="text-align: left;">
             {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
           </div>
-          <div class="col-sm-4" style="text-align: center;">
+          <div class="col-sm-4 pt-2" style="text-align: center;">
             {{User.query.filter_by(id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().tutorId).first().username}}
           </div>
-          <div class="col-sm-4" style="text-align: right;">
+          <div class="col-sm-4 pt-2" style="text-align: right;">
             <button class="complete-quiz">
               Complete Quiz
             </button>
@@ -107,17 +111,21 @@
             You have no completed any quizzes
           </div>
           {% else %}
+          <div class="col-sm-3 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
+          <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Tutor</strong></div>
+          <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Score</strong></div>
+          <div class="col-sm-3 pb-2"></div>
           {% for completedQuizzes in completedQuizzes %}
-          <div class="col-sm-3" style="text-align: left;">
+          <div class="col-sm-3 pt-2" style="text-align: left;">
             {{Quiz.query.filter_by(id=completedQuizzes.quizId).first().name }}
           </div>
-          <div class="col-sm-3" style="text-align: center;">
+          <div class="col-sm-3 pt-2" style="text-align: center;">
             {{User.query.filter_by(id=Quiz.query.filter_by(id=completedQuizzes.quizId).first().tutorId).first().username}}
           </div>
-          <div class="col-sm-3" style="text-align: center;">
+          <div class="col-sm-3 pt-2" style="text-align: center;">
             {{Score.query.filter_by(studentQuizId=completedQuizzes.id).first().score}}
           </div>
-          <div class="col-sm-3" style="text-align: right;">
+          <div class="col-sm-3 pt-2" style="text-align: right;">
             <button class="complete-quiz">
               Review Quiz
             </button>
