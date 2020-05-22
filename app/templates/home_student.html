@@ -47,64 +47,84 @@
     </div>
   </div>
 
-  <div class="container p-2">
-    <div class="card">
-      <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
-      <div class="card-body">
-
-        <div class="row d-flex justify-content-between">
-          {% if uncompletedQuizzes|length == 0 %}
-          <div class="col-sm-3" style="text-align: left;">
-            You have no assigned quizzes
-          </div>
-          {% else %}
-          {% for uncompletedQuiz in uncompletedQuizzes %}
-          <div class="col-sm-4" style="text-align: left;">
-            {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
-          </div>
-          <div class="col-sm-4" style="text-align: center;">
-            {{User.query.filter_by(id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().tutorId).first().username}}
-          </div>
-          <div class="col-sm-4" style="text-align: right;">
-            <button class="complete-quiz">
-              Complete Quiz
-            </button>
-          </div>
-          {% endfor %}
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="container p-2 pb-4">
     <div class="card">
-      <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
+      <h3 class="card-header" data-unsp-sanitized="clean">Students</h3>
       <div class="card-body">
-        <div class="row d-flex justify-content-between">
-          {% if completedQuizzes|length == 0 %}
-          <div class="col-sm-3" style="text-align: left;">
-            You have no completed any quizzes
-          </div>
+        <div style="text-align: center;" id="students">
+          {% if tutors.count()== 0 %}
+          <p>You have no tutors</p>
           {% else %}
-          {% for completedQuizzes in completedQuizzes %}
-          <div class="col-sm-4" style="text-align: left;">
-            {{Quiz.query.filter_by(id=completedQuizzes.quizId).first().name }}
+          {% for tutor in tutors %}
+          <div id="{{ tutor.id }}">
+            <span>{{User.query.filter_by(id=tutor.tutorId).first().username}}</span>
+            {% endfor %}
+            {% endif %}
           </div>
-          <div class="col-sm-4" style="text-align: center;">
-            {{User.query.filter_by(id=Quiz.query.filter_by(id=completedQuizzes.quizId).first().tutorId).first().username}}
-          </div>
-          <div class="col-sm-4" style="text-align: right;">
-            <button class="complete-quiz">
-              Review Quiz
-            </button>
-          </div>
-          {% endfor %}
-          {% endif %}
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="container p-2">
+  <div class="card">
+    <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
+    <div class="card-body">
+
+      <div class="row d-flex justify-content-between">
+        {% if uncompletedQuizzes|length == 0 %}
+        <div class="col-sm-3" style="text-align: left;">
+          You have no assigned quizzes
+        </div>
+        {% else %}
+        {% for uncompletedQuiz in uncompletedQuizzes %}
+        <div class="col-sm-4" style="text-align: left;">
+          {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          {{User.query.filter_by(id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().tutorId).first().username}}
+        </div>
+        <div class="col-sm-4" style="text-align: right;">
+          <button class="complete-quiz">
+            Complete Quiz
+          </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container p-2 pb-4">
+  <div class="card">
+    <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
+    <div class="card-body">
+      <div class="row d-flex justify-content-between">
+        {% if completedQuizzes|length == 0 %}
+        <div class="col-sm-3" style="text-align: left;">
+          You have no completed any quizzes
+        </div>
+        {% else %}
+        {% for completedQuizzes in completedQuizzes %}
+        <div class="col-sm-4" style="text-align: left;">
+          {{Quiz.query.filter_by(id=completedQuizzes.quizId).first().name }}
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          {{User.query.filter_by(id=Quiz.query.filter_by(id=completedQuizzes.quizId).first().tutorId).first().username}}
+        </div>
+        <div class="col-sm-4" style="text-align: right;">
+          <button class="complete-quiz">
+            Review Quiz
+          </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
