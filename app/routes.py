@@ -163,3 +163,10 @@ def favicon():
 def complete_quiz(id):
     token = current_user.get_token()
     return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token)
+
+
+@app.route('/contactUs')
+def contactUs():
+    if current_user.is_authenticated:
+        return redirect(url_for("home"))
+    return render_template('contactUs.html', title="Welcome")
