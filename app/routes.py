@@ -175,4 +175,5 @@ def favicon():
 @app.route('/quiz/complete/<int:id>')
 def complete_quiz(id):
     token = current_user.get_token()
-    return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token)
+    
+    return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)

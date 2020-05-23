@@ -8,10 +8,11 @@
 
 <div class="container col-md-6 homeContainer" style="text-align: center;">
     <div class="p-3">
-        <h1 class="mt-3">Complete Quiz</h1>
+        <br>
+        <h1 class="mt-3">{{Quiz.query.filter_by(id=id).first().name }}</h1>
+        <br><hr>
         <div id="data" data-token="{{token}}" data-quiz-id="{{id}}"></div>
         <form id="completeQuiz"></form>
-        <hr>
         <button id="submitQuiz" class="submitButton">Submit Quiz</button>
     </div>
 </div>

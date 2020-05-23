@@ -11,27 +11,27 @@ $(document).ready(() => {
             if (entry.questionType == "shortAnswer") {
                 $('#completeQuiz').append(`
                 <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                <h4>Question: ${qNum}</h4>
+                <h5 class="question-title">Question: ${qNum}</h5><br>
                 <p class="pb-1">
-                    <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br>
+                    <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                     <label class="form-headers mt-2 mr-2">Answer</label>
                     <input type='text' class="form-fields answer"></input>
                 </p>
-                </div>`);
+                </div><br><hr>`);
             }
             else if (entry.questionType == "multiSolution") {
                 $('#completeQuiz').append(`
                 <div id="question_${qNum}" class="wholeQuestion multiSolution">
-                <h4>Question: ${qNum}</h4>
+                <h5 class="question-title">Question: ${qNum}</h5><br>
                 <p>
-                <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br>
+                <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                 <div class="row d-flex justify-content-center px-5 mx-5"></div>
                 </p>
-                </div>
+                </div><hr>
                 `);
                 let optionNum = 1;
                 entry.options.forEach(function (option) {
-                    $(`#question_${qNum}`).find(".row").append(`<div class="px-3"><label class="mr-2" for="choice_${option.choiceId}">${option.answer}</label><input type="radio" id="choice_${option.choiceId}" name="question_${entry.questionId}" value="${option.choiceId}"></div>
+                    $(`#question_${qNum}`).find(".row").append(`<div class="px-3"><label class="mr-2" for="choice_${option.choiceId}">${option.answer}</label><input class="multi-button" type="radio" id="choice_${option.choiceId}" name="question_${entry.questionId}" value="${option.choiceId}"></div>
                     `);
                     optionNum = optionNum + 1;
                 })

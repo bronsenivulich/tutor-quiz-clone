@@ -87,3 +87,12 @@ background-size: cover;
     max-width: 90%;
 }
 
+.question {
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.question-title {
+    text-align: left;
+    font-style: italic;
+}
