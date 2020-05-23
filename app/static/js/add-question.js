@@ -95,7 +95,7 @@ $(document).ready(() => {
             };
 
             $.ajax({
-                url: "/api/quizzes",
+                url: "/api/quizzes/create",
                 type: "post",
                 data: JSON.stringify(data),
                 contentType: "application/json",

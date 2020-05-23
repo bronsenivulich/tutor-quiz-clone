@@ -159,6 +159,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.route('/complete_quiz')
-def complete_quiz():
-    return render_template('complete_quiz.html', title='Complete a quiz')
+@app.route('/quiz/complete/<int:id>')
+def complete_quiz(id):
+    token = current_user.get_token()
+    return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token)

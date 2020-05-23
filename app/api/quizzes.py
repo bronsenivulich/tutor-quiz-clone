@@ -2,15 +2,48 @@ from app import db
 from app.api import bp
 from app.api.errors import bad_request
 from app.api.auth import token_auth
-from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution
+from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution, Score
 from flask import jsonify, request, url_for
 
 @bp.route('/quizzes/<int:id>', methods=['GET'])
-@token_auth.login_required(role="tutor")
+@token_auth.login_required()
 def get_quiz(id):
-    return jsonify(Quiz.query.get_or_404(id).to_dict())
+    quiz = Quiz.query.filter_by(id=id).first()
 
-@bp.route('/quizzes', methods=['POST'])
+    responseData = {}
+    responseData["name"] = quiz.name
+    responseData["body"] = quiz.body
+    responseData["tutorId"] = quiz.tutorId
+
+    questions = Question.query.filter_by(quizId=id)
+    questionsToSend = []
+    for question in questions:
+        if ShortAnswer.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "shortAnswer"
+            questionToSend["question"] = question.question
+            questionToSend["questionId"] = question.id
+            questionToSend["answer"] = ShortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
+        elif MultiSolution.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "multiSolution"
+            questionToSend["question"] = question.question
+            questionToSend["questionId"] = question.id
+            multiSolutions = MultiSolution.query.filter_by(questionId=question.id)
+            choices = []
+            for multiSolution in multiSolutions:
+                choice = {}
+                choice["answer"] = multiSolution.possibleAnswer
+                choice["choiceId"] = multiSolution.id
+                choices.append(choice)
+            questionToSend["options"] = choices
+        questionsToSend.append(questionToSend)
+
+    responseData["questions"] = questionsToSend
+
+    return responseData
+
+@bp.route('/quizzes/create', methods=['POST'])
 @token_auth.login_required(role="tutor")
 def create_quiz():
     data = request.get_json() or {}
@@ -68,3 +101,44 @@ def create_quiz():
     response.status_code = 201
     response.headers["Location"] = url_for('api.get_quiz', id=quiz.id)
     return data
+
+
+@bp.route('/quizzes/submit/<int:id>', methods=['POST'])
+@token_auth.login_required(role="student")
+def submitQuiz(id):
+    data = request.get_json() or {}
+    quizId = id
+    token = request.headers["Authorization"].replace('Bearer ', '')
+    studentId = User.check_token(token).id
+
+    totalQuestions = 0
+    totalScore = 0
+    for answer in data["answers"]:
+        totalQuestions += 1
+        if answer["questionType"] == "shortAnswer":
+            question = Question.query.filter_by(id=answer["questionId"]).first()
+            shortAnswer = ShortAnswer.query.filter_by(questionId=question.id).first()
+            if answer["studentAnswer"] == shortAnswer.correctAnswer:
+                totalScore = totalScore + 1
+        elif answer["questionType"] == "multiSolution":
+            multiSolution = MultiSolution.query.filter_by(id=answer["studentAnswer"]).first()
+            print(answer)
+            print(multiSolution.correctAnswer)
+            if multiSolution.correctAnswer == True:
+                totalScore += 1
+
+    score = Score()
+    studentQuiz = StudentQuiz.query.filter_by(quizId=quizId,studentId=studentId).first()
+    score.studentQuizId = studentQuiz.id
+    score.score = totalScore
+    db.session.add(score)
+    db.session.commit()
+
+    resp = {
+        "totalQuestions":totalQuestions,
+        "totalScore":totalScore
+    }
+
+    print(resp)
+
+    return resp
