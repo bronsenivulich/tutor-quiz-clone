@@ -90,7 +90,7 @@
             {{User.query.filter_by(id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().tutorId).first().username}}
           </div>
           <div class="col-sm-4 pt-2" style="text-align: right;">
-            <a href="{{ url_for('complete_quiz') }}" style="text-decoration: none;">
+            <a href="{{ url_for('complete_quiz',id=uncompletedQuiz.quizId) }}" style="text-decoration: none;">
               <button class="complete-quiz">
                 Complete Quiz
               </button>
