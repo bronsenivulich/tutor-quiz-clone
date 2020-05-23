@@ -122,8 +122,6 @@ def submitQuiz(id):
                 totalScore = totalScore + 1
         elif answer["questionType"] == "multiSolution":
             multiSolution = MultiSolution.query.filter_by(id=answer["studentAnswer"]).first()
-            print(answer)
-            print(multiSolution.correctAnswer)
             if multiSolution.correctAnswer == True:
                 totalScore += 1
 
@@ -138,7 +136,5 @@ def submitQuiz(id):
         "totalQuestions":totalQuestions,
         "totalScore":totalScore
     }
-
-    print(resp)
 
     return resp

@@ -74,7 +74,7 @@ $(document).ready(() => {
                     possibleAnswers.forEach(function (possibleAnswer) {
                         answerToSend = {
                             "answer": $(possibleAnswer).find("input").val(),
-                            "isTrue": $(possibleAnswer).find("select").val()
+                            "isTrue": ("True" == $(possibleAnswer).find("select").val())
                         }
                         answersToSend.push(answerToSend)
                     })
