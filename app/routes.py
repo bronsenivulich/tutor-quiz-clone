@@ -40,13 +40,26 @@ def home():
 
 
         return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, 
-                                requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Score=Score)
+                                requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, 
+                                uncompletedQuizzes=uncompletedQuizzes, Score=Score)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id)
         token = current_user.get_token()
-        return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, 
-                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz)
+
+        completedQuizzes = []
+        uncompletedQuizzes = []
+        for tutorQuiz in tutorQuizzes:
+            studentQuiz = StudentQuiz.query.filter_by(quizId=tutorQuiz.id).first().id
+            if Score.query.filter_by(studentQuizId=studentQuiz).first() is not None:
+                completedQuizzes.append(studentQuiz)
+            else :
+                print(studentQuiz)
+                uncompletedQuizzes.append(studentQuiz)
+
+    return render_template("home_tutor.html", title="Home Page", userType=userType, token=token, 
+                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz,
+                            Score = Score, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Quiz=Quiz)
 
 
 @app.route('/login', methods=['GET', 'POST'])
