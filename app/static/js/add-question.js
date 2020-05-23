@@ -8,14 +8,14 @@ $(document).ready(() => {
 
         $('#newQuiz').append(`
         <div id="question_${qNum}" class="wholeQuestion shortAnswer">
-        <h4>Question: ${qNum}</h4>
+        <h5 class="question-title">Question: ${qNum}</h5>
         <p class="pb-1">
-            <label class="form-headers">Question</label><br>
+            <label class="form-headers" style="font-weight: 500;">Question:</label><br>
             <textarea class="form-fields question"></textarea><br>
-            <label class="form-headers">Answer</label><br>
+            <label class="form-headers" style="font-weight: 500;">Answer:</label><br>
             <input type='text' class="form-fields answer"></input>
         </p>
-        </div>`);
+        </div><br><hr>`);
 
         qNum = qNum + 1;
     });
@@ -23,11 +23,11 @@ $(document).ready(() => {
     $('#multiQuestion-button').click(function () {
         $('#newQuiz').append(`
         <div id="question_${qNum}" class="wholeQuestion multiSolution">
-        <h4>Question: ${qNum}</h4>
+        <h5 class="question-title">Question: ${qNum}</h5>
         <p class="pb-1">
-            <label class="form-headers">Question</label><br>
-            <textarea class="form-fields question"></textarea><br>
-            <label class="form-headers">Possible Answers</label><br>
+            <label class="form-headers" style="font-weight: 500;">Question:</label><br>
+            <textarea class="form-fields question"></textarea><br><br>
+            <label class="form-headers" style="font-weight: 500;">Possible Answers:</label>
             <div class="possibleAnswers">
                 <div id="optionA">
                     <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>False</option><option>True</option></select>
@@ -43,7 +43,7 @@ $(document).ready(() => {
                 </div>
             </div>
             </p>
-        </div>
+        </div><br><hr>
         `);
 
         qNum = qNum + 1;
