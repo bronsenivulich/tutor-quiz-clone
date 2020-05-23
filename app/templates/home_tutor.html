@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="container p-2 pb-4">
+    <div class="container p-2">
         <div class="card">
             <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
             <div class="card-body">
@@ -74,7 +74,7 @@
                         {{Score.query.filter_by(studentQuizId=completedQuizzes).first().score}}
                     </div>
                     <div class="col-sm-3 pt-2" style="text-align: right;">
-                        <button class="complete-quiz">
+                        <button class="assigned-quiz">
                             Review Quiz
                         </button>
                     </div>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <div class="container p-2 pb-4">
+    <div class="container p-2">
         <div class="card">
             <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
             <div class="card-body">
@@ -106,7 +106,7 @@
                         {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=uncompletedQuizzes).first().studentId).first().username}}
                     </div>
                     <div class="col-sm-4 pt-2" style="text-align: right;">
-                        <button class="complete-quiz">
+                        <button class="assigned-quiz">
                             Review Quiz
                         </button>
                     </div>
