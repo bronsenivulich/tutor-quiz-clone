@@ -30,16 +30,16 @@ $(document).ready(() => {
             <label class="form-headers" style="font-weight: 500;">Possible Answers:</label>
             <div class="possibleAnswers">
                 <div id="optionA">
-                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>False</option><option>True</option></select>
+                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionB">
-                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>False</option><option>True</option></select>
+                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionC">
-                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>False</option><option>True</option></select>
+                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionD">
-                    <input type='text' class="form-fields possibleAnswer"></input><select class="correct"><option>False</option><option>True</option></select>
+                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
             </div>
             </p>
