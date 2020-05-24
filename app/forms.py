@@ -68,12 +68,6 @@ class RequestStudentForm(FlaskForm):
         if existingRequest is not None:
             raise ValidationError("You have already sent a request to this student.")
 
-class CreateQuizForm(FlaskForm):
-
-    quizTitle = StringField('Quiz Title', validators=[DataRequired()])
-    quizBody = TextAreaField('Quiz Description', validators=[DataRequired()])
-    submit = SubmitField('Create Quiz')
-
 class AssignStudentForm(FlaskForm):
     student = StringField('Student User Name', validators=[DataRequired()])
     quizName = StringField('Quiz Name', validators=[DataRequired()])
