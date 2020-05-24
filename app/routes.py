@@ -176,7 +176,7 @@ def request_student():
             db.session.add(request)
             db.session.commit()
             flash('Your request has been sent')
-        return render_template('request.html', title='Request', form=form)
+        return redirect(url_for('home'))
 
     else:
         return redirect(url_for('index'))
