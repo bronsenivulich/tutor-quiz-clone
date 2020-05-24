@@ -1,6 +1,5 @@
-{% extends "base.html" %}
-
 {% block content %} 
-<p id = "backButton"><a href="{{ url_for('index') }}">Back</a></p>
+<link rel="stylesheet" href="../static/css/main.css">
+<p id = "backButton"><a href="{{ url_for('index') }}" class="submitButton" style="text-decoration: none;">Back</a></p>
 <div class="gif-container"></div>
 {% endblock %}

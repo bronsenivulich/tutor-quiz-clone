@@ -190,17 +190,18 @@ background-attachment: fixed;
 }
 
 .gif-container {
-  background: url("../img/404gif.gif") center;
-  background-size: cover;
-  height: 100%;
+    background: url("../img/404gif.gif") center;
+    background-size: cover;
+    height: 100%;
+    padding: none;
 }
 
 #backButton {
-    position: absolute;
-    z-index: 999;
-    margin: 0 auto;
-    left: 2%;
-    right: 2%;
-    top: 10%;
-    font-size: 50px;
+    position: sticky;
+    margin: 0;
+    left: 4%;
+    right: 4%;
+    top: 4%;
+    font-size: 20px;
+    padding: none;
 }
