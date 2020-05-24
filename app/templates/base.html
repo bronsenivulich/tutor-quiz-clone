@@ -1,3 +1,5 @@
+<!-- Base page for all other pages of the site -->
+
 <!DOCTYPE html>
 <html>
 <!--Adds favicon to every page-->
@@ -14,6 +16,8 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     {% if title %}
     <title>{{ title }} - Tutor Quiz</title>
@@ -24,17 +28,21 @@
     {% endblock%}
 </head>
 
+<!-- Include backround image -->
 {% block image %}
-
-<body class="bg" style="background-image: url({{ url_for('static', filename='img/background-image.jpg') }}); opacity: 0.9;"></body>
+<body class="bg"
+    style="background-image: url({{ url_for('static', filename='img/background-image.jpg') }}); opacity: 0.9;"></body>
 {% endblock %}
 
+<!-- Universal navigation bar -->
 <nav class="navbar navbar-expand-lg navbar shadow">
     {% if current_user.is_anonymous %}
     <a class="navbar-brand" href="{{ url_for('index') }}">
         {% else %}
         <a class="navbar-brand" href="{{ url_for('home') }}">
             {% endif %}
+
+            <!-- Our page logo -->
             <div class="logo-image">
                 <img src="{{ url_for('static', filename='img/logo.svg') }}" class="img-fluid logo">
             </div>
@@ -45,6 +53,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+
+                <!-- All necessary links to other pages -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
@@ -64,6 +74,7 @@
         </div>
 </nav>
 
+<!-- Any flashed message will appear like this -->
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul>

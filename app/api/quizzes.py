@@ -149,7 +149,7 @@ def create_quiz():
 
 @bp.route('/quizzes/submit/<int:id>', methods=['POST'])
 @token_auth.login_required(role="student")
-def submitQuiz(id):
+def submit_quiz(id):
     data = request.get_json() or {}
     quizId = id
     token = request.headers["Authorization"].replace('Bearer ', '')

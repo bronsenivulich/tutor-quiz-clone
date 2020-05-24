@@ -1,35 +1,27 @@
-{% extends 'base.html' %}
+<!-- Student Home Page -->
 
+{% extends 'base.html' %}
 
 {% block content %}
 
 
 <div class="container homeContainer">
+
+  <!-- Card holding requests from tutors -->
   <div class="container p-2 pt-4">
-    <div class="card">
-      <h3 class="card-header" data-unsp-sanitized="clean">Announcement</h3>
-      <div class="card-body">
-
-        <div class="row d-flex justify-content-between">
-          <div class="col-sm-12" style="text-align: left;">
-            Hey guys, could you please read this before attempting the quiz. Cheers
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="container p-2">
     <div class="card">
       <h3 class="card-header" data-unsp-sanitized="clean">Tutor Requests</h3>
       <div class="card-body">
         <div id="token" data-token='{{ token }}'></div>
         <div id="requests">
+
+          <!-- Checks existence of tutor requests -->
           {% if requests.count()== 0 %}
           <div class="col-sm-12" style="text-align: center;">
             You have no tutor requests
           </div>
+
+          <!-- Itterates through all requests from tutors and renders information to the page -->
           {% else %}
           {% for request in requests %}
           <div id="{{ request.id }}">
@@ -43,16 +35,21 @@
     </div>
   </div>
 
+  <!-- Card holding list of current tutors -->
   <div class="container p-2">
     <div class="card">
       <h3 class="card-header" data-unsp-sanitized="clean">Tutors</h3>
       <div class="card-body">
         <div style="text-align: center;" id="tutors">
+          
+          <!-- Checks existence of current tutors -->
           {% if tutors.count()== 0 %}
-          <div class="col-sm-12" style="text-align: left;">
+          <div class="col-sm-12" style="text-align: center;">
             You have no tutors
           </div>
           {% else %}
+
+          <!-- Itterates through tutors and renders information to the page -->
           {% for tutor in tutors %}
           <div id="{{ tutor.id }}">
             <span>{{User.query.filter_by(id=tutor.tutorId).first().username}}</span>
@@ -65,20 +62,24 @@
     </div>
   </div>
 
+  <!-- Card holding any assigned and uncompleted quizzes -->
   <div class="container p-2">
     <div class="card">
       <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
       <div class="card-body">
-
         <div class="row d-flex justify-content-between">
+
+          <!-- Checks for uncompleted quizzes -->
           {% if uncompletedQuizzes|length == 0 %}
-          <div class="col-sm-3" style="text-align: left;">
-            You have no assigned quizzes
+          <div class="col-sm-12" style="text-align: left;">
+            You have no uncompleted quizzes
           </div>
           {% else %}
           <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
           <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Tutor</strong></div>
           <div class="col-sm-4 pb-2"></div>
+
+          <!-- Itterates through uncompleted quizzes and renders information to the page -->
           {% for uncompletedQuiz in uncompletedQuizzes %}
           <div class="col-sm-4 pt-2" style="text-align: left;">
             {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
@@ -100,13 +101,16 @@
     </div>
   </div>
 
+  <!-- Card for assigned and completed quizzes -->
   <div class="container p-2 pb-4">
     <div class="card">
       <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
       <div class="card-body">
         <div class="row d-flex justify-content-between">
+
+          <!-- Checks for any completed quizzes -->
           {% if completedQuizzes|length == 0 %}
-          <div class="col-sm-3" style="text-align: left;">
+          <div class="col-sm-12" style="text-align: left;">
             You have no completed any quizzes
           </div>
           {% else %}
@@ -114,6 +118,8 @@
           <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Tutor</strong></div>
           <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Score</strong></div>
           <div class="col-sm-3 pb-2"></div>
+
+          <!-- Itterates through completed quizzes and renders information to the page -->
           {% for completedQuiz in completedQuizzes %}
           <div class="col-sm-3 pt-2" style="text-align: left;">
             {{Quiz.query.filter_by(id=completedQuiz.quizId).first().name }}

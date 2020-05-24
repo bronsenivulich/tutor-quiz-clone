@@ -44,7 +44,7 @@ def home():
             else :
                 uncompletedQuizzes.append(studentQuiz)
 
-        return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User,
+        return render_template("home-student.html", title="Home Page", userType=userType, token=token, User=User,
                                requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes,
                                uncompletedQuizzes=uncompletedQuizzes, StudentQuiz=StudentQuiz, Score=Score)
 
@@ -64,7 +64,7 @@ def home():
                 uncompletedQuizzes.append(studentQuiz)
         for uc in uncompletedQuizzes:
             print("id", uc.id)
-    return render_template("home_tutor.html", title="Home Page", userType=userType, token=token,
+    return render_template("home-tutor.html", title="Home Page", userType=userType, token=token,
                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz,
                            Score = Score, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Quiz=Quiz)
 
@@ -136,7 +136,7 @@ def reset_password_request():
             send_password_reset_email(user)
         flash('Check your email for the instructions to reset your password')
         return redirect(url_for('login'))
-    return render_template('reset_password_request.html', 
+    return render_template('reset-password-request.html', 
                             title='Reset Password', form=form)
 
 
@@ -158,7 +158,7 @@ def reset_password(token):
         db.session.commit()
         flash('Your password has been reset.')
         return redirect(url_for('login'))
-    return render_template('reset_password.html', form=form)
+    return render_template('reset-password.html', form=form)
 
 # Request student page
 @app.route('/request-student', methods=['GET', 'POST'])
@@ -218,7 +218,7 @@ def student_assignment():
             db.session.add(studentQuiz)
             db.session.commit()
             flash('Student has been assigned')
-        return render_template('assignStudent.html', title='Assign Student to a Quiz', form=form)
+        return render_template('assign-student.html', title='Assign Student to a Quiz', form=form)
 
     else:
         return redirect(url_for('index'))
@@ -251,7 +251,7 @@ def complete_quiz(id):
             return redirect(url_for("home"))
 
         else:
-            return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
+            return render_template('complete-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
     
     else:
         return redirect(url_for('index'))
@@ -260,17 +260,18 @@ def complete_quiz(id):
 @app.route('/quiz/review/<int:id>')
 def review_quiz(id):
     
-    # Check user authentication
+    # Check user authentication z
     if current_user.is_authenticated:
         token = current_user.get_token()
         
         # Ensure quiz has been completed
         score = Score.query.filter_by(studentQuizId=id).first()
+        student = User.query.filter_by(id=StudentQuiz.query.filter_by(id=id).first().studentId).first()
         if score is None:
             flash("This quiz has not been completed.")
             return redirect(url_for("home"))
 
-        return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
+        return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz, score=score, student=student)
 
     else:
         return redirect(url_for('index'))
