@@ -189,3 +189,18 @@ background-attachment: fixed;
     font-size: 120%;
 }
 
+.gif-container {
+  background: url("../img/404gif.gif") center;
+  background-size: cover;
+  height: 100%;
+}
+
+#backButton {
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto;
+    left: 2%;
+    right: 2%;
+    top: 10%;
+    font-size: 50px;
+}
