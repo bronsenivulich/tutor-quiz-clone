@@ -48,29 +48,25 @@
 
     <div class="container p-2">
         <div class="card">
-            <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
+            <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
-                    {% if completedQuizzes|length == 0 %}
+                    {% if uncompletedQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
-                        No sudent has completed their quizzes
+                        No assigned quizzes
                     </div>
                     {% else %}
-                    <div class="col-sm-3 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
-                    <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Student</strong></div>
-                    <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Score</strong></div>
-                    <div class="col-sm-3 pb-2"></div>
-                    {% for completedQuizzes in completedQuizzes %}
-                    <div class="col-sm-3 pt-2" style="text-align: left;">
-                        {{Quiz.query.filter_by(id=completedQuizzes).first().name }}
+                    <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
+                    <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Student</strong></div>
+                    <div class="col-sm-4 pb-2"></div>
+                    {% for uncompletedQuiz in uncompletedQuizzes %}
+                    <div class="col-sm-4 pt-2" style="text-align: left;">
+                        {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
                     </div>
-                    <div class="col-sm-3 pt-2" style="text-align: center;">
-                        {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=completedQuizzes).first().studentId).first().username}}
+                    <div class="col-sm-4 pt-2" style="text-align: center;">
+                        {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=uncompletedQuiz.quizId).first().studentId).first().username}}
                     </div>
-                    <div class="col-sm-3 pt-2" style="text-align: center;">
-                        {{Score.query.filter_by(studentQuizId=completedQuizzes).first().score}}
-                    </div>
-                    <div class="col-sm-3 pt-2" style="text-align: right;">
+                    <div class="col-sm-4 pt-2" style="text-align: right;">
                         <button class="assigned-quiz">
                             Review Quiz
                         </button>
@@ -84,25 +80,29 @@
 
     <div class="container p-2">
         <div class="card">
-            <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
+            <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
-                    {% if uncompletedQuizzes|length == 0 %}
+                    {% if completedQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
-                        No assigned quizzes
+                        No sudent has completed their quizzes
                     </div>
                     {% else %}
-                    <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
-                    <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Student</strong></div>
-                    <div class="col-sm-4 pb-2"></div>
-                    {% for uncompletedQuizzes in uncompletedQuizzes %}
-                    <div class="col-sm-4 pt-2" style="text-align: left;">
-                        {{Quiz.query.filter_by(id=uncompletedQuizzes).first().name }}
+                    <div class="col-sm-3 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
+                    <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Student</strong></div>
+                    <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Score</strong></div>
+                    <div class="col-sm-3 pb-2"></div>
+                    {% for completedQuiz in completedQuizzes %}
+                    <div class="col-sm-3 pt-2" style="text-align: left;">
+                        {{Quiz.query.filter_by(id=completedQuiz.id).first().name }}
                     </div>
-                    <div class="col-sm-4 pt-2" style="text-align: center;">
-                        {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=uncompletedQuizzes).first().studentId).first().username}}
+                    <div class="col-sm-3 pt-2" style="text-align: center;">
+                        {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=completedQuiz.id).first().studentId).first().username}}
                     </div>
-                    <div class="col-sm-4 pt-2" style="text-align: right;">
+                    <div class="col-sm-3 pt-2" style="text-align: center;">
+                        {{Score.query.filter_by(studentQuizId=completedQuiz.id).first().score}}
+                    </div>
+                    <div class="col-sm-3 pt-2" style="text-align: right;">
                         <button class="assigned-quiz">
                             Review Quiz
                         </button>
