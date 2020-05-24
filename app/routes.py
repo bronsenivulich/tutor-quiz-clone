@@ -41,7 +41,7 @@ def home():
 
         return render_template("home_student.html", title="Home Page", userType=userType, token=token, User=User, 
                                 requests=requests, tutors=tutors, Quiz=Quiz, completedQuizzes=completedQuizzes, 
-                                uncompletedQuizzes=uncompletedQuizzes, Score=Score)
+                                uncompletedQuizzes=uncompletedQuizzes, StudentQuiz=StudentQuiz, Score=Score)
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
         tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id)
@@ -177,3 +177,10 @@ def complete_quiz(id):
     token = current_user.get_token()
     
     return render_template('complete_quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
+
+
+@app.route('/quiz/review/<int:id>')
+def review_quiz(id):
+    token = current_user.get_token()
+    
+    return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
