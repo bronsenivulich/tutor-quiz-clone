@@ -2,7 +2,7 @@ from app import db
 from app.api import bp
 from app.api.errors import bad_request
 from app.api.auth import token_auth
-from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution, Score, ShortSolution
+from app.models import User, UserType, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution, Score, ShortSolution
 from flask import jsonify, request, url_for
 
 @bp.route('/quizzes/<int:id>', methods=['GET'])
@@ -10,10 +10,16 @@ from flask import jsonify, request, url_for
 def get_quiz(id):
     quiz = Quiz.query.filter_by(id=id).first()
 
+    token = request.headers["Authorization"].replace("Bearer ","")
+    user = User.query.filter_by(token=token).first()
+    
+    
+
     responseData = {}
     responseData["name"] = quiz.name
     responseData["body"] = quiz.body
     responseData["tutorId"] = quiz.tutorId
+
 
     questions = Question.query.filter_by(quizId=id)
     questionsToSend = []
@@ -23,6 +29,10 @@ def get_quiz(id):
             questionToSend["questionType"] = "shortAnswer"
             questionToSend["question"] = question.question
             questionToSend["questionId"] = question.id
+            questionToSend["shortAnswerId"] = ShortAnswer.query.filter_by(questionId=question.id).first().id
+            if UserType.query.filter_by(id=user.userType).first().userType == "tutor":
+                questionToSend["currentAnswer"] = ShortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
+
         elif MultiSolution.query.filter_by(questionId=question.id).first() is not None:
             questionToSend = {}
             questionToSend["questionType"] = "multiSolution"
@@ -34,6 +44,8 @@ def get_quiz(id):
                 choice = {}
                 choice["answer"] = multiSolution.possibleAnswer
                 choice["choiceId"] = multiSolution.id
+                if UserType.query.filter_by(id=user.userType).first().userType == "tutor":
+                    choice["isCorrect"] = multiSolution.correctAnswer
                 choices.append(choice)
             questionToSend["options"] = choices
         questionsToSend.append(questionToSend)

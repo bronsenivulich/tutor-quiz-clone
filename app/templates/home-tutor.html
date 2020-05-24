@@ -69,11 +69,11 @@
             <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
-                    
+
                     <!-- Checks for creates and assigned quizzes -->
                     {% if uncompletedQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
-                        No assigned quizzes
+                        No incomplete quizzes
                     </div>
                     {% else %}
                     <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
@@ -89,9 +89,11 @@
                         {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=uncompletedQuiz.quizId).first().studentId).first().username}}
                     </div>
                     <div class="col-sm-4 pt-2" style="text-align: right;">
-                        <button class="assigned-quiz">
-                            Review Quiz
-                        </button>
+                        <a href="{{ url_for('edit_quiz', id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().id) }} ">
+                            <button class="assigned-quiz">
+                                Review Quiz
+                            </button>
+                        </a>
                     </div>
                     {% endfor %}
                     {% endif %}
@@ -132,9 +134,9 @@
                     <div class="col-sm-3 pt-2" style="text-align: right;">
                         <a href="{{ url_for('review_quiz',id=completedQuiz.id) }}" style="text-decoration: none;">
                             <button class="complete-quiz">
-                              Review Quiz
+                                Review Quiz
                             </button>
-                          </a>
+                        </a>
                     </div>
                     {% endfor %}
                     {% endif %}
@@ -143,7 +145,7 @@
         </div>
     </div>
 
-    
+
 </div>
 
 {% endblock %}
