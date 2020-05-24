@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+<!-- Tutor Home Page -->
 
+{% extends 'base.html' %}
 
 {% block content %}
 
-
 <div class="container homeContainer">
+
+    <!-- Adds button to allow tutor to create a quiz  -->
     <div class="row d-flex justify-content-between pt-1" id="homeHeader">
         <div class="col-sm-6 py-3 px-4">
+
+            <!-- Redirects to the "Create Quiz" page -->
             <a href="{{ url_for('create_quiz') }}" style="text-decoration: none;">
                 <button class="p-3">
                     <div class="row d-flex justify-content-between">
@@ -19,6 +23,8 @@
         </div>
 
         <div class="col-sm-6 py-3 px-4">
+
+            <!-- Redirects to the "Request Student" page -->
             <a href="{{ url_for('request_student') }}" style="text-decoration: none;">
                 <button class="p-3">
                     <div class="row d-flex justify-content-between">
@@ -31,26 +37,40 @@
         </div>
     </div>
 
+    <!-- Card that hold tutors current students -->
     <div class="container p-2">
         <div class="card">
-            <h3 class="card-header" data-unsp-sanitized="clean">Add Announcement</h3>
+            <h3 class="card-header" data-unsp-sanitized="clean">Students</h3>
             <div class="card-body">
+                <div style="text-align: center;" id="tutors">
 
-                <div class="row d-flex justify-content-between">
-                    <div class="col-sm-12" style="text-align: left;">
-                        Hey guys, could you please read this before attempting the quiz. Cheers
+                    <!-- Checks for current students -->
+                    {% if students.count()== 0 %}
+                    <div class="col-sm-12" style="text-align: center;">
+                        You have no students
                     </div>
-                </div>
 
+                    <!-- Itterates through students and renders information to the page -->
+                    {% else %}
+                    {% for student in students %}
+                    <div id="{{ student.id }}">
+                        <span>{{User.query.filter_by(id=student.studentId).first().username}}</span>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Container for quizzes students are yet to complete -->
     <div class="container p-2">
         <div class="card">
             <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
+                    
+                    <!-- Checks for creates and assigned quizzes -->
                     {% if uncompletedQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
                         No assigned quizzes
@@ -59,6 +79,8 @@
                     <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
                     <div class="col-sm-4 pb-2" style="text-align: center;"><strong>Student</strong></div>
                     <div class="col-sm-4 pb-2"></div>
+
+                    <!-- Itterates through uncompleted quizzes and render information to the page -->
                     {% for uncompletedQuiz in uncompletedQuizzes %}
                     <div class="col-sm-4 pt-2" style="text-align: left;">
                         {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
@@ -78,11 +100,14 @@
         </div>
     </div>
 
-    <div class="container p-2">
+    <!-- Container to hold quizzes students have completed -->
+    <div class="container p-2 pb-4">
         <div class="card">
             <h3 class="card-header" data-unsp-sanitized="clean">Completed Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
+
+                    <!-- Check for completed quizzes -->
                     {% if completedQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
                         No sudent has completed their quizzes
@@ -92,6 +117,8 @@
                     <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Student</strong></div>
                     <div class="col-sm-3 pb-2" style="text-align: center;"><strong>Score</strong></div>
                     <div class="col-sm-3 pb-2"></div>
+
+                    <!-- Itterates through completed quizzes and render the information to the page -->
                     {% for completedQuiz in completedQuizzes %}
                     <div class="col-sm-3 pt-2" style="text-align: left;">
                         {{Quiz.query.filter_by(id=completedQuiz.id).first().name }}
@@ -116,26 +143,7 @@
         </div>
     </div>
 
-    <div class="container p-2 pb-4">
-        <div class="card">
-            <h3 class="card-header" data-unsp-sanitized="clean">Students</h3>
-            <div class="card-body">
-                <div style="text-align: center;" id="tutors">
-                    {% if students.count()== 0 %}
-                    <div class="col-sm-12" style="text-align: center;">
-                        You have no students
-                    </div>
-                    {% else %}
-                    {% for student in students %}
-                    <div id="{{ student.id }}">
-                        <span>{{User.query.filter_by(id=student.studentId).first().username}}</span>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 {% endblock %}

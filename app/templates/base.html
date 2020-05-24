@@ -1,3 +1,5 @@
+<!-- Base page for all other pages of the site -->
+
 <!DOCTYPE html>
 <html>
 <!--Adds favicon to every page-->
@@ -26,18 +28,21 @@
     {% endblock%}
 </head>
 
+<!-- Include backround image -->
 {% block image %}
-
 <body class="bg"
     style="background-image: url({{ url_for('static', filename='img/background-image.jpg') }}); opacity: 0.9;"></body>
 {% endblock %}
 
+<!-- Universal navigation bar -->
 <nav class="navbar navbar-expand-lg navbar shadow">
     {% if current_user.is_anonymous %}
     <a class="navbar-brand" href="{{ url_for('index') }}">
         {% else %}
         <a class="navbar-brand" href="{{ url_for('home') }}">
             {% endif %}
+
+            <!-- Our page logo -->
             <div class="logo-image">
                 <img src="{{ url_for('static', filename='img/logo.svg') }}" class="img-fluid logo">
             </div>
@@ -48,6 +53,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+
+                <!-- All necessary links to other pages -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('home') }}">Home</a>
                 </li>
@@ -67,6 +74,7 @@
         </div>
 </nav>
 
+<!-- Any flashed message will appear like this -->
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 <ul>

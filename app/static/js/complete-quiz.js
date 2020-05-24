@@ -7,22 +7,27 @@ $(document).ready(() => {
         let questions = quizData.questions
         let qNum = 1
 
+        // Itterate through each question to append to the page
         questions.forEach(function (entry) {
+
+            // Append in this way if it is a short answer
             if (entry.questionType == "shortAnswer") {
                 $('#completeQuiz').append(`
                 <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                <h5 class="question-title">Question: ${qNum}</h5><br>
+                <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p class="pb-1">
                     <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
-                    <label class="form-headers mt-2 mr-2">Answer</label>
-                    <input type='text' class="form-fields answer"></input>
+                    <label class="formHeaders mt-2 mr-2">Answer</label>
+                    <input type='text' class="formFields answer"></input>
                 </p>
                 </div><br><hr>`);
             }
+
+            // Append this way if a multiple-choice
             else if (entry.questionType == "multiSolution") {
                 $('#completeQuiz').append(`
                 <div id="question_${qNum}" class="wholeQuestion multiSolution">
-                <h5 class="question-title">Question: ${qNum}</h5><br>
+                <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p>
                 <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                 <div class="row d-flex justify-content-center px-5 mx-5"></div>
@@ -40,9 +45,7 @@ $(document).ready(() => {
         });
     }
 
-
-
-
+    // Get the data from the quiz questions
     $.ajax({
         url: `/api/quizzes/${quizId}`,
         type: "get",
@@ -55,39 +58,49 @@ $(document).ready(() => {
         }
     });
 
+    // When the submit button is pressed, run the submit function
     $("#submitQuiz").click(function () {
-        console.log("click")
         $("#completeQuiz").submit();
     });
 
-    
     let errorChecked = false
 
+    // Submit function
     $("#completeQuiz").submit(function () {
 
+        // Keep track of whether there is an error in the form
         error = false
 
-        let formFields = $("#completeQuiz").find(".form-fields").toArray()
+        let formFields = $("#completeQuiz").find(".formFields").toArray()
         console.log(formFields)
 
+        // Itterate through each form field
         formFields.forEach(function (entry) {
+
+            // If the field is empty raise this error
             if ($(entry).val().length === 0) {
                 if (!$("#emptyField-error").length) {
                     $('#completeQuiz').append(`
                         <span id="emptyField-error" style="color: red;">You have an empty field, would you like to submit anyway?</span>
                     `);
                 }
+            
+            // Error raised
             error = true
             }
         });
 
+        // If there is no errors or the error has already been checked submit responses
         if (error == false || errorChecked) {
 
             let answers = $("#completeQuiz").children(".wholeQuestion").toArray()
 
             let allAnswers = []
 
+            // Itterate through each answer
             answers.forEach(function (entry) {
+
+                // If it is an answer to a short answer push data to API in this way
                 if ($(entry).hasClass("shortAnswer")) {
                     answer = {
                         "questionType": "shortAnswer",
@@ -96,6 +109,8 @@ $(document).ready(() => {
                     }
                     allAnswers.push(answer)
                 }
+
+                // If it is an answer to a multiple-choice push data to API in this way
                 else if ($(entry).hasClass("multiSolution")) {
                     answer = {
                         "questionType": "multiSolution",
@@ -106,10 +121,12 @@ $(document).ready(() => {
                 }
             });
 
+            // Store the data
             data = {
                 "answers": allAnswers
             }
 
+            // Asynchronously push the data to an API and to the database
             $.ajax({
                 url: `/api/quizzes/submit/${quizId}`,
                 data: JSON.stringify(data),
@@ -125,6 +142,7 @@ $(document).ready(() => {
             });
         }
 
+        // If the error has not been checked, do not submit the form
         else {
             errorChecked = true
             return false

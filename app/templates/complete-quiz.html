@@ -1,12 +1,16 @@
+<!-- Page to take quizzes -->
+
 {% extends 'base.html' %}
 
 {% block head %}
+<!-- Link to JavaScript -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/complete-quiz.js') }}"></script>
 {% endblock %}
 
 {% block content %}
 
 <div class="container col-md-6 homeContainer" style="text-align: center;">
+    <!-- Items that aren't specific to each quiz -->
     <div class="p-3">
         <br>
         <h1 class="mt-3">{{Quiz.query.filter_by(id=id).first().name }}</h1>
