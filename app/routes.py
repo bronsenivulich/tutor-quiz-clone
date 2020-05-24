@@ -260,17 +260,18 @@ def complete_quiz(id):
 @app.route('/quiz/review/<int:id>')
 def review_quiz(id):
     
-    # Check user authentication
+    # Check user authentication z
     if current_user.is_authenticated:
         token = current_user.get_token()
         
         # Ensure quiz has been completed
         score = Score.query.filter_by(studentQuizId=id).first()
+        student = User.query.filter_by(id=StudentQuiz.query.filter_by(id=id).first().studentId).first()
         if score is None:
             flash("This quiz has not been completed.")
             return redirect(url_for("home"))
 
-        return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz)
+        return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz, score=score, student=student)
 
     else:
         return redirect(url_for('index'))

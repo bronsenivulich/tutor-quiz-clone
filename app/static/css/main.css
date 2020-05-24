@@ -149,3 +149,24 @@ background-attachment: fixed;
     font-family: inherit;
     text-align: center;
 }
+
+.reviewPageAnswer {
+    color: #2CA015;
+    font-weight: 500;
+}
+
+.reviewCorrectAnswer {
+    color: #2CA015;
+    font-weight: 500;
+}
+
+.reviewFalseAnswer {
+    color: red;
+    font-weight: 500;
+}
+
+.score {
+    font-weight: 750;
+    font-size: 120%;
+}
+

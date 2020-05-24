@@ -103,9 +103,11 @@
                         {{Score.query.filter_by(studentQuizId=completedQuiz.id).first().score}}
                     </div>
                     <div class="col-sm-3 pt-2" style="text-align: right;">
-                        <button class="assigned-quiz">
-                            Review Quiz
-                        </button>
+                        <a href="{{ url_for('review_quiz',id=completedQuiz.id) }}" style="text-decoration: none;">
+                            <button class="complete-quiz">
+                              Review Quiz
+                            </button>
+                          </a>
                     </div>
                     {% endfor %}
                     {% endif %}
