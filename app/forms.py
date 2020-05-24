@@ -65,7 +65,7 @@ class ResetPasswordForm(FlaskForm):
 
 # Form to request a new student
 class RequestStudentForm(FlaskForm):
-    student = StringField('Student User Name', validators=[DataRequired()])
+    student = StringField('Student Username', validators=[DataRequired()])
     submit = SubmitField('Request Student')
 
     def validate_student(self, student):
@@ -94,7 +94,7 @@ class RequestStudentForm(FlaskForm):
 
 # Form to assign a student to a quiz
 class AssignStudentForm(FlaskForm):
-    student = StringField('Student User Name', validators=[DataRequired()])
+    student = StringField('Student Username', validators=[DataRequired()])
     quizName = StringField('Quiz Name', validators=[DataRequired()])
     submit = SubmitField('Assign Student')
 
