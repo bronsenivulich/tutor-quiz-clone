@@ -4,6 +4,7 @@ $(document).ready(() => {
     let token = $("#data").data("token")
 
     function showQuiz(quizData) {
+
         let questions = quizData.questions
         let qNum = 1
 
@@ -57,8 +58,6 @@ $(document).ready(() => {
             qNum = qNum + 1;
         });
     }
-
-
 
 
     $.ajax({
