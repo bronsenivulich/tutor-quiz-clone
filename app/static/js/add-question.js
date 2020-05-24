@@ -15,7 +15,8 @@ $(document).ready(() => {
             <label class="form-headers" style="font-weight: 500;">Answer:</label><br>
             <input type='text' class="form-fields answer"></input>
         </p>
-        </div><br><hr>`);
+        <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+        <br><hr></div>`);
 
         qNum = qNum + 1;
     });
@@ -43,11 +44,19 @@ $(document).ready(() => {
                 </div>
             </div>
             </p>
-        </div><br><hr>
+            <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+        <br><hr></div>
         `);
 
         qNum = qNum + 1;
-    })
+    });
+
+    $(document).on("click", ".removeQuestion" , function() {
+        $(this).parent().remove();
+        qNum = qNum - 1;
+    });
+
+
 
     $("#submit-quiz").click(function () {
         $("#newQuiz").submit();
@@ -67,7 +76,6 @@ $(document).ready(() => {
 
         else {
             let formFields = $("#newQuiz").find(".form-fields").toArray()
-            console.log(formFields)
 
             formFields.forEach(function (entry) {
                 if ($(entry).val().length === 0) {
