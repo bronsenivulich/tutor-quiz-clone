@@ -125,7 +125,7 @@
             {{Score.query.filter_by(studentQuizId=completedQuiz.id).first().score}}
           </div>
           <div class="col-sm-3 pt-2" style="text-align: right;">
-            <a href="{{ url_for('review_quiz',id=StudentQuiz.query.filter_by(studentId=current_user.id,quizId=completedQuiz.id).first().id) }}" style="text-decoration: none;">
+            <a href="{{ url_for('review_quiz',id=StudentQuiz.query.filter_by(studentId=current_user.id,quizId=completedQuiz.quizId).first().id) }}" style="text-decoration: none;">
               <button class="complete-quiz">
                 Review Quiz
               </button>
