@@ -207,7 +207,7 @@ class ShortSolution(db.Model):
 class Score(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     studentQuizId = db.Column(db.Integer, db.ForeignKey('student_quiz.id'))
-    score = db.Column(db.Integer)
+    score = db.Column(db.String(32))
 
     def __repr__(self):
         return f"<User {self.score}>"

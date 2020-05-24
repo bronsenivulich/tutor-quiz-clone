@@ -2,7 +2,7 @@ from app import db
 from app.api import bp
 from app.api.errors import bad_request
 from app.api.auth import token_auth
-from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution, Score
+from app.models import User, Quiz, Question, ShortAnswer, StudentQuiz, MultiSolution, Score, ShortSolution
 from flask import jsonify, request, url_for
 
 @bp.route('/quizzes/<int:id>', methods=['GET'])
@@ -23,7 +23,6 @@ def get_quiz(id):
             questionToSend["questionType"] = "shortAnswer"
             questionToSend["question"] = question.question
             questionToSend["questionId"] = question.id
-            questionToSend["answer"] = ShortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
         elif MultiSolution.query.filter_by(questionId=question.id).first() is not None:
             questionToSend = {}
             questionToSend["questionType"] = "multiSolution"
@@ -37,6 +36,49 @@ def get_quiz(id):
                 choice["choiceId"] = multiSolution.id
                 choices.append(choice)
             questionToSend["options"] = choices
+        questionsToSend.append(questionToSend)
+
+    responseData["questions"] = questionsToSend
+
+    return responseData
+
+
+@bp.route('/quizzes/completed/<int:id>', methods=['GET'])
+@token_auth.login_required()
+def get_completed_quiz(id):
+
+    studentQuiz = StudentQuiz.query.filter_by(id=id).first()
+    quiz = Quiz.query.filter_by(id=studentQuiz.quizId).first()
+
+    token = request.headers["Authorization"].replace("Bearer ","")
+    user = User.query.filter_by(token=token).first()
+    if studentQuiz.studentId != user.id:
+        resp = {"MSG":"You are not allowed to view this quiz."}
+        return resp
+
+    
+    responseData = {}
+    responseData["name"] = quiz.name
+    responseData["body"] = quiz.body
+    responseData["tutorId"] = quiz.tutorId
+
+    questions = Question.query.filter_by(quizId=quiz.id)
+    questionsToSend = []
+    for question in questions:
+        if ShortAnswer.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "shortAnswer"
+            questionToSend["question"] = question.question
+            questionToSend["questionId"] = question.id
+            questionToSend["answer"] = ShortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
+            questionToSend["submittedAnswer"] = ShortSolution.query.filter_by(questionId=question.id, studentQuizId=studentQuiz.id).first().studentAnswer
+        elif MultiSolution.query.filter_by(questionId=question.id).first() is not None:
+            questionToSend = {}
+            questionToSend["questionType"] = "multiSolution"
+            questionToSend["question"] = question.question
+            questionToSend["questionId"] = question.id
+            questionToSend["answers"] = [mc.possibleAnswer for mc in MultiSolution.query.filter_by(questionId=question.id,correctAnswer=True).all()]
+            questionToSend["submittedAnswer"] = MultiSolution.query.filter_by(id=ShortSolution.query.filter_by(questionId=question.id, studentQuizId=studentQuiz.id).first().studentAnswer).first().possibleAnswer
         questionsToSend.append(questionToSend)
 
     responseData["questions"] = questionsToSend
@@ -110,7 +152,7 @@ def submitQuiz(id):
     quizId = id
     token = request.headers["Authorization"].replace('Bearer ', '')
     studentId = User.check_token(token).id
-
+    studentQuiz = StudentQuiz.query.filter_by(quizId=quizId,studentId=studentId).first()
     totalQuestions = 0
     totalScore = 0
     for answer in data["answers"]:
@@ -118,17 +160,28 @@ def submitQuiz(id):
         if answer["questionType"] == "shortAnswer":
             question = Question.query.filter_by(id=answer["questionId"]).first()
             shortAnswer = ShortAnswer.query.filter_by(questionId=question.id).first()
+            shortSolution = ShortSolution()
+            shortSolution.questionId = answer["questionId"]
+            shortSolution.studentQuizId = studentQuiz.id
+            shortSolution.studentAnswer = answer["studentAnswer"]
+            db.session.add(shortSolution)
+            db.session.commit()
             if answer["studentAnswer"] == shortAnswer.correctAnswer:
                 totalScore = totalScore + 1
         elif answer["questionType"] == "multiSolution":
             multiSolution = MultiSolution.query.filter_by(id=answer["studentAnswer"]).first()
+            shortSolution = ShortSolution()
+            shortSolution.questionId = answer["questionId"]
+            shortSolution.studentQuizId = studentQuiz.id
+            shortSolution.studentAnswer = answer["studentAnswer"]
+            db.session.add(shortSolution)
+            db.session.commit()
             if multiSolution.correctAnswer == True:
                 totalScore += 1
 
     score = Score()
-    studentQuiz = StudentQuiz.query.filter_by(quizId=quizId,studentId=studentId).first()
     score.studentQuizId = studentQuiz.id
-    score.score = totalScore
+    score.score = f"{totalScore}/{totalQuestions}"
     db.session.add(score)
     db.session.commit()
 
