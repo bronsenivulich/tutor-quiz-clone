@@ -4,42 +4,42 @@ $(document).ready(() => {
 
     let token = $("#newQuiz").data("token")
 
-    $('#question-button').click(function () {
+    $('#questionButton').click(function () {
 
         $('#newQuiz').append(`
         <div id="question_${qNum}" class="wholeQuestion shortAnswer">
-        <h5 class="question-title">Question: ${qNum}</h5>
+        <h5 class="questionTitle">Question: ${qNum}</h5>
         <p class="pb-1">
-            <label class="form-headers" style="font-weight: 500;">Question:</label><br>
-            <textarea class="form-fields question"></textarea><br>
-            <label class="form-headers" style="font-weight: 500;">Answer:</label><br>
-            <input type='text' class="form-fields answer"></input>
+            <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
+            <textarea class="formFields question"></textarea><br>
+            <label class="formHeaders" style="font-weight: 500;">Answer:</label><br>
+            <input type='text' class="formFields answer"></input>
         </p>
         </div><br><hr>`);
 
         qNum = qNum + 1;
     });
 
-    $('#multiQuestion-button').click(function () {
+    $('#multiQuestionButton').click(function () {
         $('#newQuiz').append(`
         <div id="question_${qNum}" class="wholeQuestion multiSolution">
-        <h5 class="question-title">Question: ${qNum}</h5>
+        <h5 class="questionTitle">Question: ${qNum}</h5>
         <p class="pb-1">
-            <label class="form-headers" style="font-weight: 500;">Question:</label><br>
-            <textarea class="form-fields question"></textarea><br><br>
-            <label class="form-headers" style="font-weight: 500;">Possible Answers:</label>
+            <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
+            <textarea class="formFields question"></textarea><br><br>
+            <label class="formHeaders" style="font-weight: 500;">Possible Answers:</label>
             <div class="possibleAnswers">
                 <div id="optionA">
-                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionB">
-                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionC">
-                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
                 <div id="optionD">
-                    <input type='text' class="form-fields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
                 </div>
             </div>
             </p>
@@ -49,7 +49,7 @@ $(document).ready(() => {
         qNum = qNum + 1;
     })
 
-    $("#submit-quiz").click(function () {
+    $("#submitQuiz").click(function () {
         $("#newQuiz").submit();
     });
 
@@ -57,16 +57,16 @@ $(document).ready(() => {
 
         error = false
         if (qNum <= 1) {
-            if (!$("#qNum-error").length) {
+            if (!$("#qNumError").length) {
                 $('#newQuiz').append(`
-                    <span id="qNum-error" style="color: red;">Cannot submit a quiz with no questions.</span>
+                    <span id="qNumError" style="color: red;">Cannot submit a quiz with no questions.</span>
                 `);
             }
             error = true
         }
 
         else {
-            let formFields = $("#newQuiz").find(".form-fields").toArray()
+            let formFields = $("#newQuiz").find(".formFields").toArray()
             console.log(formFields)
 
             formFields.forEach(function (entry) {
@@ -120,10 +120,10 @@ $(document).ready(() => {
 
 
             data = {
-                "body": $("#quiz-body").val(),
-                "name": $("#quiz-name").val(),
+                "body": $("#quizBody").val(),
+                "name": $("#quizName").val(),
                 "questions": allQuestions,
-                "studentName": $("#assign-students").val()
+                "studentName": $("#assignStudents").val()
             };
 
             $.ajax({

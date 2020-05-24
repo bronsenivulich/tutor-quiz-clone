@@ -7,8 +7,8 @@
         <form class="mt-4" action='' method='post'>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.student.label(class="form-headers") }} <br>
-                {{ form.student(class="form-fields")}} <br>
+                {{ form.student.label(class="formHeaders") }} <br>
+                {{ form.student(class="formFields")}} <br>
                 {% for error in form.student.errors %}
                 <span style='color: red'> {{error }}</span>
                 {% endfor %}

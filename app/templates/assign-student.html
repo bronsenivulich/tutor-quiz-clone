@@ -9,15 +9,15 @@
         <form action="" method="post">
             {{ form.hidden_tag() }}
             <p>
-                {{ form.student.label(class="form-headers") }}<br>
-                {{ form.student(class="form-fields") }}<br>
+                {{ form.student.label(class="formHeaders") }}<br>
+                {{ form.student(class="formFields") }}<br>
                 {% for error in form.student.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.quizName.label(class="form-headers") }}<br>
-                {{ form.quizName(class="form-fields") }}<br>
+                {{ form.quizName.label(class="formHeaders") }}<br>
+                {{ form.quizName(class="formFields") }}<br>
                 {% for error in form.quizName.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}

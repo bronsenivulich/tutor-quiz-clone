@@ -48,7 +48,7 @@ $(document).ready(() => {
 
                 $('#completedQuiz').append(`
                 <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                <h5 class="question-title">Question: ${qNum}</h5><br>
+                <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p class="pb-1">
                     <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                     <p>Your Answer: <span class="reviewSubmittedAnswer">${entry.submittedAnswer}</span></p>
@@ -59,7 +59,7 @@ $(document).ready(() => {
 
                 // $('#completedQuiz').append(`
                 // <div id="question_${qNum}" class="wholeQuestion multiSolution">
-                // <h5 class="question-title">Question: ${qNum}</h5><br>
+                // <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 // <p>
                 // <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                 // <div class="row d-flex justify-content-center px-5 mx-5"></div>
