@@ -54,13 +54,40 @@ $(document).ready(() => {
     });
 
     $("#newQuiz").submit(function () {
-        if (qNum > 1) {
+
+        error = false
+        if (qNum = 0) {
+            $('#newQuiz').append(`
+                    <span id="qNum-error" style="color: red;">Cannot submit a quiz with no questions.</span>
+                `);
+            error = true
+        }
+
+        else {
+            let formFields = $("#newQuiz").find(".form-fields").toArray()
+            console.log(formFields)
+
+            formFields.forEach(function (entry) {
+                if ($(entry).val().length === 0) {
+                    $('#newQuiz').append(`
+                            <span id="emptyField" style="color: red;">Cannot submit a quiz with empty fields.</span>
+                        `);
+                    error = true
+                }
+            });
+        }
+
+        if (error == true) {
+            return false
+        }
+
+        else {
             let questions = $("#newQuiz").children(".wholeQuestion").toArray()
 
             let allQuestions = []
 
             questions.forEach(function (entry) {
-                if ($(entry).hasClass("shortAnswer")){
+                if ($(entry).hasClass("shortAnswer")) {
                     question = {
                         "questionType": "shortAnswer",
                         "question": $(entry).find(".question").val(),
@@ -68,7 +95,7 @@ $(document).ready(() => {
                     }
                     allQuestions.push(question)
                 }
-                else if( $(entry).hasClass("multiSolution")){
+                else if ($(entry).hasClass("multiSolution")) {
                     let possibleAnswers = $(entry).find(".possibleAnswers").children("div").toArray()
                     let answersToSend = []
                     possibleAnswers.forEach(function (possibleAnswer) {
@@ -87,13 +114,14 @@ $(document).ready(() => {
                 }
             });
 
+
             data = {
                 "body": $("#quiz-body").val(),
                 "name": $("#quiz-name").val(),
                 "questions": allQuestions,
                 "studentName": $("#assign-students").val()
             };
-
+            
             $.ajax({
                 url: "/api/quizzes/create",
                 type: "post",
@@ -103,17 +131,8 @@ $(document).ready(() => {
                 success: function (data) {
                     console.log(data);
                 }
-            });
-        }
-        else {
-            if (!$("#qNum-error").length) {
-                $('#newQuiz').append(`
-                    <span id="qNum-error" style="color: red;">Cannot submit a quiz with no questions.</span>
-                `);
-            }
-            return false
-        }
-    })
 
-
+            })
+        }
+    });
 });
