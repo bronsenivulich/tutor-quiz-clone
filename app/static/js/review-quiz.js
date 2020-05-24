@@ -7,7 +7,10 @@ $(document).ready(() => {
         let questions = quizData.questions
         let qNum = 1
 
+        // Itterate through each question
         questions.forEach(function (entry) {
+            
+            // If the question is a short answer, append to the page like this
             if (entry.questionType == "shortAnswer") {
                 $('#completedQuiz').append(`
                 <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
@@ -19,6 +22,8 @@ $(document).ready(() => {
                 </p>
                 </div><br><hr>`);
             }
+
+            // If the question is a multiple-choice, append to the page like this
             else if (entry.questionType == "multiSolution") {
 
                 let answers = "<br>"
@@ -36,31 +41,12 @@ $(document).ready(() => {
                     <span>Correct Answers: ${answers}</span>
                 </p>
                 </div><br><hr>`);
-
-
-                // $('#completedQuiz').append(`
-                // <div id="question_${qNum}" class="wholeQuestion multiSolution">
-                // <h5 class="question-title">Question: ${qNum}</h5><br>
-                // <p>
-                // <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
-                // <div class="row d-flex justify-content-center px-5 mx-5"></div>
-                // </p>
-                // </div><hr>
-                // `);
-                // let optionNum = 1;
-                // entry.options.forEach(function (option) {
-                //     $(`#question_${qNum}`).find(".row").append(`<div class="px-3"><label class="mr-2" for="choice_${option.choiceId}">${option.answer}</label><input class="multi-button" type="radio" id="choice_${option.choiceId}" name="question_${entry.questionId}" value="${option.choiceId}"></div>
-                //     `);
-                //     optionNum = optionNum + 1;
-                // })
             }
             qNum = qNum + 1;
         });
     }
 
-
-
-
+    // Asynchronously retrieve the API information for this quiz
     $.ajax({
         url: `/api/quizzes/completed/${studentQuizId}`,
         type: "get",
