@@ -1,3 +1,6 @@
+/* Styling for the landing page */
+
+/* Styling for the headers */
 .header-text {
     color: #181818;
     font-size: 300%;
@@ -20,6 +23,7 @@
     margin-bottom: 0.5%;
 }
 
+/* Styling for the decription */
 .text-description {
     text-align: center;
     font-size: 110%;
@@ -30,6 +34,7 @@
     border-radius: 30px;
 }
 
+/* Styling for the buttons */
 .landing-button {
     border: 1px solid black;
     color: black;
