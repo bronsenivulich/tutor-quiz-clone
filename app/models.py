@@ -13,7 +13,7 @@ from app import app
 def load_user(id):
     return User.query.get(int(id))
 
-
+# Model to hold the accepted tutor requests
 class UserRelationship(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -22,22 +22,25 @@ class UserRelationship(db.Model):
     def __repr__(self):
         return f"<UserRelationship - Tutor: {self.tutorId}, Student: {self.studentId}>"
 
+# Model to hold tutor requests to students
 class Request(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
     request = db.Column(db.String(64))
 
-
     def __repr__(self):
         return f"<Request - Tutor: {self.tutorId}, Student: {self.studentId}, Status: {self.request}>"
 
+    # Change request staus if accepted
     def accept(self):
         self.request = "accepted"
 
+    # Change request status if declined
     def decline(self):
         self.request = "declined"
 
+    # Turn model to a dictionary for JSON
     def to_dict(self):
         data = {
             'id': self.id,
@@ -47,7 +50,7 @@ class Request(db.Model):
         }
         return data
 
-
+# Model to hold user information
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -65,12 +68,15 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"<User {self.username}>"
 
+    # Make password save as a hash for security
     def set_password(self, password):
         self.passwordHash = generate_password_hash(password)
 
+    # Comparison for checking if password is correct
     def check_password(self, password):
         return check_password_hash(self.passwordHash, password)
 
+    # Gets student tocken which expires after an hour, at which a new token is allocated
     def get_token(self, expires_in=3600):
         now = datetime.utcnow()
         if self.token and self.token_expiration > now + timedelta(seconds=60):
@@ -81,9 +87,11 @@ class User(UserMixin, db.Model):
         db.session.commit()
         return self.token
 
+    # Removes expired token
     def revoke_token(self):
         self.token_expiration = datetime.utcnow() - timedelta(seconds=1)
 
+    # Check user token
     @staticmethod
     def check_token(token):
         user = User.query.filter_by(token=token).first()
@@ -91,7 +99,7 @@ class User(UserMixin, db.Model):
             return None
         return user
 
-    # set user_type as foreign_key for userType
+    # Set user_type as foreign_key for userType
     def set_userType(self, userType):
         self.userType =  UserType.query.filter_by(userType=userType).first().id
 
@@ -112,7 +120,7 @@ class User(UserMixin, db.Model):
             return
         return User.query.get(id)
 
-
+# Model to hold if a user is a student or a tutor
 class UserType(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userType = db.Column(db.String(64))
@@ -120,7 +128,7 @@ class UserType(db.Model):
     def __repr__(self):
         return f"<UserType {self.userType}>"
 
-
+# Model to hold quiz information
 class Quiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(140))
@@ -128,6 +136,7 @@ class Quiz(db.Model):
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    # Turns model information into a dictionary for JSON
     def to_dict(self):
         data = {
             'id': self.id,
@@ -138,6 +147,7 @@ class Quiz(db.Model):
         }
         return data
 
+    # Turns JSON dictionary to readable data for the model
     def from_dict(self, data, new_quiz=False):
         for field in ['name', 'body']:
             if field in data:
@@ -146,11 +156,13 @@ class Quiz(db.Model):
     def __repr__(self):
         return f"<Quiz {self.name}>"
 
+# Model to hold quiz assignment 
 class StudentQuiz(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+    # Turns JSON dictionary to readable data for the model
     def from_dict(self, data):
         for field in ['quizId', 'studentId']:
             if field in data:
@@ -159,11 +171,13 @@ class StudentQuiz(db.Model):
     def __repr__(self):
         return f"<StudentQuiz - QuizId: {self.quizId}, StudentId: {self.studentId} >"
 
+# Model to hold qusetion information
 class Question(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     quizId = db.Column(db.Integer, db.ForeignKey('quiz.id'))
     question = db.Column(db.String(140))
 
+    # Turns JSON dictionary to readable data for the model
     def from_dict(self, data, new_question=False):
         for field in ['quizId', 'question']:
             if field in data:
@@ -172,12 +186,14 @@ class Question(db.Model):
     def __repr__(self):
         return f"<Question {self.question}>"
 
+# Model to hold the possible multiple choice question answers
 class MultiSolution(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
     possibleAnswer = db.Column(db.String(104))
     correctAnswer = db.Column(db.Boolean(name='ck_multi_answer_boolean'))
 
+    # Turns JSON dictionary into readable data for model
     def from_dict(self, data, new_answer=False):
         for field in ['questionId', 'possibleAnswer', 'correctAnswer']:
             if field in data:
@@ -186,11 +202,13 @@ class MultiSolution(db.Model):
     def __repr__(self):
         return f"<MultiSoltuion {self.possibleAnswer}>"
 
+# Model to hold correct short answers
 class ShortAnswer(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     correctAnswer = db.Column(db.String(140))
     questionId = db.Column(db.Integer, db.ForeignKey('question.id'))
 
+    # Turns JSON dictionary into readable data for Model
     def from_dict(self, data, new_answer=False):
         for field in ['correctAnswer', 'questionId']:
             if field in data:
@@ -199,6 +217,7 @@ class ShortAnswer(db.Model):
     def __repr__(self):
         return f"<ShortAnswer {self.correctAnswer}>"
 
+# Model to hold student's input answers
 class ShortSolution(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     studentQuizId = db.Column(db.Integer, db.ForeignKey('student_quiz.id'))
@@ -208,6 +227,7 @@ class ShortSolution(db.Model):
     def __repr__(self):
         return f"<Solution {self.studentAnswer}>"
 
+# Model to hold students scores 
 class Score(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     studentQuizId = db.Column(db.Integer, db.ForeignKey('student_quiz.id'))
