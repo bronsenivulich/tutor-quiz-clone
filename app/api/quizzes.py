@@ -52,7 +52,9 @@ def get_completed_quiz(id):
 
     token = request.headers["Authorization"].replace("Bearer ","")
     user = User.query.filter_by(token=token).first()
-    if studentQuiz.studentId != user.id:
+    
+    
+    if quiz.tutorId != user.id and studentQuiz.studentId != user.id:
         resp = {"MSG":"You are not allowed to view this quiz."}
         return resp
 
