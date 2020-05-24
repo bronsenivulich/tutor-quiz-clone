@@ -13,16 +13,16 @@
         <br><hr>
         <form class="mt-4" id="newQuiz" data-token='{{ token}}'>
             <p>
-                <label class="form-headers" style="font-weight: 500;">Quiz Title</label><br>
-                <input type="text" class="form-fields" id="quiz-name">
+                <label class="formHeaders" style="font-weight: 500;">Quiz Title</label><br>
+                <input type="text" class="formFields" id="quizName">
             </p>
             <p class="mb-1">
-                <label class="form-headers" style="font-weight: 500;">Quiz Body</label><br>
-                <textarea class="form-fields" id="quiz-body"></textarea>
+                <label class="formHeaders" style="font-weight: 500;">Quiz Body</label><br>
+                <textarea class="formFields" id="quizBody"></textarea>
             </p>
             <p class="mb-1">
-                <label for="assign-students">Assign to a student:</label>
-                <select id="assign-students" name="assign-students">
+                <label for="assignStudents">Assign to a student:</label>
+                <select id="assignStudents" name="assignStudents">
                     {% for student in students %}
                     <option value="{{User.query.filter_by(id=student.studentId).first().username}}">
                         {{User.query.filter_by(id=student.studentId).first().username}}</option>
@@ -34,9 +34,9 @@
 
         </form>
 
-        <button class="mt-2 mr-3 submitButton" id="question-button">Add a new question</button>
-        <button class="mt-2 mr-3 submitButton" id="multiQuestion-button">Add multiple choice question</button>
-        <button class="mt-2 ml-3 submitButton" id="submit-quiz">Submit Quiz</button>
+        <button class="mt-2 mr-3 submitButton" id="questionButton">Add a new question</button>
+        <button class="mt-2 mr-3 submitButton" id="multiQuestionButton">Add multiple choice question</button>
+        <button class="mt-2 ml-3 submitButton" id="submitQuiz">Submit Quiz</button>
     </div>
 </div>
 

@@ -50,18 +50,18 @@ background-attachment: fixed;
     padding: 1%;
 }
 
-.form-fields {  
+.formFields {  
     width: 100%;
     max-width: 400px;
     border-radius: 4px;
     padding-left: 1%;
 }
 
-.form-headers {
+.formHeaders {
     font-size: 110%;    
 }
 
-.tutor-request {
+.tutorRequest {
     padding: 1%;
     padding-top: 2%;
 }
@@ -93,7 +93,7 @@ background-attachment: fixed;
     font-weight: 500;
 }
 
-.question-title {
+.questionTitle {
     text-align: left;
     font-style: italic;
 }

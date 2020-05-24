@@ -9,15 +9,15 @@
         <form class="mt-4" method='post'>
             {{ form.hidden_tag() }}
             <p>
-                {{ form.username.label(class="form-headers") }} <br>
-                {{ form.username(class="form-fields")}}
+                {{ form.username.label(class="formHeaders") }} <br>
+                {{ form.username(class="formFields")}}
                 {% for error in form.username.errors %}
                 <span style='color: red'> {{error }}</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.password.label(class="form-headers")}} <br>
-                {{ form.password(class="form-fields")}}
+                {{ form.password.label(class="formHeaders")}} <br>
+                {{ form.password(class="formFields")}}
                 {% for error in form.password.errors %}
                 <span style='color: red'> {{error }}</span>
                 {% endfor %}
