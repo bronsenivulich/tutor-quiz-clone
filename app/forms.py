@@ -87,9 +87,9 @@ class RequestStudentForm(FlaskForm):
         # check request has not already been sent
         studentId = User.query.filter_by(username=student.data).first().id
         tutorId = current_user.id
-        existingRequest = Request.query.filter_by(tutorId=tutorId, studentId=studentId).first().request
+        existingRequest = Request.query.filter_by(tutorId=tutorId,studentId=studentId).first()
         if existingRequest is not None:
-            if existingRequest == 'pending' or 'accepted':
+            if existingRequest.request == 'pending' or 'accepted':
                 raise ValidationError('You have already sent a request to this student.')
 
 # Form to assign a student to a quiz
