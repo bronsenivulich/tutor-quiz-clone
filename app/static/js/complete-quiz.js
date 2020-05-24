@@ -14,11 +14,11 @@ $(document).ready(() => {
             if (entry.questionType == "shortAnswer") {
                 $('#completeQuiz').append(`
                 <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                <h5 class="question-title">Question: ${qNum}</h5><br>
+                <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p class="pb-1">
                     <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
-                    <label class="form-headers mt-2 mr-2">Answer</label>
-                    <input type='text' class="form-fields answer"></input>
+                    <label class="formHeaders mt-2 mr-2">Answer</label>
+                    <input type='text' class="formFields answer"></input>
                 </p>
                 </div><br><hr>`);
             }
@@ -27,7 +27,7 @@ $(document).ready(() => {
             else if (entry.questionType == "multiSolution") {
                 $('#completeQuiz').append(`
                 <div id="question_${qNum}" class="wholeQuestion multiSolution">
-                <h5 class="question-title">Question: ${qNum}</h5><br>
+                <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p>
                 <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                 <div class="row d-flex justify-content-center px-5 mx-5"></div>
@@ -71,7 +71,7 @@ $(document).ready(() => {
         // Keep track of whether there is an error in the form
         error = false
 
-        let formFields = $("#completeQuiz").find(".form-fields").toArray()
+        let formFields = $("#completeQuiz").find(".formFields").toArray()
         console.log(formFields)
 
         // Itterate through each form field

@@ -20,7 +20,7 @@ class UserRelationship(db.Model):
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f"<User {self.tutorId}>"
+        return f"<UserRelationship - Tutor: {self.tutorId}, Student: {self.studentId}>"
 
 # Model to hold tutor requests to students
 class Request(db.Model):
@@ -28,6 +28,9 @@ class Request(db.Model):
     tutorId = db.Column(db.Integer, db.ForeignKey('user.id'))
     studentId = db.Column(db.Integer, db.ForeignKey('user.id'))
     request = db.Column(db.String(64))
+
+    def __repr__(self):
+        return f"<Request - Tutor: {self.tutorId}, Student: {self.studentId}, Status: {self.request}>"
 
     # Change request staus if accepted
     def accept(self):
@@ -123,7 +126,7 @@ class UserType(db.Model):
     userType = db.Column(db.String(64))
 
     def __repr__(self):
-        return f"<User {self.userType}>"
+        return f"<UserType {self.userType}>"
 
 # Model to hold quiz information
 class Quiz(db.Model):
@@ -151,7 +154,7 @@ class Quiz(db.Model):
                 setattr(self, field, data[field])
 
     def __repr__(self):
-        return f"<User {self.body}>"
+        return f"<Quiz {self.name}>"
 
 # Model to hold quiz assignment 
 class StudentQuiz(db.Model):
@@ -166,7 +169,7 @@ class StudentQuiz(db.Model):
                 setattr(self, field, data[field])
 
     def __repr__(self):
-        return f"<User {self.quizId}>"
+        return f"<StudentQuiz - QuizId: {self.quizId}, StudentId: {self.studentId} >"
 
 # Model to hold qusetion information
 class Question(db.Model):
@@ -181,7 +184,7 @@ class Question(db.Model):
                 setattr(self, field, data[field])
     
     def __repr__(self):
-        return f"<User {self.question}>"
+        return f"<Question {self.question}>"
 
 # Model to hold the possible multiple choice question answers
 class MultiSolution(db.Model):
@@ -197,7 +200,7 @@ class MultiSolution(db.Model):
                 setattr(self, field, data[field])
 
     def __repr__(self):
-        return f"<User {self.possibleAnswer}>"
+        return f"<MultiSoltuion {self.possibleAnswer}>"
 
 # Model to hold correct short answers
 class ShortAnswer(db.Model):
@@ -212,7 +215,7 @@ class ShortAnswer(db.Model):
                 setattr(self, field, data[field])
 
     def __repr__(self):
-        return f"<User {self.correctAnswer}>"
+        return f"<ShortAnswer {self.correctAnswer}>"
 
 # Model to hold student's input answers
 class ShortSolution(db.Model):
@@ -222,7 +225,7 @@ class ShortSolution(db.Model):
     studentAnswer = db.Column(db.String(140))
 
     def __repr__(self):
-        return f"<User {self.studentAnswer}>"
+        return f"<Solution {self.studentAnswer}>"
 
 # Model to hold students scores 
 class Score(db.Model):
@@ -231,4 +234,4 @@ class Score(db.Model):
     score = db.Column(db.String(32))
 
     def __repr__(self):
-        return f"<User {self.score}>"
+        return f"<Score {self.score}>"

@@ -2,6 +2,7 @@
 
 /* Styling for the headers */
 .header-text {
+.headerText {
     color: #181818;
     font-size: 300%;
     font-weight: 600;
@@ -12,7 +13,7 @@
     margin-bottom: 0.5%;
 }
 
-.header-description {
+.headerDescription {
     font-size: 150%;
     color: #181818;
     font-weight: 500;
@@ -25,6 +26,7 @@
 
 /* Styling for the decription */
 .text-description {
+.textDescription {
     text-align: center;
     font-size: 110%;
     font-weight: 500;
@@ -36,6 +38,7 @@
 
 /* Styling for the buttons */
 .landing-button {
+.landingButton {
     border: 1px solid black;
     color: black;
     padding: 2%;
@@ -48,13 +51,13 @@
 
 }
 
-.landing-button:hover {
+.landingButton:hover {
     text-decoration: none;
     color: black;
     opacity: 1;
     transform: scale(1.05);
 }
 
-.landing-button-text:hover {
+.landingButton-text:hover {
     opacity: 1;
 }

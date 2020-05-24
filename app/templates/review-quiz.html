@@ -10,10 +10,10 @@
 
 <div class="container col-md-6 homeContainer" style="text-align: center;">
     <div class="p-3">
-        <br>
+        <h5 class="question-title mt-3" style="text-align: left;">{{ student.username }}</h5>
         <h1 class="mt-3">{{Quiz.query.filter_by(id=id).first().name }}</h1>
-        <h4 class="mt-3">Review</h4>
-        <br><hr>
+        <span class="col-sm- mt-3" style="font-size: 160%;">Score: <span class="score">{{score.score}}</span></span>
+        <br><br><hr>
         <div id="data" data-token="{{token}}" data-student-quiz-id="{{id}}"></div>
         <form id="completedQuiz"></form>
     </div>
