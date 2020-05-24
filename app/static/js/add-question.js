@@ -17,7 +17,8 @@ $(document).ready(() => {
             <label class="formHeaders" style="font-weight: 500;">Answer:</label><br>
             <input type='text' class="formFields answer"></input>
         </p>
-        </div><br><hr>`);
+        <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+        <br><hr></div>`);
 
         qNum = qNum + 1;
     });
@@ -46,11 +47,19 @@ $(document).ready(() => {
                 </div>
             </div>
             </p>
-        </div><br><hr>
+            <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+        <br><hr></div>
         `);
 
         qNum = qNum + 1;
-    })
+    });
+
+    $(document).on("click", ".removeQuestion" , function() {
+        $(this).parent().remove();
+        qNum = qNum - 1;
+    });
+
+
 
     // When the submit button is clicked perform the submit function
     $("#submitQuiz").click(function () {
