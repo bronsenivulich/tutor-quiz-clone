@@ -60,48 +60,75 @@ $(document).ready(() => {
         $("#completeQuiz").submit();
     });
 
+    
+    let errorChecked = false
+
     $("#completeQuiz").submit(function () {
 
-        let answers = $("#completeQuiz").children(".wholeQuestion").toArray()
+        error = false
 
-        let allAnswers = []
+        let formFields = $("#completeQuiz").find(".form-fields").toArray()
+        console.log(formFields)
 
-        answers.forEach(function (entry) {
-            if ($(entry).hasClass("shortAnswer")){
-                answer = {
-                    "questionType": "shortAnswer",
-                    "questionId": $(entry).find("span").attr("id").replace("questionId_",""),
-                    "studentAnswer": $(entry).find(".answer").val()
+        formFields.forEach(function (entry) {
+            if ($(entry).val().length === 0) {
+                if (!$("#emptyField-error").length) {
+                    $('#completeQuiz').append(`
+                        <span id="emptyField-error" style="color: red;">You have an empty field, would you like to submit anyway?</span>
+                    `);
                 }
-                allAnswers.push(answer)
-            }
-            else if( $(entry).hasClass("multiSolution")){
-                answer = {
-                    "questionType": "multiSolution",
-                    "questionId": $(entry).find("span").attr("id").replace("questionId_",""),
-                    "studentAnswer": $(entry).find("input:checked").val()
-                }
-                allAnswers.push(answer)
+            error = true
             }
         });
 
-        data = {
-            "answers":allAnswers
+        if (error == false || errorChecked) {
+
+            let answers = $("#completeQuiz").children(".wholeQuestion").toArray()
+
+            let allAnswers = []
+
+            answers.forEach(function (entry) {
+                if ($(entry).hasClass("shortAnswer")) {
+                    answer = {
+                        "questionType": "shortAnswer",
+                        "questionId": $(entry).find("span").attr("id").replace("questionId_", ""),
+                        "studentAnswer": $(entry).find(".answer").val()
+                    }
+                    allAnswers.push(answer)
+                }
+                else if ($(entry).hasClass("multiSolution")) {
+                    answer = {
+                        "questionType": "multiSolution",
+                        "questionId": $(entry).find("span").attr("id").replace("questionId_", ""),
+                        "studentAnswer": $(entry).find("input:checked").val()
+                    }
+                    allAnswers.push(answer)
+                }
+            });
+
+            data = {
+                "answers": allAnswers
+            }
+
+            $.ajax({
+                url: `/api/quizzes/submit/${quizId}`,
+                data: JSON.stringify(data),
+                type: "post",
+                contentType: "application/json",
+                headers: { "Authorization": 'Bearer ' + token },
+                success: function (data) {
+                    // console.log(data)
+                },
+                error: function (resp) {
+                    // console.log(resp)
+                }
+            });
         }
 
-        $.ajax({
-            url: `/api/quizzes/submit/${quizId}`,
-            data: JSON.stringify(data),
-            type: "post",
-            contentType: "application/json",
-            headers: { "Authorization": 'Bearer ' + token },
-            success: function (data) {
-                // console.log(data)
-            },
-            error: function (resp) {
-                // console.log(resp)
-            }
-        });
+        else {
+            errorChecked = true
+            return false
+        }
 
     });
 

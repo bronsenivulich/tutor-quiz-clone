@@ -56,10 +56,12 @@ $(document).ready(() => {
     $("#newQuiz").submit(function () {
 
         error = false
-        if (qNum = 0) {
-            $('#newQuiz').append(`
+        if (qNum <= 1) {
+            if (!$("#qNum-error").length) {
+                $('#newQuiz').append(`
                     <span id="qNum-error" style="color: red;">Cannot submit a quiz with no questions.</span>
                 `);
+            }
             error = true
         }
 
@@ -69,9 +71,11 @@ $(document).ready(() => {
 
             formFields.forEach(function (entry) {
                 if ($(entry).val().length === 0) {
-                    $('#newQuiz').append(`
+                    if (!$('#emptyField').length) {
+                        $('#newQuiz').append(`
                             <span id="emptyField" style="color: red;">Cannot submit a quiz with empty fields.</span>
                         `);
+                    }
                     error = true
                 }
             });
@@ -121,7 +125,7 @@ $(document).ready(() => {
                 "questions": allQuestions,
                 "studentName": $("#assign-students").val()
             };
-            
+
             $.ajax({
                 url: "/api/quizzes/create",
                 type: "post",
