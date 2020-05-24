@@ -1,3 +1,5 @@
+<!-- Registration page -->
+
 {% extends "base.html" %}
 
 
@@ -6,6 +8,8 @@
     <div class="col-md-6 p-4 featureContainer">
         <h1 class="mt-3">Register</h1>
         <form class="mt-4" action="" method="post">
+
+            <!-- Inserts registration form -->
             {{ form.hidden_tag() }}
             <p>
                 {{ form.firstName.label(class="form-headers") }}<br>

@@ -1,3 +1,5 @@
+<!-- Page to assign students to quizzes -->
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -6,11 +8,14 @@
     <div class="col-md-4 featureContainer" style="text-align: center;">
         <h1>Assign Student</h1>
         <br>
+        <!-- Form to assign the student -->
         <form action="" method="post">
             {{ form.hidden_tag() }}
             <p>
                 {{ form.student.label(class="form-headers") }}<br>
                 {{ form.student(class="form-fields") }}<br>
+                
+                <!-- Any raised errors for this field will appear here -->
                 {% for error in form.student.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
@@ -18,6 +23,8 @@
             <p>
                 {{ form.quizName.label(class="form-headers") }}<br>
                 {{ form.quizName(class="form-fields") }}<br>
+                
+                <!-- Any raised errors for this field will appear here -->
                 {% for error in form.quizName.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
