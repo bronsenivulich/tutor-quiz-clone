@@ -189,3 +189,6 @@ background-attachment: fixed;
     font-size: 120%;
 }
 
+.nav-link {
+    color: black !important; 
+}
