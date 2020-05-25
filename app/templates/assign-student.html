@@ -2,6 +2,16 @@
 
 {% extends "base.html" %}
 
+{% block head %}
+
+<script>
+    $(document).ready(() => {
+        $("#quizId").val("{{id}}")
+    });
+</script>
+
+{% endblock %}
+
 {% block content %}
 
 <div class="loginPage pt-4">
@@ -19,6 +29,10 @@
                 {% for error in form.student.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
+            </p>
+            <p style="display:none;">
+                {{ form.quizId.label(class="formHeaders") }}<br>
+                {{ form.quizId(class="formFields") }}<br>
             </p>
             <p>{{ form.submit(class="submitButton") }}</p>
         </form>
