@@ -53,21 +53,15 @@ def home():
         tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id).all()
         token = current_user.get_token()
 
-        totalQuizzes = []
         completedQuizzes = []
-        uncompletedQuizzes = []
         for tutorQuiz in tutorQuizzes:
             studentQuiz = StudentQuiz.query.filter_by(quizId=tutorQuiz.id).first()
-            totalQuizzes.append(studentQuiz)
             if Score.query.filter_by(studentQuizId=studentQuiz.id).first() is not None:
                 completedQuizzes.append(studentQuiz)
-            else :
-                uncompletedQuizzes.append(studentQuiz)
         
     return render_template("home-tutor.html", title="Home Page", userType=userType, token=token,
                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz,
-                           Score = Score, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Quiz=Quiz,
-                           totalQuizzes = totalQuizzes)
+                           Score = Score, completedQuizzes=completedQuizzes, Quiz=Quiz)
 
 
 # Log in page
