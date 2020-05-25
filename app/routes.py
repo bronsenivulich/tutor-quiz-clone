@@ -178,6 +178,7 @@ def student_assignment(id):
             db.session.add(studentQuiz)
             db.session.commit()
             flash('Student has been assigned')
+            return redirect(url_for('index'))
         return render_template('assign-student.html', title='Assign Student to a Quiz', form=form, Quiz=Quiz, id=id)
 
     else:
