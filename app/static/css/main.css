@@ -189,12 +189,12 @@ background-attachment: fixed;
     font-size: 120%;
 }
 
-.gif-container {
+/* .gif-container {
     background: url("../img/404gif.gif") center;
     background-size: cover;
     height: 100%;
     padding: none;
-}
+} */
 
 #backButton {
     position: sticky;

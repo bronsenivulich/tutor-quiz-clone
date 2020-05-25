@@ -34,11 +34,6 @@
     style="background-image: url({{ url_for('static', filename='img/background-image.jpg') }}); opacity: 0.9;"></body>
 {% endblock %}
 
-{% block gif %}
-<body class="bg"
-    style="background-image: url({{ url_for('static', filename='img/404gif.gif') }}); opacity: 0.9;"></body>
-{% endblock %}
-
 <!-- Universal navigation bar -->
 <nav class="navbar navbar-expand-lg navbar shadow">
     {% if current_user.is_anonymous %}
