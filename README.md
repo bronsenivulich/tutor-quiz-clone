@@ -5,12 +5,12 @@
 
 This is a web application developed by students of Agile Web Development for a project submission. The idea was for students to be able to access a wider range of resources when studying for a test, as well as for tutors to be able to create their own quizzes to assign to their current students. 
 
-Through this application, tutors can request students, who will have the ability to accept or deny such requests, create quizzes, with multiple choice questions or short answer questions, assign such quizzes to students and review students quiz answers. Students are able to complete quizzes, see tutor requests and review their quizzes.
+Through this application, tutors can request students, who will have the ability to accept or deny such requests, create quizzes, with multiple choice questions or short answer questions, assign these quizzes to students and review students quiz answers. Students are now able to complete quizzes, see tutor requests and review their quizzes.
 
 
 ## Development of OnTrack
 ### Forms
-To develop this application we started with the use of WTForms, when this failed we resorted to using an API. This API is not a full REST API but it can handle the creation of quizzes, completion of quizzes and the editting of quizzes. The getting and posting of these APIs utilised the Asynchronous JavaScript and XML to ensure a nicely flowing website.
+To develop this application we implemented the use of WTForms for most of our forms, when this failed we resorted to using an API. This API is not a full REST API but it can handle the creation of quizzes, completion of quizzes and the editting of quizzes. The getting and posting of these APIs utilised the Asynchronous JavaScript and XML to ensure a nicely flowing website.
 
 ### Bootstrap
 To most efficiently design the website we utilised the use of bootstrap. This allowed us, paired with our CSS, to have a consistent styling across all pages of the application. Through the use of bootstrap, we have also allowed out webpages to be fully responsive.
@@ -21,7 +21,7 @@ To make the development of out backend easier and more efficeint we employed the
 
 
 ## Installing
-After installing the repository, use following command to create your own virtualenv. 
+After installing the repository, use the following command to create your own virtualenv. 
 On mac or Linux:
 ```
 $ virtualenv env
