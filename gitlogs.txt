@@ -1,0 +1,2299 @@
+commit e86abaa02ea4a89c7e0eb6be3c83b07c7d76a386
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 14:26:26 2020 +0800
+
+    Create tests.py for unit testing
+
+commit 8c8d6c4ad7fff0b2873a4362fa46f5b80cc51a8e
+Merge: 312ee59 750af8d
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun May 24 23:03:09 2020 -0700
+
+    Merge pull request #115 from benjaminpodmore/hotfix/tutor-home
+    
+    Fix tutor home page styling
+
+commit 312ee59cde67baa287880c7645272d51fdfbb03c
+Merge: ae2d638 58ae9a0
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 14:02:25 2020 +0800
+
+    Merge pull request #114 from benjaminpodmore/feature/tutor-editing-quizzes-frontend
+    
+    Add js logic for posting quiz edit to api
+
+commit 750af8d6154359e68533e4dbb8a1d659701e1293
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 14:01:20 2020 +0800
+
+    Fix tutor home page styling
+
+commit 58ae9a02541b548be43e77fb64653bcb5d3bc4de
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 14:01:16 2020 +0800
+
+    Add js logic for posting quiz edit to api
+
+commit ae2d638370d9844357b18fecc96339d76c205229
+Merge: aeaacb4 4cb3673
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 13:53:39 2020 +0800
+
+    Merge pull request #113 from benjaminpodmore/feature/style-home-pages
+    
+    styled home pages
+
+commit aeaacb40b25a294cb56dd2daedf78f79cbc629e8
+Merge: d6773fb a4ab29c
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun May 24 22:51:29 2020 -0700
+
+    Merge pull request #112 from benjaminpodmore/hotfix/clean-routes
+    
+    Clean routes file
+
+commit 4cb3673b009a0d3707988673cb800f799a3fe4de
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 13:49:42 2020 +0800
+
+    styled home pages
+
+commit a4ab29c167eba5040b9c94a6fdf09fd2cf436723
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 13:39:41 2020 +0800
+
+    Clean routes file
+
+commit d6773fb6b98ff2044b57e58ee022a74fdb355a8a
+Merge: e26352d 2d5c37f
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 13:34:20 2020 +0800
+
+    Merge pull request #111 from benjaminpodmore/feature/fix-assign-student-validation
+    
+    Add quizId field to assign student
+
+commit 2d5c37f9aa323f82ac92c8064a3cd0f9f8e8e3d3
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 13:33:38 2020 +0800
+
+    Add quizId field to assign student
+
+commit e26352d5b1216a0e2d894130ce3a6ace6e57e050
+Merge: c1cdf73 7410ad4
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 13:16:08 2020 +0800
+
+    Merge pull request #110 from benjaminpodmore/feature/cleanse-db
+    
+    Feature/cleanse db
+
+commit 7410ad439861f0668b0516ea80de83e0510e278a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 13:13:07 2020 +0800
+
+    Add test data
+
+commit 58442a103dadc36f93ad312f016b568cfe02ff66
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 13:10:29 2020 +0800
+
+    Add test users to db
+
+commit cab78fe96a8358b80e05d5d088b03a710f02c95a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 13:09:05 2020 +0800
+
+    Remove all data from db
+
+commit c1cdf73c62b39b845cf0ea0e6b959b14e65480d5
+Merge: fdac21d ce91bf8
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 13:06:17 2020 +0800
+
+    Merge pull request #109 from benjaminpodmore/feature/tutor-editing-quizzes
+    
+    Add backend for quiz editing
+
+commit fdac21d04c1dbdd7e63d2709a0883658d055cce2
+Merge: edae30e 86185e9
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 25 13:05:33 2020 +0800
+
+    Merge pull request #108 from benjaminpodmore/feature/add-student-assignment-to-tutor-home
+    
+    Add student assignment to tutor home
+
+commit ce91bf83dd26bcdf8a803652b1e223431e60bf7a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 13:05:08 2020 +0800
+
+    Add backend for quiz editing
+
+commit 86185e96443fee7c3ded4952797c223aa5e7281b
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 12:59:33 2020 +0800
+
+    Add student assignment to tutor home
+
+commit edae30e59d344bbfc5a141fbf748574229a05615
+Merge: ace79df 7f7cb60
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 12:00:40 2020 +0800
+
+    Merge pull request #107 from benjaminpodmore/feature/tutor-editing-quizzes
+    
+    Get existing Qs and As to show in edit page
+
+commit 7f7cb60999bc55969fd4598be1cdf9d39dae4fb8
+Merge: 8cf583c ace79df
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 12:00:18 2020 +0800
+
+    Merge branch 'develop' into feature/tutor-editing-quizzes
+
+commit ace79df20ac94c02f5ccd918fa7523bf6dc5695b
+Merge: 7b75687 3d268d9
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 09:44:30 2020 +0800
+
+    Merge pull request #105 from benjaminpodmore/feature/add-form-redirects
+    
+    Feature/add form redirects
+
+commit 7b756878c7e290394705d8795774375b60326556
+Merge: 2ff7460 800b8a2
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 09:44:01 2020 +0800
+
+    Merge pull request #106 from benjaminpodmore/feature/remove-redundant-features
+    
+    Remove forgotten password and email features
+
+commit 8cf583c36352a331720ce1760426b3e25452e4d8
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 01:22:05 2020 +0800
+
+    Get existing Qs and As to show in edit page
+
+commit 800b8a22d090b491c036c04a543bde84e2a5ea66
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 00:21:48 2020 +0800
+
+    Remove forgotten password and email features
+
+commit 2ff7460faf5117b7d09b863e192c022e0ecb0920
+Merge: 3820e30 c9a569b
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 25 00:16:07 2020 +0800
+
+    Merge pull request #104 from benjaminpodmore/hotfix/hamburger-menu
+    
+    hotfix hamburger
+
+commit 3d268d9e2c448d36e72b5490e5d03531de2d762d
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 00:14:48 2020 +0800
+
+    Add quiz complete reroute. Fix request accepting
+
+commit c9a569b401db617e289c69950f9f7f334afc992e
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:58:20 2020 +0800
+
+    hotfix hamburger
+
+commit 264c761954a951a8ecd948f51c9f66d1a836c993
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:58:01 2020 +0800
+
+    Add tutor quiz creation redirect
+
+commit 3820e3047a5b5837d0bc3eb77debf92d4ae8f82c
+Merge: 9b4f817 852fe05
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 23:46:29 2020 +0800
+
+    Merge pull request #103 from benjaminpodmore/feature/style-review-page
+    
+    Feature/style review page
+
+commit 852fe0572a367df7dea40b0485000a2ee3199240
+Merge: 9b4f817 7b80c09
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:45:54 2020 +0800
+
+    Merge branch 'feature/style-review-page' of https://github.com/benjaminpodmore/tutor-quiz into feature/style-review-page
+
+commit 7b80c098e4a4fb496d43df41bebacda730fb56c0
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:43:22 2020 +0800
+
+    made language english
+
+commit 09550331395cc584a6d81d151a364f3c0e3b19f9
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:41:08 2020 +0800
+
+    ignore this commit
+
+commit d55c0b640d9d9a7d1ee99d5febafdd8d76289eea
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:33:54 2020 +0800
+
+    fixed base.html bug
+
+commit 9b4f81742dc926f66f9f86ef337162688e18cd79
+Merge: a3fe0c0 cc4ed98
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun May 24 08:31:02 2020 -0700
+
+    Merge pull request #102 from benjaminpodmore/hotfix/username-typo
+    
+    Change User Name to Username in request form
+
+commit cc4ed985cb34f44ea48a4b745213ebe83a7b5407
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:29:43 2020 +0800
+
+    Change User Name to Username in request form
+
+commit a3fe0c0438a8c2462b010a6f16682849b263d4a9
+Merge: 86686d0 e300edd
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun May 24 08:28:25 2020 -0700
+
+    Merge pull request #101 from benjaminpodmore/hotfix/request-student-validation
+    
+    Move .request property to fix error
+
+commit 86686d02038c814bf82b3664e0b5849970c072cf
+Merge: b78853f a4fe884
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 23:27:58 2020 +0800
+
+    Merge pull request #100 from benjaminpodmore/feature/quiz-create-remove-question
+    
+    Add remove question button to create-quiz.html
+
+commit a4fe8844933e589f713acd0b9693b817be37b7a0
+Merge: 64e829f b78853f
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:27:41 2020 +0800
+
+    Merge branch 'develop' into feature/quiz-create-remove-question
+
+commit e300eddcc9a2b56359f6948c6be969ac4f805165
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:26:01 2020 +0800
+
+    Move .request property to fix error
+
+commit b78853f9e1ef1b55139dd54f9356a699f1848449
+Merge: 10aca14 68a2f63
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 23:17:11 2020 +0800
+
+    Merge pull request #99 from benjaminpodmore/feature/style-review-page
+    
+    Feature/style review page
+
+commit 68a2f633d6cf9d6328cf4a5a5295b8f4842bc971
+Merge: 3e111c1 10aca14
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:16:49 2020 +0800
+
+    Merge branch 'develop' into feature/style-review-page
+
+commit 10aca14f587ea561e913133ef5a8933c53895a38
+Merge: ef29682 c62ca71
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 23:14:50 2020 +0800
+
+    Merge pull request #98 from benjaminpodmore/hotfix/add-comments-for-understandability
+    
+    Hotfix/add comments for understandability
+
+commit c62ca7123c5ba61bad48abdc9b3df51d0d9a5f6b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:14:00 2020 +0800
+
+    Fix typos in landing-style.css
+
+commit 9cd1eca4c3d1ca126ec64ca706633b37a7afac79
+Merge: f66e159 ef29682
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:13:38 2020 +0800
+
+    Merge branch 'develop' into hotfix/add-comments-for-understandability
+
+commit 3e111c172f5dd2733ada74625fb2b210da6cd165
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:11:27 2020 +0800
+
+    fixed css bug
+
+commit 93c43d238de9546ed896e4019083eaffb78c76fa
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 23:07:44 2020 +0800
+
+    fixed styling bug
+
+commit ef296823cb041557f7fd24fc135a4bbb4269ac21
+Merge: b4c483c b883eda
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 23:00:25 2020 +0800
+
+    Merge pull request #96 from benjaminpodmore/feature/standardize-names
+    
+    Estabish naming convention
+
+commit b883eda169d6ed27ae0457f72b3dd0123832d7f9
+Merge: 1c07926 b4c483c
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 23:00:09 2020 +0800
+
+    Merge branch 'develop' into feature/standardize-names
+
+commit 64e829fcfff3af26580209691598cb2735db7ed4
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 22:55:00 2020 +0800
+
+    Add remove question button to create-quiz.html
+
+commit b4c483c1e54e4850480f6dbca495c817eab01a9c
+Merge: 43a090f 601afd2
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 22:37:49 2020 +0800
+
+    Merge pull request #97 from benjaminpodmore/feature/style-review-page
+    
+    styled review page
+
+commit f66e1593a6380f28b25be26a1a6f9e932b7837c5
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 22:33:58 2020 +0800
+
+    Add comments and adjustments to HTML files
+
+commit 601afd29d294781a0913cfa5be0d44036bd0b38b
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sun May 24 22:33:20 2020 +0800
+
+    styled review page
+
+commit 43a090f54c7a597d3bab423d04868b5082e90d87
+Merge: 1644029 9080f20
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun May 24 06:44:08 2020 -0700
+
+    Merge pull request #95 from benjaminpodmore/feature/link-tutor-review
+    
+    Add route to review quiz buttons on tutor homepage
+
+commit 1c0792695cfe2debd8b93b49f7e9c097a37030a4
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 21:43:30 2020 +0800
+
+    Estabish naming convention
+
+commit 99120245033d6ce8ea2263a664f534fb3c10f01d
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 21:40:18 2020 +0800
+
+    Add comments and adjustments for CSS files
+
+commit 1eebee9541ec626c910226edc08d26c7229412ae
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 21:34:55 2020 +0800
+
+    Comment and adjust the JavaScript files
+
+commit 58c69c0474f1a1645abdc23b13e50c8d2f207881
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 21:11:55 2020 +0800
+
+    Comment and adjust models.py and forms.py
+
+commit 9080f20733eb9ea76a3cb63c20b817abc8da6210
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 21:09:56 2020 +0800
+
+    Add route to review quiz buttons on tutor homepage
+
+commit 164402917ad535cc0eff4bbc9a5715a85b7b6848
+Merge: 9226373 75bd259
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 20:45:26 2020 +0800
+
+    Merge pull request #94 from benjaminpodmore/feature/add-quiz-completion-authentication
+    
+    Add quiz completion authentication and fix uncompleted quiz error
+
+commit 75bd25990ab30abf0e71e97479eb9aabd9832acd
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 20:38:46 2020 +0800
+
+    Add quiz completion authentication and fix uncompleted quiz error
+
+commit 9226373784027ad6e613f65d9ade0a65bfa28068
+Merge: 8522ada 2973909
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 17:27:54 2020 +0800
+
+    Merge pull request #93 from benjaminpodmore/feature/add-student-review-page
+    
+    Add html and api for student to see their answers and the correct answer
+
+commit 297390972f99db4b48d2b13319a7f91b0016e6dd
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 17:26:45 2020 +0800
+
+    Add html and api for student to see their answers and the correct answer
+
+commit 8522adadbe16331872aac141186815733cf1e7f4
+Merge: b66cd92 eaef971
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 15:15:01 2020 +0800
+
+    Merge pull request #92 from benjaminpodmore/hotfix/remove-quiz-import
+    
+    Remove import for CreateQuizForm
+
+commit eaef971ce407d55f7134e8286308b69719b7eb75
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 15:10:42 2020 +0800
+
+    Remove import for CreateQuizForm
+
+commit b66cd9210d442b1a645a4dc7064e33fd273102fb
+Merge: dfeaf2b 8b4f670
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 15:03:29 2020 +0800
+
+    Merge pull request #88 from benjaminpodmore/hotfix/remove-request-quiz-forms
+    
+    Remove Create Quiz form
+
+commit 8b4f67062e256f339a242b069cf7106ed1d624c5
+Merge: 1c7f44d dfeaf2b
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 15:03:12 2020 +0800
+
+    Merge branch 'develop' into hotfix/remove-request-quiz-forms
+
+commit dfeaf2b357daa13a3d23f3fad8375c59f0379b85
+Merge: 31973a7 445d56d
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 15:02:37 2020 +0800
+
+    Merge pull request #89 from benjaminpodmore/feature/consolidate-css-classes
+    
+    Refactor css
+
+commit 31973a72fd7ec6d61426c87ca7fedc15bc413963
+Merge: 367123e b27ca73
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sun May 24 15:02:08 2020 +0800
+
+    Merge pull request #90 from benjaminpodmore/feature/stop-background-scrolling
+    
+    Add fixed css style to .bg to attach image to background
+
+commit 367123eb218f89f36e2db1c6139ffd12b84d943e
+Merge: 466a509 ff604aa
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 24 15:01:48 2020 +0800
+
+    Merge pull request #91 from benjaminpodmore/feature/add-validation
+    
+    Feature/add validation
+
+commit ff604aaf32401585e2aab602b4d67f3a8e259ddf
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 14:54:41 2020 +0800
+
+    add quiz completion validation
+
+commit 11fffd64f05dacf060e73bb839b202fc8198385e
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Sun May 24 14:06:33 2020 +0800
+
+    add quiz creation validation
+
+commit b27ca73943cd0979b6abba7b6f565d08f28220bc
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 13:58:05 2020 +0800
+
+    Add fixed css style to .bg to attach image to background
+
+commit 445d56df62ff59dcf01586f569555e5ede46583e
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 13:51:37 2020 +0800
+
+    Refactor css
+
+commit 1c7f44d65d0f763e724327722e6dee1c10e8a6c6
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun May 24 13:38:35 2020 +0800
+
+    Remove Create Quiz form
+
+commit 466a509417daa20ed1fc00381912c72257676fdc
+Merge: 434bfa5 745e349
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sat May 23 23:10:51 2020 +0800
+
+    Merge pull request #86 from benjaminpodmore/feature/fix-mc-boolean
+    
+    Parse mc choice value in completeQuiz.js to get True or False
+
+commit 745e34949425c4394c77488eb1a3327243907985
+Merge: de907c2 f2db2d2
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 23 23:10:36 2020 +0800
+
+    Merge branch 'develop' into feature/fix-mc-boolean
+
+commit 434bfa58b23736069183df1d116b7b635f34d9a6
+Merge: f2db2d2 03957bb
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sat May 23 23:10:06 2020 +0800
+
+    Merge pull request #87 from benjaminpodmore/feature/create-quiz-polish
+    
+    Feature/create quiz polish
+
+commit 03957bb3a0b0291c783ed3573010fb885e3c8079
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sat May 23 23:08:40 2020 +0800
+
+    changed some css to inline
+
+commit 6350360f9c4f605e9d587a42a736a724aafbc3ee
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sat May 23 22:59:00 2020 +0800
+
+    styled create quiz page
+
+commit 745a8da6d1975ab40eeac21f102f84339aa4f621
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Sat May 23 22:33:07 2020 +0800
+
+    styled complete quiz page
+
+commit f2db2d21e7d18b77855dcff601d2f53c8c418b2b
+Merge: fdf12b1 c5829f4
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sat May 23 22:18:02 2020 +0800
+
+    Merge pull request #84 from benjaminpodmore/feature/add-view-student-score-to-tutor-home
+    
+    add ability for tutors to see completed quizzes and their score
+
+commit c5829f4ed7555aa670e61296e0e1cfb2157d10df
+Merge: 74edac6 fdf12b1
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 23 22:17:47 2020 +0800
+
+    Merge branch 'develop' into feature/add-view-student-score-to-tutor-home
+
+commit 74edac6691e19501da9199156ae4b27b6481b9d2
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 23 22:16:49 2020 +0800
+
+    Clean up padding and proper button classes
+
+commit de907c259118dabb35405ab6f9e1db66803f5523
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 23 21:59:00 2020 +0800
+
+    Parse mc choice value in completeQuiz.js to get True or False
+
+commit fdf12b110ea1b9aa461e416161a10a86905b04a9
+Merge: a8751d0 3580a1f
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Sat May 23 09:05:15 2020 +0800
+
+    Merge pull request #85 from benjaminpodmore/feature/completing-quizzes
+    
+    Feature/completing quizzes
+
+commit 3580a1f13b5f5d9b7ca876aa5a31c1353cf8d48c
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 23 00:06:58 2020 +0800
+
+    Add api and html code for students to complete quizzes and get a score
+
+commit 71b70fe8ce6d2110c670ec5b626cda9dc5e49666
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 22 20:05:44 2020 +0800
+
+    add ability for tutors to see completed quizzes and their score
+
+commit 06e37723fe8102b6837fbbc1652b9bd3db87b60f
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 19:27:21 2020 +0800
+
+    Change get api for quizzes to return questions too
+
+commit a8751d09766cae49c6bac39ebd05b4c4bbe42338
+Merge: 21f2e3d 6c7a333
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 22 19:08:51 2020 +0800
+
+    Merge pull request #83 from benjaminpodmore/feature/add-multi-choice-questions
+    
+    add ability to write multi choice quizzes
+
+commit 36f4097cd5683b218b56d445ec0dc894440f12da
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 19:05:59 2020 +0800
+
+    Change create quizzes route
+
+commit 6c7a3336213cf186ff592b54646e491725b84fb8
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 22 19:05:23 2020 +0800
+
+    add ability to write multi choice quizzes
+
+commit 21f2e3d6a85e5d5a97b02583f994f1f9a3029de3
+Merge: 1334e41 a45735d
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 22 18:55:48 2020 +0800
+
+    Merge pull request #82 from benjaminpodmore/feature/add-multi-choice-questions
+    
+    Add api backend and form logic for multi choice questions
+
+commit a45735d14e263ccbdde0a287ff5164c2f3a2e85f
+Merge: bdc1b8f 1334e41
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 18:55:29 2020 +0800
+
+    Merge branch 'develop' into feature/add-multi-choice-questions
+
+commit bdc1b8f4cc18610d11fdf3f8867d4107fda2d1ee
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 18:53:33 2020 +0800
+
+    Fix adding multiSolution to db in quizzes api
+
+commit 1334e41aeeafa4406331382f62cec31e53be2352
+Merge: a340297 0e7f8de
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Fri May 22 18:46:58 2020 +0800
+
+    Merge pull request #81 from benjaminpodmore/feature/complete-quiz-html
+    
+    Feature/complete quiz html
+
+commit 1cad7273b8803593cb1dd0ababacf5c910c92c09
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 22 18:44:54 2020 +0800
+
+    Add api backend and form logic for multi choice questions
+
+commit 0e7f8de149ff4e5da8a8036cc575ad7303341f41
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Fri May 22 15:11:40 2020 +0800
+
+    updated complete-quiz page
+
+commit 8ad74dda956e5e4db01323ef5c5a7447971f8e78
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Fri May 22 15:02:04 2020 +0800
+
+    added complete quiz route, html, and button
+
+commit 1d7a9ca7da575fdc5a1e50516e5b69e0141a12f9
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Fri May 22 14:50:43 2020 +0800
+
+    added card titles and css
+
+commit a340297d898f7013b1bd84d87deebb856f2514d8
+Merge: 341825c 56e3600
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Thu May 21 23:28:48 2020 -0700
+
+    Merge pull request #79 from benjaminpodmore/feature/home-add-tutor-quizzes
+    
+    Add created quizzes to tutor home
+
+commit 56e36002723a5da9081199a9080cbb90718fed38
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 13:14:42 2020 +0800
+
+    Add created quizzes to tutor home
+
+commit 341825cb3f4e61b30e23facde4ab8a0b41878d88
+Merge: c4e8b12 353583d
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 22 13:00:42 2020 +0800
+
+    Merge pull request #78 from benjaminpodmore/hotfix/fix-quiz-padding
+    
+    Hotfix/fix quiz padding
+
+commit 353583d6e0871a175556b88763ea65f752495bfb
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 12:50:32 2020 +0800
+
+    Add scores to student home
+
+commit 3d50a91371ae92be241eecc7192c45f8db701733
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 12:46:30 2020 +0800
+
+    fix annoucement padding on tutor home page
+
+commit 6e746fc02911b5cb31e0d5310cc0a90804341739
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 22 12:45:36 2020 +0800
+
+    Add tutors with proper padding
+
+commit c4e8b1263f0fa7b0bfb0127e79758a34d46bcd88
+Merge: cf0adf3 5dd8492
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Thu May 21 21:03:27 2020 -0700
+
+    Merge pull request #76 from benjaminpodmore/feature/add-tutor-list-to-student-home
+    
+    add tutor list to student home
+
+commit 5dd8492abd8a7556fb77a6a9938d2800dca6f95a
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 22 09:35:18 2020 +0800
+
+    add tutor list to student home
+
+commit cf0adf31dff69ec1eac52f548670b1a29f151fae
+Merge: 2083a6b 4527076
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Thu May 21 02:27:53 2020 -0700
+
+    Merge pull request #75 from benjaminpodmore/hotfix/fix-homepage-padding
+    
+    Hotfix/fix homepage padding
+
+commit 4527076d91c18e1dce3c2b8c78f2e10bf90a2180
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu May 21 17:26:37 2020 +0800
+
+    Rename tutor requests to students in tutor home
+
+commit e0ac8e3af61d5a0855ab622838671457b677c2ee
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu May 21 17:22:39 2020 +0800
+
+    Refactor home tutor html
+
+commit 17806e6a6f0a744c87b978c77c8fc3a666f52492
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu May 21 17:19:16 2020 +0800
+
+    Refactor home student page
+
+commit 2083a6bdf230c0ae279f98178efad716f83fece9
+Merge: d032663 449574e
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Thu May 21 16:49:43 2020 +0800
+
+    Merge pull request #74 from benjaminpodmore/feature/add-homepage-function
+    
+    Feature/add homepage function
+
+commit d03266323dad73c53bca6ee0ac443959220984d4
+Merge: 914692c f1819c8
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Thu May 21 16:49:23 2020 +0800
+
+    Merge pull request #73 from benjaminpodmore/feature/add-short-solution-model
+    
+    add short solution model
+
+commit f1819c825c3c76fec64f135908c29b8d597dc856
+Merge: ab70d2f 914692c
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu May 21 16:49:05 2020 +0800
+
+    Merge branch 'develop' into feature/add-short-solution-model
+
+commit 449574ea5892829cc9647fbdeaee20284cda4057
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 21 16:45:26 2020 +0800
+
+    viewing completed/uncompleted quizzes
+
+commit 35bcec87986d6a200799d2ac37b52e9191bbd8ef
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 21 15:16:57 2020 +0800
+
+    added uncompleted quizzes function
+
+commit ab70d2f978d3c32e89364243e5f104926d768c76
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Thu May 21 13:07:30 2020 +0800
+
+    add short solution model
+
+commit 914692c35fc534171578d01b240045833e43a682
+Merge: 28824be 2f06988
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 21 12:50:21 2020 +0800
+
+    Merge pull request #72 from benjaminpodmore/feature/add-quiz-assigning
+    
+    Add assigning student option to quiz creation and handle in api
+
+commit 2f06988c01fc598b91a8c72b4feabc6f783242f0
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu May 21 12:47:32 2020 +0800
+
+    Add assigning student option to quiz creation and handle in api
+
+commit 28824be8eb54231295baaecc1277404eca17bda4
+Merge: 271ed9e 9298320
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Thu May 21 12:07:04 2020 +0800
+
+    Merge pull request #71 from benjaminpodmore/feature/list-students-and-tutors
+    
+    add ability for students to see their tutors and tutors to see their …
+
+commit 9298320481ae75c951f38436ba3e3bdf0792f971
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Thu May 21 12:04:27 2020 +0800
+
+    add ability for students to see their tutors and tutors to see their students
+
+commit 271ed9efd16b3e9164c4fe04bb8b338dacd241f3
+Merge: 09ae6d4 65640b8
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 20 23:56:30 2020 +0800
+
+    Merge pull request #70 from benjaminpodmore/hotfix/delete-uneccessary-routes
+    
+    fix some small errors
+
+commit 65640b8e3fc7c52833b1d5ae9d82b4e0bf673f20
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 20 23:55:03 2020 +0800
+
+    fix some small errors
+
+commit 09ae6d49d2f5ed17dbab545287160b423074dc32
+Merge: a549590 05fbb0c
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 20 23:42:55 2020 +0800
+
+    Merge pull request #69 from benjaminpodmore/feature/student-accept-tutor-request
+    
+    add ability to accept tutor request
+
+commit 05fbb0c956b0831a2b285a77b7e3b71e8ca79af1
+Merge: 338ac4e a549590
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 20 23:42:36 2020 +0800
+
+    Merge branch 'develop' into feature/student-accept-tutor-request
+
+commit 338ac4ecdb42ef2f579a01710e5e24791d24611e
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 20 23:38:35 2020 +0800
+
+    add ability to accept tutor request
+
+commit a549590355eff9cf214fcfb75297beee7147a8a8
+Merge: 8b13c17 3f97105
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 20 20:46:56 2020 +0800
+
+    Merge pull request #68 from benjaminpodmore/feature/create-quiz-id
+    
+    Capture tutorId for creating quizzes
+
+commit 3f971050dbb3e84fa6e38f1a821bdfa5c228fd8a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 20 20:46:03 2020 +0800
+
+    remove printing token from create route
+
+commit c50318da4eef609bdf2884a3331eeb3edb153529
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 20 20:43:57 2020 +0800
+
+    Capture tutorId for creating quizzes
+
+commit 8b13c17d025270879be70f77d6a46e60715942ff
+Merge: b7fd91b 506b168
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Wed May 20 02:03:10 2020 -0700
+
+    Merge pull request #67 from benjaminpodmore/hotfix/add-httpauth-to-requirements
+    
+    Hotfix/add httpauth to requirements
+
+commit 506b1689fc26d45a48010c84c0d44d7c203a1523
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 20 16:59:46 2020 +0800
+
+    add httpauth to reuirements
+
+commit b7fd91b2b8c4d1ace3aac6a3812d01217fdb68a1
+Merge: 8f36c74 634f362
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue May 19 20:18:32 2020 +0800
+
+    Merge pull request #66 from benjaminpodmore/feature/api-token-authentication
+    
+    Feature/api token authentication
+
+commit 634f362748dad96da6b544346f45b1a888e5dd7f
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue May 19 18:57:05 2020 +0800
+
+    add token authentication and 0Q error to add-question
+
+commit a83da1ffb3e24187863fd5ecdc7c628212613b49
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue May 19 17:03:21 2020 +0800
+
+    redirect index to signed-in user
+
+commit d0da11139b89d7192ecdc1f8374cb763332cefd9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue May 19 17:00:24 2020 +0800
+
+    Add friendly errors for api
+
+commit 511cd1b3a0e6640b534c44a6d7703b253083318a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue May 19 16:42:38 2020 +0800
+
+    Add token authentication
+
+commit 8f36c748d210afe7a3965f7093a0820816501054
+Merge: 9596c80 977ca85
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Tue May 19 15:14:16 2020 +0800
+
+    Merge pull request #65 from benjaminpodmore/feature/consolidate-css
+    
+    restyle pages
+
+commit 977ca85c7b2fc17c1a8d5e278b179e1fda7ca7aa
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue May 19 15:11:41 2020 +0800
+
+    restyle pages
+
+commit 9596c80e085f0c371ea16c1bc5bc7a6280815a10
+Merge: f686e8d 8268f7a
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Tue May 19 11:09:10 2020 +0800
+
+    Merge pull request #63 from benjaminpodmore/feature/create-multichoice-quiz
+    
+    Feature/create multichoice quiz
+
+commit f686e8d20a38dbd46fb8405cbc38304de09ad3ca
+Merge: cdd9f64 92e96aa
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Tue May 19 11:08:15 2020 +0800
+
+    Merge pull request #64 from benjaminpodmore/feature/fix-css-spacing
+    
+    Feature/fix css spacing
+
+commit 92e96aa0632489cd65cdca26986ad6efdfaa595d
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 18 23:17:07 2020 +0800
+
+    Move css to individual sheets, fix some padding with relative navbar
+
+commit 8268f7aa486ff0bfe4b66440095feecee223e82c
+Merge: 069227c a37bd57
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 18 20:49:10 2020 +0800
+
+    Merge branch 'feature/create-multichoice-quiz' of https://github.com/benjaminpodmore/tutor-quiz into feature/create-multichoice-quiz
+
+commit 069227c7653210f5a2f0f177e3f2b23c82534e82
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 18 20:47:29 2020 +0800
+
+    Consolidate add-question and create-quiz
+
+commit cdd9f64bb69a957d5d07db59d5146348e861eec9
+Merge: b25915f a37bd57
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 18 20:42:16 2020 +0800
+
+    Merge pull request #62 from benjaminpodmore/feature/create-multichoice-quiz
+    
+    Feature/create multichoice quiz
+
+commit a37bd576758d9194e5f3ed6040201d300c7bea33
+Merge: e368a0d b25915f
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 18 20:42:06 2020 +0800
+
+    Merge branch 'develop' into feature/create-multichoice-quiz
+
+commit e368a0dfd5973c8cd37ea361080463340d1ad20d
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 18 20:25:36 2020 +0800
+
+    Establish backend and html page for creating short answer quizzes
+
+commit 2c85570e0c8edb642ab7ae7fc8e17a0d76183b07
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 18 17:06:45 2020 +0800
+
+    add javascript to append questions
+
+commit 15942f7c853e7c104e8cbefba9b6a38045f9e230
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 16 14:35:44 2020 +0800
+
+    Pass question id to add-question route
+
+commit b25915f6af214deba8699ba0bad892165e8b03d3
+Merge: c7375a7 18291f1
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 14 19:39:51 2020 +0800
+
+    Merge pull request #61 from benjaminpodmore/feature/html-touchup
+    
+    Feature/html touchup
+
+commit 18291f1846a9bda6d9f303e15b343d4cbf5e277d
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 18:21:59 2020 +0800
+
+    fixed logo, fixed div bug
+
+commit 09515d162f98b8b12a30338002c25252ff27f880
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 17:57:11 2020 +0800
+
+    polished assign student page
+
+commit 09c57090937015fc67a1a98a7443572fb1580694
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 17:45:58 2020 +0800
+
+    added student request functionality
+
+commit c7375a79d648dd7554b33ad8282e56e6382c6f16
+Merge: 69c6b62 7395f30
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 14 17:15:00 2020 +0800
+
+    Merge pull request #60 from benjaminpodmore/add-favicon
+    
+    Added favicon to base.html & changed logo colours
+
+commit 7395f30cd6e1dedda0560820562ef9a88507e1fb
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Thu May 14 16:58:18 2020 +0800
+
+    Added favicon to base.html & changed logo colours
+
+commit 69c6b6282a8f06228f6e7097cd8934ba125ff099
+Merge: 828ba1c 7453a9e
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 14 15:38:29 2020 +0800
+
+    Merge pull request #58 from benjaminpodmore/feature/update-password-pages
+    
+    Feature/update password pages
+
+commit 7453a9e6be5f17e77586621b1f542edbe186a77c
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 13:08:43 2020 +0800
+
+    updated reset password page
+
+commit 828ba1c5018590fa59289c2195fb6c3500949224
+Merge: b5e0aa4 f47e45c
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Wed May 13 22:05:55 2020 -0700
+
+    Merge pull request #56 from benjaminpodmore/feature/add-quiz-student-assignment-form
+    
+    Feature/add quiz student assignment form
+
+commit 6f4c1e7edd4a6ee171a3f661c4652398b6a5c726
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 12:45:13 2020 +0800
+
+    updated error pages
+
+commit ec098f0ba88ee320bff60345b808e09db660baa5
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 12:42:50 2020 +0800
+
+    updated password reset page
+
+commit b5e0aa4ea32a523a6ea188c44ea32e86a2a24692
+Merge: e5a38b3 1f929cb
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 14 09:56:46 2020 +0800
+
+    Merge pull request #57 from benjaminpodmore/feature/add-student-request
+    
+    styled landing page and navbar logo
+
+commit 1f929cb953f7d62fd910c8abc6c848d462de7b86
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 00:10:10 2020 +0800
+
+    updated navbar
+
+commit 81081fb6175f59b0191c7c6af7cdfc7ff4edafc0
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 14 00:03:00 2020 +0800
+
+    updated navbar and forms
+
+commit 247db3689ea02bc2070de951cd97ae42d0e5ad78
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 13 23:03:47 2020 +0800
+
+    styled landing page and navbar logo
+
+commit f47e45c970832944da1bfd93a68e395bfe2ddde8
+Merge: 676db36 e5a38b3
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 13 17:51:39 2020 +0800
+
+    Merge branch 'develop' into feature/add-quiz-student-assignment-form
+
+commit 676db36f4e8a18831e8dd1e4f525e7bb89e3728e
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 13 17:38:22 2020 +0800
+
+    create HTML and form to assign students to quizzes
+
+commit e5a38b36e7283fb06e214891066fb2b13e9d7bb5
+Merge: 5629f3a 80d4c50
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Wed May 13 02:29:27 2020 -0700
+
+    Merge pull request #55 from benjaminpodmore/feature/check-if-request-exists
+    
+    Add validation for checking if a request already exists
+
+commit 80d4c50dbb066627de05bd724da3d19d1e8ef83a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 17:28:46 2020 +0800
+
+    Add validation for checking if a request already exists
+
+commit 5629f3a787e5bacae9fcc3c08de3f386e65bd03f
+Merge: 80d4bf6 cadc6ee
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 13 17:13:25 2020 +0800
+
+    Merge pull request #53 from benjaminpodmore/feature/add-home-routes
+    
+    Add user type filtering for home pages
+
+commit cadc6ee5983c0e79970bb4032b2dff92de482f37
+Merge: b5e79ba 80d4bf6
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 13 17:13:19 2020 +0800
+
+    Merge branch 'develop' into feature/add-home-routes
+
+commit 80d4bf69cf3c0d59eae8a0c55dcec5ae0943a22d
+Merge: 4863dfb db5cb67
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Wed May 13 02:12:45 2020 -0700
+
+    Merge pull request #54 from benjaminpodmore/hotfix/fix-db-for-score
+    
+    add test_tutor and test_student to db
+
+commit db5cb67027e6a34922c8431db68a6d75512c3fc3
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 17:10:20 2020 +0800
+
+    add test_tutor and test_student to db
+
+commit 4863dfbc050165f374a3cd5693ccdab4a39fbc36
+Merge: 32037cf 17d1270
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 13 17:00:54 2020 +0800
+
+    Merge pull request #51 from benjaminpodmore/feature/add-tutor-student-assignment-form
+    
+    Feature/add tutor student assignment form
+
+commit 17d12700c58369af7aaaf4cd3c4b3debce48d1b9
+Merge: 8622c66 32037cf
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 17:00:27 2020 +0800
+
+    Merge branch 'develop' into feature/add-tutor-student-assignment-form
+
+commit b5e79ba66a3a7c55e876bc5de5283d34a18c5f68
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 16:58:29 2020 +0800
+
+    Add user type filtering for home pages
+
+commit 32037cf167bcdfe474523b40549ade6086929c47
+Merge: 219dc2d 6a7246f
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 13 15:26:10 2020 +0800
+
+    Merge pull request #52 from benjaminpodmore/feature/updating-html
+    
+    styled various pages, added images
+
+commit 6a7246f7587d8230aaf6742b97afb1f616edba89
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 13 15:24:00 2020 +0800
+
+    styled various pages, added images
+
+commit 8622c664e886c39557fd0cc794e4f52a6dd365b8
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 13 13:46:56 2020 +0800
+
+    create feature/add-tutor-student-assignment-form
+
+commit 219dc2d74c6d0866a423cca2cd4a39a0e44135cf
+Merge: 75ecdc9 8a19857
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Tue May 12 22:36:37 2020 -0700
+
+    Merge pull request #50 from benjaminpodmore/hotfix/register-form-sizing
+    
+    add form-fields class to register form
+
+commit 8a19857d1711b7ad469742e448e0b1288071a424
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 13:24:24 2020 +0800
+
+    add form-fields class to register form
+
+commit 75ecdc936bd66bafc6736c1da426232e82668d2e
+Merge: 9b26ff2 5058b5e
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 13 13:06:24 2020 +0800
+
+    Merge pull request #49 from benjaminpodmore/feature/add-test-users
+    
+    Add test users in to db, test_tutor and test_student
+
+commit 5058b5e4fed551ebd2463ee87da26d6f62266c14
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 13 13:04:32 2020 +0800
+
+    Add test users in to db, test_tutor and test_student
+
+commit 9b26ff2d5bc1e275b8932d82b750793a6635c195
+Merge: e9e6e0d 615fce1
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 13 13:00:26 2020 +0800
+
+    Merge pull request #48 from benjaminpodmore/feature/add-score-db
+    
+    Add feature/add-score-db
+
+commit 615fce1a4cfb488193ea88c6d3a362b8cec5b0bc
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 11 20:08:20 2020 +0800
+
+    Add feature/add-score-db
+
+commit e9e6e0dd52c3fbe54b95fe49110ebc0cc5d6cc4e
+Merge: e120d32 96e0c67
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 11 16:50:15 2020 +0800
+
+    Merge pull request #47 from benjaminpodmore/feature/add-student-quiz-relationship-model
+    
+    create feature/add-student-quiz-relationship-model
+
+commit 96e0c673b0cd358472ca4759f88cb68d6e186ee8
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 11 16:39:04 2020 +0800
+
+    create feature/add-student-quiz-relationship-model
+
+commit e120d32873a181b95e09e691cc49a51be3a2064d
+Merge: 1abca49 26317cb
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 11 15:53:30 2020 +0800
+
+    Merge pull request #46 from benjaminpodmore/hotfix/fix-login-sizing
+    
+    add a css class to form fields to fix sizing
+
+commit 26317cb3c26e0d4f18d0fb5ecabfaf6b926028dc
+Merge: 19b04d1 1abca49
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 11 15:53:23 2020 +0800
+
+    Merge branch 'develop' into hotfix/fix-login-sizing
+
+commit 1abca492d8b3b7a2a04d5ee6142c503da40c3cc7
+Merge: 843870b 19a9524
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 11 15:51:18 2020 +0800
+
+    Merge pull request #45 from benjaminpodmore/feature/style-multiple-pages
+    
+    Added styling to multiple pages
+
+commit 19b04d1ae67489ce8938d311a2267d997906547b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 11 15:49:25 2020 +0800
+
+    add a css class to form fields to fix sizing
+
+commit 19a95246310e0ace542f08baca926b288b929547
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Sun May 10 16:24:49 2020 +0800
+
+    Added styling to multiple pages
+
+commit 843870b5efd02b8b421feb43cd1c0077f92a6994
+Merge: 8950090 40c8e06
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Wed May 6 19:42:14 2020 -0700
+
+    Merge pull request #43 from benjaminpodmore/feature/add-relationship-request
+    
+    add relationship request model
+
+commit 89500900da8b8ffb92f1e7905d97a615eaff2936
+Merge: 18809bb 473b63c
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu May 7 10:40:07 2020 +0800
+
+    Merge pull request #44 from benjaminpodmore/feature/add-reset-email
+    
+    Feature/add reset email
+
+commit 473b63ccbe39e2a226353516edfb5b38cfa7f497
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu May 7 10:14:19 2020 +0800
+
+    spelling fix
+
+commit 40c8e060ab3e2e9b998bdc436c62ff3add4a111f
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 6 20:51:11 2020 +0800
+
+    add relationship request model
+
+commit 18809bbccd763d8f47c860b4e068e5da7094c937
+Merge: cc1f8ab 248d704
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed May 6 20:39:36 2020 +0800
+
+    Merge pull request #41 from benjaminpodmore/hotfix/fix-broken-links
+    
+    fix jinja typo in register file
+
+commit cc1f8abaff6dacd195fbc55fcc8d920365e1e009
+Merge: baa0e53 894d82a
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Wed May 6 20:39:26 2020 +0800
+
+    Merge pull request #42 from benjaminpodmore/feature/add-relationship-request
+    
+    fix multiple heads error
+
+commit 894d82a1882178fff50fa537946a1c8c8bde6bc3
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Wed May 6 20:36:52 2020 +0800
+
+    fix multiple head error
+
+commit 9b2d120f2f2ecc4168b424f01da8637d805643c7
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 6 20:08:28 2020 +0800
+
+    Fix circular import error on __init__.py
+
+commit af5db3ebbf4ea8212a583c18ce3fffc9a2daa968
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 6 19:47:48 2020 +0800
+
+    Add flask-email and pyjwt to requirements.txt
+
+commit 248d704389bf63634d79e21c3c3c53b6e69015c9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed May 6 19:41:19 2020 +0800
+
+    fix jinja typo in register file
+
+commit a8c4347c79c81efa18f37a5b357ae109f1fa6a78
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 6 18:14:21 2020 +0800
+
+    made password reset email asynchronous
+
+commit 84c3279b3a47115d691c066e209473a92a83b8e3
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 6 18:04:13 2020 +0800
+
+    added reset password email and html pages
+
+commit be335bd0bb0bcbf867e6ef44e5c3da4e5310f239
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 6 17:17:27 2020 +0800
+
+    added file logging
+
+commit 560acbc01fd70eeae930b1640466bf731794ef4d
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 6 17:11:37 2020 +0800
+
+    added error email support
+
+commit 60c9cdc23e18644b1f92646c82128fe9b4556a51
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Wed May 6 16:55:57 2020 +0800
+
+    added error handling pages
+
+commit baa0e53bc18886213d3da09874cf383cb1c273eb
+Merge: 8017f3d e9dd5f7
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 3 21:28:34 2020 +0800
+
+    Merge pull request #33 from benjaminpodmore/feature/add-home-page
+    
+    Feature/add home page
+
+commit e9dd5f707b5cb469f67880999d0fbb333791dce9
+Merge: 499cc3a 8017f3d
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sun May 3 21:28:28 2020 +0800
+
+    Merge branch 'develop' into feature/add-home-page
+
+commit 8017f3dafa804507e1e413b398695cd1f24c4bdd
+Merge: 6a93068 bf58d02
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Sat May 2 22:03:46 2020 +0800
+
+    Merge pull request #40 from benjaminpodmore/feature/rename-models
+    
+    rename models
+
+commit bf58d023d63636ef3dbaed2ee1caaa3e25b84949
+Merge: 3ae711f 6a93068
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sat May 2 22:03:10 2020 +0800
+
+    Merge branch 'develop' into feature/rename-models
+
+commit 3ae711f43d4ee3bf648f324b5a843518055c86bb
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 1 17:41:10 2020 +0800
+
+    rename models
+
+commit 94695e05a450d2d65d1dc2e22dd8ba1e863974bf
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 1 17:29:05 2020 +0800
+
+    rename models
+
+commit 6a93068ec903f421d18872456e0630e7f87ae2a2
+Merge: 13a1a91 9780e9e
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 1 17:27:28 2020 +0800
+
+    Merge pull request #39 from benjaminpodmore/feature/add-short-answer-table
+    
+    add short answer model
+
+commit 9780e9e39d2579ee0a55edf1290792ed42fa775d
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 1 17:11:16 2020 +0800
+
+    add short answer model
+
+commit 13a1a9111922e2e14dbe1033dd0d58a3a4fbca2f
+Merge: fddb1b8 e0a05e3
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 1 17:04:08 2020 +0800
+
+    Merge pull request #38 from benjaminpodmore/feature/restructure-models
+    
+    restructure models
+
+commit e0a05e339a890766afa11c2fcc4de40629729053
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 1 17:02:51 2020 +0800
+
+    restructure models
+
+commit fddb1b88de80ff6ea656b4a8fe5a746b7870d672
+Merge: 0bd9fef 60bd2c8
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Fri May 1 16:56:20 2020 +0800
+
+    Merge pull request #37 from benjaminpodmore/feature/restructure-tables-with-tutorId
+    
+    Remake table to have tutorId
+
+commit 60bd2c8686824ad11b59b92f0f1bd426a8d51472
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 1 16:55:33 2020 +0800
+
+    Remake table to have tutorId
+
+commit 0bd9fef930518b20f7a1ffe0624910ce25067e93
+Merge: e984bd3 c7916b9
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Fri May 1 16:46:22 2020 +0800
+
+    Merge pull request #36 from benjaminpodmore/hotfix/rename-quiz-userId
+    
+    Rename tutorId to userId
+
+commit c7916b9593fa3340f89aa08e250c2eef5ef7f26b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 1 16:45:18 2020 +0800
+
+    Rename tutorId to userId
+
+commit e984bd369b8a0fdd165efe957c0fdc170ae074cb
+Merge: e57110c 9094985
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 1 16:36:43 2020 +0800
+
+    Merge pull request #35 from benjaminpodmore/feature/add-question-table
+    
+    Feature/add question table
+
+commit 90949853b45911c17937f24fe6a14f2e849c62e9
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Fri May 1 16:34:56 2020 +0800
+
+    create feature/add-question-table
+
+commit e57110cfc125937c42b9ca16c2129d31b3ca75c9
+Merge: 44ea495 f054371
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 1 15:11:47 2020 +0800
+
+    Merge pull request #34 from benjaminpodmore/feature/add-pairings-table
+    
+    Add Job table to represent tutor-student pairing
+
+commit f054371a86aed6f61e14779abc0cc354d806405d
+Merge: 5f96ed8 44ea495
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 1 15:11:04 2020 +0800
+
+    Merge branch 'develop' into feature/add-pairings-table
+
+commit 5f96ed89c87e621be0d915e86ae30dc20c521623
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Fri May 1 15:09:53 2020 +0800
+
+    Add Job table to represent tutor-student pairing
+
+commit 44ea495343b5763584af8feb019367c62d45d729
+Merge: 077d5d0 bac050f
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Fri May 1 10:53:36 2020 +0800
+
+    Merge pull request #32 from benjaminpodmore/feature/add-names-to-registration
+    
+    Add first and last name to registration form
+
+commit 499cc3a97068ef9f3b8178faa1da3f6f7aab4df8
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 16:44:11 2020 +0800
+
+    Styled login and signup pages 1st draft
+
+commit 261b19e535cfb71836c3ec0a2a7cc579bb7a31b7
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 15:48:23 2020 +0800
+
+    made footer less obnoxious
+
+commit 2b4538cb5e306ffcf64992b133b8c7b428e584a0
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 15:26:44 2020 +0800
+
+    First draft of student home page
+
+commit 405c455c7406f8d1663fe2419ba30f4475fa9c29
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 14:51:21 2020 +0800
+
+    added footer
+
+commit bac050f52b3c88154be9913762354df99da3e0df
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 14:36:43 2020 +0800
+
+    Add first and last name to registration form
+
+commit 077d5d0b5f9b209d6c5730008ad140198aa38590
+Merge: 6b1a0b2 3a74f9e
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Thu Apr 30 14:29:27 2020 +0800
+
+    Merge pull request #29 from benjaminpodmore/feature/add-userType-to-registration
+    
+    Add registration option for userType
+
+commit 3a74f9ea496b408b2803c68cab645a6a3a5567d9
+Merge: a2b4dcc 6b1a0b2
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 14:29:07 2020 +0800
+
+    Merge branch 'develop' into feature/add-userType-to-registration
+
+commit 6b1a0b216c258870ad38dffac32d5202624fe7f1
+Merge: 432a2b0 c50362a
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Thu Apr 30 14:24:59 2020 +0800
+
+    Merge pull request #31 from benjaminpodmore/feature/add-home-page
+    
+    Feature/add home page
+
+commit a2b4dcca0e364e1c8e0df0e998f56e95511bac95
+Merge: 68a80a9 432a2b0
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 14:23:46 2020 +0800
+
+    Merge branch 'develop' into feature/add-userType-to-registration
+
+commit c50362abb2f3bc966b284b71eb10f8a38bba95cc
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 14:22:22 2020 +0800
+
+    fixed routes to home page
+
+commit 432a2b06c9abdf7f3cd9c041e043671fdd0ef70b
+Merge: ece0633 f70786e
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 14:17:41 2020 +0800
+
+    Merge branch 'feature/add-home-page' of https://github.com/benjaminpodmore/tutor-quiz into develop
+
+commit 68a80a9bf4a1e20840b3a937cee1d87f0e64c673
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 14:16:15 2020 +0800
+
+    Recreate database to have naming convention, change to camelCase
+
+commit f70786e46127a14fd9dbc43e5091b0706e036377
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 14:11:41 2020 +0800
+
+    added main.css file again
+
+commit d377964998626d44df63b96ae0fdc3ea29dbc8bb
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Thu Apr 30 14:04:11 2020 +0800
+
+    changed home to home_student
+
+commit 727d974aed45b4ddbd292d8b301625a50fed1d66
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Thu Apr 30 12:53:03 2020 +0800
+
+    Add registration option for userType
+
+commit ece063318bd96cd8bcbd9c93bb87c154abd45d7c
+Merge: 707f720 abf55eb
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Thu Apr 30 11:28:17 2020 +0800
+
+    Merge pull request #28 from benjaminpodmore/feature/add-userType-table
+    
+    Feature/add user type table
+
+commit abf55eb76aa45a3ecb93c59539ff5444544db383
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Thu Apr 30 11:20:27 2020 +0800
+
+    create feature/add-userType-table
+
+commit 707f720630e3517588c2bcbfa1780d105014483f
+Merge: 55990e6 e13a6d0
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Wed Apr 29 10:17:14 2020 +0800
+
+    Merge pull request #27 from benjaminpodmore/feature/readme-flask-steps
+    
+    Add flask env steps to README.md
+
+commit e13a6d073d8fdd66b65d2b97ceb2ca66a09c69c8
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Wed Apr 29 10:12:32 2020 +0800
+
+    Add flask env steps to README.md
+
+commit 55990e6019b6979dbf8ecd4398f4f630987f018c
+Merge: a7b58d9 e9d2cbf
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 19:53:12 2020 +0800
+
+    Merge pull request #26 from benjaminpodmore/feature/add-landing-page
+    
+    Feature/add landing page
+
+commit e9d2cbf61ea01fa8b56a01710acd7d32825febdd
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Tue Apr 28 19:49:18 2020 +0800
+
+    Deleted Bronsen test file
+
+commit 4b4ee475572e18044d987aee02ffd387f6f26958
+Merge: d31a9dd a7b58d9
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Tue Apr 28 19:19:45 2020 +0800
+
+    Merge branch 'develop' of https://github.com/benjaminpodmore/tutor-quiz into develop
+
+commit a7b58d99ace48eb20161d58547e2e5da058bf03a
+Merge: e2aa236 907aed5
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 19:19:32 2020 +0800
+
+    Merge pull request #25 from benjaminpodmore/feature/add-landing-page
+    
+    Feature/add landing page
+
+commit 907aed519a2137ce42a21df6256bf82883f40247
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 19:18:27 2020 +0800
+
+    Add email_validator to requirements
+
+commit d31a9ddda769c8b2cf2aae497daa1c8c4ccaef54
+Merge: 8b9ae8b e2aa236
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Tue Apr 28 19:02:52 2020 +0800
+
+    Merge branch 'develop' of https://github.com/benjaminpodmore/tutor-quiz into develop
+
+commit fbb24123170bd2c3559084789d9cd35f7563121b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 18:29:55 2020 +0800
+
+    Create separation between index and home page
+
+commit e2aa2369ca4490a45c1b40e77e93637cb203e2ed
+Merge: 3be53d6 ed83a1e
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 17:24:57 2020 +0800
+
+    Merge pull request #23 from benjaminpodmore/feature/user-login
+    
+    Feature/user login
+
+commit ed83a1e83bf10efdd1010a5acafae20b4b2dc6de
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:57:55 2020 +0800
+
+    Add user registration functionality
+
+commit 42742566f4ff304232a6231375b118f956cbaefc
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:25:48 2020 +0800
+
+    Fix rememberMe typo
+
+commit ae9e9e2f41f3df019674b49be2e5f55977019e91
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:22:38 2020 +0800
+
+    Add user integration to index.html
+
+commit 82bf016ca204cd58ab269157e4f321ea6bbd3627
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:20:23 2020 +0800
+
+    Add request and url_parse import statements
+
+commit 48d669a7fffd3d18def1873fa538e02ceb32f978
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:19:46 2020 +0800
+
+    Add redirected after accessing protected page and logging in
+
+commit bc5d228676d9fbd22f1fb6f4d96406ce47b5bce9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:18:36 2020 +0800
+
+    Make index.html protected by login
+
+commit 6b161d5d756227f7503a4bc30d65fa5b6eaf4f1d
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:14:23 2020 +0800
+
+    Add logout route and update nav-bar
+
+commit 707fee1c85f422cdfdbc9f3b4383b4fd0245301f
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:12:56 2020 +0800
+
+    Login now checks if user exists
+
+commit 207dc56f7b51ae984b91cf964a19816d358219ac
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:03:28 2020 +0800
+
+    Add Flask-login
+
+commit 5f53cc740a3bc704319889030bdc66d539cd515d
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 16:03:00 2020 +0800
+
+    Add password set and check methods to user
+
+commit 3be53d6887138582bbb31314868be416da3ef811
+Merge: 60295e7 a8d9ec0
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 15:53:38 2020 +0800
+
+    Merge pull request #21 from benjaminpodmore/feature/add-python-dotenv
+    
+    Add python-dotenv to requirements, .env to .gitignore
+
+commit a8d9ec0510bab4e4f64aa8cc303e9ed3b1ffce6d
+Merge: 6fd02c4 60295e7
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 15:53:31 2020 +0800
+
+    Merge branch 'develop' into feature/add-python-dotenv
+
+commit 60295e766461fc1c4cd6b991b58f27188359e65b
+Merge: 329218c 08a81f8
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 15:49:16 2020 +0800
+
+    Merge pull request #20 from benjaminpodmore/feature/add-database
+    
+    Feature/add database
+
+commit 329218c3d76f4a28fcabd0365a70f0ff7cc32fad
+Merge: 304e9f6 3305f2e
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Tue Apr 28 15:47:40 2020 +0800
+
+    Merge pull request #19 from benjaminpodmore/feature/add-login-nav
+    
+    Feature/add login nav
+
+commit 6fd02c46543a356745996027d97c1b80e5c75fe6
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:57:54 2020 +0800
+
+    Add python-dotenv to requirements, .env to .gitignore
+
+commit 08a81f8b9f893ee6ef8ca586159c607cc3c177e3
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:50:58 2020 +0800
+
+    Configure tutor-quiz.py for flask shell command
+
+commit 65db3ab73b06fb77f849ead99c0e45ba1e355886
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:48:48 2020 +0800
+
+    Add ending brace to db tables __repr__
+
+commit 542c8bdda6e11aa63eda832fb1532338f638c41b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:44:01 2020 +0800
+
+    Create quizzes table
+
+commit 36a997f29318ae344c79dc075271898afe11f7df
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:39:43 2020 +0800
+
+    Create user table
+
+commit 1557f49ee69b1b89b4b52b5d7800f48c830ed6ee
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:25:18 2020 +0800
+
+    Configure app for database
+
+commit df841edb1f23f1e4fb4646e8048138462869bb34
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:24:52 2020 +0800
+
+    Add migrations directory from Flask-Migrate
+
+commit 9055915b57f54f8c10fff522c26c681088903756
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Tue Apr 28 14:17:50 2020 +0800
+
+    Add database requirement
+
+commit 3305f2eac066a6308dc8aae81858d2859f324d77
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 21:18:11 2020 +0800
+
+    Add logins as flashed messages
+
+commit daee832a130e66feceba0c7df77b799d9450b608
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 21:09:22 2020 +0800
+
+    Add login to nav
+
+commit 304e9f6e1f81da055326e98016141d37d71b4e02
+Merge: 77f9685 4969e11
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 21:05:32 2020 +0800
+
+    Merge pull request #16 from benjaminpodmore/hotfix/add-requirement-wtf-flask
+    
+    Hotfix/add requirement wtf flask
+
+commit 77f9685c45f6ad2b71f26e89b5a6eb1997bd036e
+Merge: c8b3299 8d3823b
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 21:05:19 2020 +0800
+
+    Merge pull request #17 from benjaminpodmore/feature/links-as-functions
+    
+    Feature/links as functions
+
+commit 8d3823bf511215812ab58889d4fb0e7fc0bdf158
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 20:40:22 2020 +0800
+
+    Import url_for and use for links
+
+commit 4969e1144f879367d943603a4acfec799b5aa576
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 19:06:44 2020 +0800
+
+    Add comment above .vscode in .gitignore
+
+commit a3e27bf095aaa0d41af5d567b1209b547791d1bd
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 19:05:06 2020 +0800
+
+    Add Flask-WTF and WTForms to requirements.txt
+
+commit c8b32995aa4bf87eb7b3c18861ab171e43ab6d2f
+Merge: 60b59af d166c0c
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 19:00:37 2020 +0800
+
+    Merge branch 'develop' into feature/gitignore-add-pycache
+
+commit d166c0cfed29c37af1bad16b55ea2bb94f6740f7
+Merge: 0613dbe 5cda8e9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 18:33:14 2020 +0800
+
+    Merge branch 'feature/create-login-page' into develop
+
+commit 60b59af49997c2fcd99562d9c56f75f3158d8593
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 18:28:51 2020 +0800
+
+    Remove env and pycache to match .gitignore
+
+commit 0613dbe8c217c8a3519103618c92af6a49516bd0
+Merge: 3b8c4d3 5cad06a
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:23:10 2020 +0800
+
+    Merge pull request #12 from benjaminpodmore/feature/add-content-container
+    
+    Feature/add content container
+
+commit 5cad06a68f222e15315350d5edcf1d3119087ac6
+Merge: 3f31f0e 3b8c4d3
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:22:51 2020 +0800
+
+    Merge branch 'develop' into feature/add-content-container
+
+commit 3b8c4d36b69472d29f41e0cbd8361dec45f7ad2a
+Merge: 2d4b68d 7de6cf5
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:16:27 2020 +0800
+
+    Merge pull request #13 from benjaminpodmore/feature/change-flask-to-debug
+    
+    Feature/change flask to debug
+
+commit 2d4b68ddfbd55ac49400b99bb6286d5607d16c62
+Merge: fdad80b 27fa652
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:13:12 2020 +0800
+
+    Merge pull request #9 from benjaminpodmore/feature/add-pylinter
+    
+    Add pylinter
+
+commit fdad80b607bcad4744962d04b5847137867e3277
+Merge: 0c0d0c7 5004b5d
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:12:58 2020 +0800
+
+    Merge pull request #11 from benjaminpodmore/feature/create-footer
+    
+    Feature/create footer
+
+commit 0c0d0c768ff9e18fd4797612db9965d880095e22
+Merge: f7b85bf c2a46aa
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 18:12:42 2020 +0800
+
+    Merge pull request #10 from benjaminpodmore/feature/add-license-file
+    
+    Feature/add license file
+
+commit b0a37082a553196c0620e2fb012afef65e469c63
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:49:26 2020 +0800
+
+    Reflect requirements.txt changes in README.md
+
+commit da94be6e33f8dde2f2efc775ca3088a9d2a9d7ef
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:46:55 2020 +0800
+
+    Create requirements.txt file
+
+commit 36f30a26bd6efc9367a746dfcbef58b1beef2ce9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:45:49 2020 +0800
+
+    Add tweaked python boilerplate .gitignore file
+
+commit 5cda8e9b41b5eb7f610eb6cf50d5a81161347e7c
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:40:51 2020 +0800
+
+    Create login.html page and add /login as a route
+
+commit a9e8cfa040e85ef7f3b560723bff67818d8fb0c5
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:37:23 2020 +0800
+
+    Add forms.py file with form fields and validators
+
+commit 03882a70fa22d6570d6f08e336c25caf9a55e239
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:36:18 2020 +0800
+
+    Add import statement for config to __init__.py
+
+commit 217285e7693e52de30411a8b04728cb985ced6d9
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:34:53 2020 +0800
+
+    Create config.py file
+
+commit 7de6cf5fe4d29093667b7dc5bd608bcf35f6f181
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:26:59 2020 +0800
+
+    Change FLASK_ENV to DEVELOPMENT
+    
+    Refreshing webpage will now show new changes, rather than having to stop
+    and start again
+
+commit 3f31f0e6eaa31c692685568ea3715be77f72d9a0
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:22:42 2020 +0800
+
+    Add container div to house content in base
+
+commit 5004b5d157956272c91217de3881fd16fe83ca97
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 17:16:16 2020 +0800
+
+    Add vanilla bootstrap footer
+
+commit c2a46aa326045c220beb1b0c5ff710c97a01e680
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 16:50:56 2020 +0800
+
+    Delete skeleton.md
+
+commit 6e2ee1fd3f76de7599f87ca8c983bdfcd3d0f972
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 16:09:53 2020 +0800
+
+    Added MIT license with each collaborator's name
+
+commit f58a0ae428a3f5537826b55af1e1c59376d39eaa
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 16:04:53 2020 +0800
+
+    Added basic pages to skeleton file
+    
+    Pages added: home, browse, login, sign up, create quiz, view quiz,
+    complete quiz, view/add quiz feedback, view assigned tutors/students,
+    view assigned quizzes
+
+commit 27fa65209a84364dd248e2c2b935a08095eba119
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 15:42:25 2020 +0800
+
+    Add pylinter
+
+commit f7b85bfc082c6507be5c0d7590a5cf843d832446
+Merge: 5bd3502 68749aa
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 15:23:38 2020 +0800
+
+    Merge pull request #1 from benjaminpodmore/feature/add-readme
+    
+    Add members and usage to README.md
+
+commit 5bd3502d06478a304d72478a95229b988040dbd1
+Merge: 99cd309 989069c
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 15:11:34 2020 +0800
+
+    Merge pull request #7 from benjaminpodmore/hotfix/delete-test-files
+    
+    Delete files from test branches
+
+commit 989069c596c4a7b9704787d8f04c2ced82f2fe6e
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 15:10:31 2020 +0800
+
+    Delete files from test branches
+
+commit 8b9ae8b858282ea14fbd55f27e5bc2938717d501
+Merge: 99cd309 69dbd4d
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon Apr 27 15:00:26 2020 +0800
+
+    Merge branch 'feature/Bronsen-Test-Branch' into develop
+
+commit 99cd3090b3942e48a8a9a58c005fc7f528827fdf
+Merge: 308bb23 d62ab72
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon Apr 27 14:53:50 2020 +0800
+
+    Merge pull request #4 from benjaminpodmore/feature/benjamin-test-branch
+    
+    Created benjamin.txt file
+
+commit 308bb238db1b95d6101b0ec46e6be3c774e3d5ee
+Merge: 9b9f807 bc37623
+Author: juliushinchliffe <62292079+juliushinchliffe@users.noreply.github.com>
+Date:   Mon Apr 27 14:53:36 2020 +0800
+
+    Merge pull request #6 from benjaminpodmore/feature/lauren-test-branch
+    
+    create lauren-test-file
+
+commit 9b9f8072f6aa42511f558bf7c5fb59ed097d8264
+Merge: f43e5de d92ee18
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon Apr 27 14:53:21 2020 +0800
+
+    Merge pull request #5 from benjaminpodmore/feature/julius-test-branch
+    
+    added julius.txt and julius_text.txt
+
+commit bc37623803bc70b5ea8073d0d64bb310f80a4584
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon Apr 27 14:47:09 2020 +0800
+
+    create lauren-test-file
+
+commit d92ee18c9a7a60e530bccea9b2ae5c688cbf57fb
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Mon Apr 27 14:47:05 2020 +0800
+
+    added julius.txt and julius_text.txt
+
+commit d62ab7269249be7011e3ad41aed5cf79ff05e233
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 14:43:39 2020 +0800
+
+    Created benjamin.txt file
+
+commit 69dbd4d5503dd14c55aabd95ed5762895fe014b1
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon Apr 27 14:40:54 2020 +0800
+
+    Tested committing something
+
+commit f43e5de13aac6b5a30d81605a3b80ba611f34064
+Merge: 3e6f6fc 75088d8
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Sun Apr 26 23:22:01 2020 -0700
+
+    Merge pull request #2 from benjaminpodmore/feature/add-logo
+    
+    create logo file
+
+commit 75088d86ae8d34e7e8d8d6c54bfc024fa31f002e
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon Apr 27 14:18:19 2020 +0800
+
+    create logo file
+
+commit 68749aa119b832563cce5f65fd7138b94eec42af
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 22:51:57 2020 +0800
+
+    Add members and usage to README.md
+
+commit 3e6f6fc756576b3b465694412b45d7897a238cc4
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 22:44:04 2020 +0800
+
+    Add vanilla bootstrap navbar
+
+commit d02f7b4a5cf56a2737b16dfe2b87c7af99956d6b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 22:40:29 2020 +0800
+
+    Add bootstrap and script links
+
+commit 067bed5d213123847c90cf9600aa89eeb39fc2d1
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 21:56:56 2020 +0800
+
+    Get first working code for app
+
+commit 010c47757279c40285d417f34a9e9e6358cae4e2
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 21:48:27 2020 +0800
+
+    Add framework for flask app
+
+commit dff03866495da31a81823c2f7fbda870f82046c5
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 21:44:24 2020 +0800
+
+    Add README.md file
+
+commit 0aeb6c3337a40926384ca9c0caea0b9f9f542fa7
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Sun Apr 26 21:36:22 2020 +0800
+
+    Initial commit
