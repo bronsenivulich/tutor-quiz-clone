@@ -22,7 +22,7 @@ $(document).ready(() => {
                 <p class="pb-1">
                     <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
                     <textarea class="formFields questionValue" id="questionId_${entry.questionId}"></textarea><br>
-                    <label class="formHeaders mt-2 mr-2">Answer</label>
+                    <label class="formHeaders mt-2 mr-2">Answer:</label><br>
                     <input type='text' class="formFields answer" id="shortAnswerId_${entry.shortAnswerId}"></input>
                 </p>
                 <button class='submitButton removeQuestion' type='button'>Remove Question</button>
