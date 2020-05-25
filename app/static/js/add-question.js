@@ -13,7 +13,7 @@ $(document).ready(() => {
         <h5 class="questionTitle">Question: ${qNum}</h5>
         <p class="pb-1">
             <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
-            <textarea class="formFields question"></textarea><br>
+            <textarea class="formFields questionValue"></textarea><br>
             <label class="formHeaders" style="font-weight: 500;">Answer:</label><br>
             <input type='text' class="formFields answer"></input>
         </p>
@@ -30,7 +30,7 @@ $(document).ready(() => {
         <h5 class="questionTitle">Question: ${qNum}</h5>
         <p class="pb-1">
             <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
-            <textarea class="formFields question"></textarea><br><br>
+            <textarea class="formFields questionValue"></textarea><br><br>
             <label class="formHeaders" style="font-weight: 500;">Possible Answers:</label>
             <div class="possibleAnswers">
                 <div id="optionA">
@@ -118,7 +118,7 @@ $(document).ready(() => {
                 if ($(entry).hasClass("shortAnswer")) {
                     question = {
                         "questionType": "shortAnswer",
-                        "question": $(entry).find(".question").val(),
+                        "question": $(entry).find(".questionValue").val(),
                         "answer": $(entry).find(".answer").val()
                     }
                     allQuestions.push(question)
@@ -137,7 +137,7 @@ $(document).ready(() => {
                     })
                     question = {
                         "questionType": "multiSolution",
-                        "question": $(entry).find(".question").val(),
+                        "question": $(entry).find(".questionValue").val(),
                         "options": answersToSend
                     }
                     allQuestions.push(question)
