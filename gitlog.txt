@@ -1,8 +1,230 @@
+commit a85d2f1fda900bb819d598de4e127525e5b20c45
+Merge: 8078d45 5e28b37
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Mon May 25 02:05:26 2020 -0700
+
+    Merge pull request #132 from benjaminpodmore/hotfix/add-more-tests-and-fix-spelling
+    
+    Add all tests that are completed and fix some spelling errors
+
+commit 5e28b377f58fb8d39e49b46c0ff45daf919a855f
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 17:02:46 2020 +0800
+
+    Add all tests that are completed and fix some spelling errors
+
+commit 8078d450d1b4e513cbf1837e6731bc8231f1c85b
+Merge: ecc0c46 bc1964e
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 17:02:13 2020 +0800
+
+    Merge pull request #131 from benjaminpodmore/feature/add-unit-testing
+    
+    Feature/add unit testing
+
+commit bc1964e0a08f52f3dffe726d0683966c406ca8ee
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 17:01:08 2020 +0800
+
+    Finish off quiz model testing
+
+commit ecc0c465ee0b1ab5d030057bb9f0c5ef4c0ebec8
+Merge: cdedd84 d3cb970
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 16:25:30 2020 +0800
+
+    Merge pull request #130 from benjaminpodmore/hotfix/db
+    
+    Fixed the db for demonstration purposes
+
+commit cdedd84297e9e865bb6cd1114dd5960a06fd1c6e
+Merge: 9abc031 2778ee6
+Author: Benjamin Podmore <46699356+benjaminpodmore@users.noreply.github.com>
+Date:   Mon May 25 16:25:15 2020 +0800
+
+    Merge pull request #128 from benjaminpodmore/feature/further-styling-to-home-pages
+    
+    Feature/further styling to home pages
+
+commit d3cb970524c15232aaaf2e392a41b8dd06b9f4b2
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 16:23:27 2020 +0800
+
+    Fixed the db for demonstration purposes
+
+commit 9abc03175b9c08b6b366bafa1d51519f34e07f36
+Merge: 3b9b791 1ac7f38
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 16:19:45 2020 +0800
+
+    Merge pull request #127 from benjaminpodmore/hotfix/assign-student-quiz-validation
+    
+    Change StudentQuiz query to object
+
+commit 1ac7f38ae9e8cc6ada5dac832468169c2ba3a14b
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 16:16:10 2020 +0800
+
+    Change StudentQuiz query to object
+
+commit 2778ee60521a3bb2d872cd1b13753291d4da7d49
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Mon May 25 16:15:22 2020 +0800
+
+    Third pass
+
+commit 3b9b791fa08578a7c93be417041477f02390768f
+Merge: dff58c7 f016f49
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 16:10:25 2020 +0800
+
+    Merge pull request #125 from benjaminpodmore/feature/add-demonstration-quizzes
+    
+    Feature/add demonstration quizzes
+
+commit dff58c7f86dd52580e9e09162390456a349ce75c
+Merge: 3593312 7283c87
+Author: bronsenivulich <53092759+bronsenivulich@users.noreply.github.com>
+Date:   Mon May 25 01:10:02 2020 -0700
+
+    Merge pull request #126 from benjaminpodmore/feature/add-readme
+    
+    Add detailed outline to README.md
+
+commit 35933121d079f621d4eee8e037031dd62c9e18d2
+Merge: b51cc1a 880653e
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 16:09:48 2020 +0800
+
+    Merge pull request #124 from benjaminpodmore/hotfix/fix-question-text-size
+    
+    Change question classes to remove styling clash
+
+commit 1206eb2150330345e146cd829cce3c37a381a83f
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Mon May 25 16:09:23 2020 +0800
+
+    Second pass
+
+commit 7283c874412de8689ef0814765ae19cd072e5881
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 16:07:09 2020 +0800
+
+    Add detailed outline to README.md
+
+commit 64377bde77aef048f9bae580758e20b0ec1be299
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Mon May 25 16:04:41 2020 +0800
+
+    First pass on navbar / home styling
+
+commit f016f4954ffecea452f6d9c5e34172973f7e68f4
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 16:02:42 2020 +0800
+
+    update db with new tutor
+
+commit 5d08873046931a9e92a520e34a53fcd16440c16c
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 15:56:51 2020 +0800
+
+    update db with new quizzes and students
+
+commit 880653e4169c666c5479ccac92e40ae137d77264
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 15:44:06 2020 +0800
+
+    Change question classes to remove styling clash
+
+commit 83c8b781533c84d3f278ac3ef5236f0d66bb94a1
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 15:39:15 2020 +0800
+
+    Add basic quiz testing
+
+commit 26545c33c93dfa8f68c7bbc31bc92526571b12b8
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 15:37:06 2020 +0800
+
+    fixed review quiz bug
+
+commit 50aa4834626d3ab151436113cc264093eee7a8c8
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 15:32:19 2020 +0800
+
+    added tab titles to all routes
+
+commit 1dd2eb00ef8f16495e69a8c57ab6b1b289783dba
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 15:24:29 2020 +0800
+
+    fixed assign student to quiz bug
+
+commit b51cc1ac1ab2fe8389075aa56ee8d3312d5a8210
+Merge: f60c143 56803de
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 15:02:09 2020 +0800
+
+    Merge pull request #123 from benjaminpodmore/feature/add-unit-testing
+    
+    Feature/add unit testing
+
+commit 56803de584c287d23572fdd64827cd5af126248a
+Author: Benjamin Podmore <benjaminpodmore@gmail.com>
+Date:   Mon May 25 14:57:46 2020 +0800
+
+    Create gitlogs.txt
+
+commit f60c14307b13c5f25bd9f312dc4bc1d74f63ec36
+Merge: bf2af2b b4a2267
+Author: campb1lc <62287819+campb1lc@users.noreply.github.com>
+Date:   Mon May 25 14:49:06 2020 +0800
+
+    Merge pull request #122 from benjaminpodmore/feature/add-style-to-error-pages
+    
+    Added styling to 404 and 505 error pages
+
+commit b4a22678add5c5a66db2ffdd3ce5d79063884b60
+Author: Julius <juliushinchliffe@gmail.com>
+Date:   Mon May 25 14:47:43 2020 +0800
+
+    Added styling to 404 and 505 error pages
+
+commit bf2af2b625e1d4ca3984df69288d8b59c6a61411
+Merge: b91f1c1 4783795
+Author: juliushinchliffe <62292079+juliushinchliffe@users.noreply.github.com>
+Date:   Mon May 25 14:38:37 2020 +0800
+
+    Merge pull request #121 from benjaminpodmore/feature/test-styling
+    
+    Reorganise main.css file
+
+commit 47837955795f2ed717590765933370b68567f3d0
+Author: Lauren Campbell <laurencampbell@westnet.com.au>
+Date:   Mon May 25 14:36:23 2020 +0800
+
+    Reorganise main.css file
+
 commit e86abaa02ea4a89c7e0eb6be3c83b07c7d76a386
 Author: Benjamin Podmore <benjaminpodmore@gmail.com>
 Date:   Mon May 25 14:26:26 2020 +0800
 
     Create tests.py for unit testing
+
+commit b91f1c1189663462f8aa781f3f08599b6faf5758
+Merge: 8c8d6c4 d95887e
+Author: juliushinchliffe <62292079+juliushinchliffe@users.noreply.github.com>
+Date:   Mon May 25 14:15:43 2020 +0800
+
+    Merge pull request #117 from benjaminpodmore/hotfix/style-feature-container
+    
+    styled feature containers
+
+commit d95887ef8e69ccb768f3b0491531638e1d214600
+Author: Bronsen Ivulich <bronsenivulich.j@gmail.com>
+Date:   Mon May 25 14:13:41 2020 +0800
+
+    styled feature containers
 
 commit 8c8d6c4ad7fff0b2873a4362fa46f5b80cc51a8e
 Merge: 312ee59 750af8d
