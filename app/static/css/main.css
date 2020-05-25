@@ -63,60 +63,6 @@ background-attachment: fixed;
     padding-bottom: 1%;
 }
 
-.announcements {
-    padding: 1%;
-}
-
-
-/* Form styling */
-.formFields {  
-    width: 100%;
-    max-width: 400px;
-    border-radius: 4px;
-    padding-left: 1%;
-}
-
-.formHeaders {
-    font-size: 110%;    
-}
-
-.tutorRequest {
-    padding: 1%;
-    padding-top: 2%;
-}
-
-.submitButton {
-    padding: 2%;
-    border-radius: 12px;
-    border: 1px solid black;
-    font-weight: 500;
-}
-
-.submitButton:hover {
-    opacity: 0.7;
-    cursor: pointer;
-
-}
-
-.submitButton:active {
-    transform: translateY(2px);
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
-}
-
-.logo {
-    max-width: 90%;
-}
-
-.question {
-    font-size: 120%;
-    font-weight: 500;
-}
-
-.questionTitle {
-    text-align: left;
-    font-style: italic;
-}
-
 .homeContainer .card button {
     background-color: #c4c4c4;
     border: 0px solid black;
@@ -172,6 +118,75 @@ background-attachment: fixed;
     text-align: center;
 }
 
+/* Card styling */
+.card{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    filter: blur(0px);
+    transition-property: filter;
+    border: 0px solid black;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.card-header {
+    background-color: #F68686;
+}
+
+.card-body {
+    background-color: #FFECEC;
+}
+
+
+/* Form styling */
+.formFields {  
+    width: 100%;
+    max-width: 400px;
+    border-radius: 4px;
+    padding-left: 1%;
+}
+
+.formHeaders {
+    font-size: 110%;    
+}
+
+.submitButton {
+    padding: 2%;
+    border-radius: 12px;
+    border: 1px solid black;
+    font-weight: 500;
+}
+
+.submitButton:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.submitButton:active {
+    transform: translateY(2px);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+}
+
+/* Tutor request stying */
+
+.tutorRequest {
+    padding: 1%;
+    padding-top: 2%;
+}
+
+/* Question styling */
+.question {
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.questionTitle {
+    text-align: left;
+    font-style: italic;
+}
+
+/* Quiz review styling */
 .reviewPageAnswer {
     color: #2CA015;
     font-weight: 500;
@@ -192,21 +207,3 @@ background-attachment: fixed;
     font-size: 120%;
 }
 
-.card{
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
-    filter: blur(0px);
-    transition-property: filter;
-    border: 0px solid black;
-}
-
-.card:hover {
-    transform: scale(1.01);
-}
-
-.card-header {
-    background-color: #F68686;
-}
-
-.card-body {
-    background-color: #FFECEC;
-}
