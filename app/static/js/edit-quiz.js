@@ -16,9 +16,8 @@ $(document).ready(() => {
 
             // Append in this way if it is a short answer
             if (entry.questionType == "shortAnswer") {
-                console.log(entry.currentAnswer)
                 $('#editQuiz').append(`
-                <div id="question_${qNum}" class="wholeQuestion shortAnswer">
+                <div id="question_${qNum}" class="wholeQuestion shortAnswer oldQuestion">
                 <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p class="pb-1">
                     <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
@@ -36,7 +35,7 @@ $(document).ready(() => {
             // Append this way if a multiple-choice
             else if (entry.questionType == "multiSolution") {
                 $('#editQuiz').append(`
-                <div id="question_${qNum}" class="wholeQuestion multiSolution">
+                <div id="question_${qNum}" class="wholeQuestion multiSolution oldQuestion">
                 <h5 class="questionTitle">Question: ${qNum}</h5>
                 <p class="pb-1">
                     <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
@@ -52,9 +51,8 @@ $(document).ready(() => {
 
                 let optionNum = 1;
                 entry.options.forEach(function (option) {
-                    console.log(option)
                     $(`#question_${qNum}`).find(".possibleAnswers").append(`
-                        <div id="optionA">
+                        <div class="option">
                             <input type='text' class="formFields possibleAnswer mb-2" id="choice_${option.choiceId}"></input>
                             <select class="correct ml-3" id="choice_${option.choiceId}">
                                 <option>False</option><option>True</option>
@@ -75,11 +73,11 @@ $(document).ready(() => {
         });
     }
 
-        // Append short answer forms to page when button is clicked
-        $('#questionButton').click(function () {
+    // Append short answer forms to page when button is clicked
+    $('#questionButton').click(function () {
 
-            $('#editQuiz').append(`
-            <div id="question_${qNum}" class="wholeQuestion shortAnswer">
+        $('#editQuiz').append(`
+            <div id="question_${qNum}" class="wholeQuestion shortAnswer newQuestion">
             <h5 class="questionTitle">Question: ${qNum}</h5>
             <p class="pb-1">
                 <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
@@ -89,14 +87,14 @@ $(document).ready(() => {
             </p>
             <button class='submitButton removeQuestion' type='button'>Remove Question</button>
             <br><hr></div>`);
-    
-            qNum = qNum + 1;
-        });
-    
-        // Append multiple choice forms to page when button is clicked
-        $('#multiQuestionButton').click(function () {
-            $('#editQuiz').append(`
-            <div id="question_${qNum}" class="wholeQuestion multiSolution">
+
+        qNum = qNum + 1;
+    });
+
+    // Append multiple choice forms to page when button is clicked
+    $('#multiQuestionButton').click(function () {
+        $('#editQuiz').append(`
+            <div id="question_${qNum}" class="wholeQuestion multiSolution newQuestion">
             <h5 class="questionTitle">Question: ${qNum}</h5>
             <p class="pb-1">
                 <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
@@ -120,11 +118,11 @@ $(document).ready(() => {
                 <button class='submitButton removeQuestion' type='button'>Remove Question</button>
             <br><hr></div>
             `);
-    
-            qNum = qNum + 1;
-        });
 
-    $(document).on("click", ".removeQuestion" , function() {
+        qNum = qNum + 1;
+    });
+
+    $(document).on("click", ".removeQuestion", function () {
         $(this).parent().remove();
         qNum = qNum - 1;
     });
@@ -137,103 +135,168 @@ $(document).ready(() => {
         headers: { "Authorization": 'Bearer ' + token },
         success: function (data) {
             showQuiz(data)
-            console.log(data)
         },
         error: function (resp) {
             console.log(resp)
         }
     });
 
-    // When the submit button is pressed, run the submit function
-    $("#submitQuiz").click(function () {
-        $("#editQuiz").submit();
-    });
 
     let errorChecked = false
 
-    // Submit function
-    $("#editQuiz").submit(function () {
+    // Submit Quiz
+    $("#submitQuiz").click(function () {
+
 
         // Keep track of whether there is an error in the form
         error = false
 
-        let formFields = $("#editQuiz").find(".formFields").toArray()
-        console.log(formFields)
-
-        // Itterate through each form field
-        formFields.forEach(function (entry) {
-
-            // If the field is empty raise this error
-            if ($(entry).val().length === 0) {
-                if (!$("#emptyField-error").length) {
-                    $('#editQuiz').append(`
-                        <span id="emptyField-error" style="color: red;">You have an empty field, would you like to submit anyway?</span>
-                    `);
-                }
-
-                // Error raised
-                error = true
-            }
-        });
-
-        // If there is no errors or the error has already been checked submit responses
-        if (error == false || errorChecked) {
-
-            let answers = $("#editQuiz").children(".wholeQuestion").toArray()
-
-            let allAnswers = []
-
-            // Itterate through each answer
-            answers.forEach(function (entry) {
-
-                // If it is an answer to a short answer push data to API in this way
-                if ($(entry).hasClass("shortAnswer")) {
-                    answer = {
-                        "questionType": "shortAnswer",
-                        "questionId": $(entry).find("span").attr("id").replace("questionId_", ""),
-                        "studentAnswer": $(entry).find(".answer").val()
-                    }
-                    allAnswers.push(answer)
-                }
-
-                // If it is an answer to a multiple-choice push data to API in this way
-                else if ($(entry).hasClass("multiSolution")) {
-                    answer = {
-                        "questionType": "multiSolution",
-                        "questionId": $(entry).find("span").attr("id").replace("questionId_", ""),
-                        "studentAnswer": $(entry).find("input:checked").val()
-                    }
-                    allAnswers.push(answer)
-                }
-            });
-
-            // Store the data
-            data = {
-                "answers": allAnswers
+        // Check the number of questions
+        if ($("#editQuiz").find(".wholeQuestion").toArray().length == 0) {
+            if (!$("#qNumError").length) {
+                $('#editQuiz').append(`
+                    <span id="qNumError" style="color: red;">Cannot submit a quiz with no questions.</span>
+                `);
             }
 
-            // Asynchronously push the data to an API and to the database
-            $.ajax({
-                url: `/api/quizzes/submit/${quizId}`,
-                data: JSON.stringify(data),
-                type: "post",
-                contentType: "application/json",
-                headers: { "Authorization": 'Bearer ' + token },
-                success: function (data) {
-                    // console.log(data)
-                },
-                error: function (resp) {
-                    // console.log(resp)
+            // Error rasied
+            error = true
+        }
+
+
+        else {
+            // Check all form fields are filled
+            let formFields = $("#editQuiz").find(".formFields").toArray()
+
+            // Itterate through each form field
+            formFields.forEach(function (entry) {
+
+                // If the form field is empty, raise an error
+                if ($(entry).val().length === 0) {
+                    if (!$('#emptyField').length) {
+                        $('#editQuiz').append(`
+                            <span id="emptyField" style="color: red;">Cannot submit a quiz with empty fields.</span>
+                        `);
+                    }
+
+                    // Error raised
+                    error = true
                 }
             });
         }
 
-        // If the error has not been checked, do not submit the form
-        else {
-            errorChecked = true
+        // If an error is raised, do not complete and submit the form to the database
+        if (error == true) {
             return false
         }
 
+        // Form completed successfully
+        else {
+            let questions = $("#editQuiz").children(".wholeQuestion").toArray()
+
+            let allQuestions = []
+
+            // Itterate through each full question
+            questions.forEach(function (entry) {
+
+                // Check if question didn't exist before
+                if ($(entry).hasClass("newQuestion")) {
+
+                    // If the question is short answer add to API in this way
+
+                    if ($(entry).hasClass("shortAnswer")) {
+                        question = {
+                            "questionType": "shortAnswer",
+                            "question": $(entry).find(".question").val(),
+                            "answer": $(entry).find(".answer").val()
+                        }
+                        allQuestions.push(question)
+                    }
+
+                    // If the question is a multiple-choice question add to API in this way
+                    else if ($(entry).hasClass("multiSolution")) {
+                        let possibleAnswers = $(entry).find(".possibleAnswers").children("div").toArray()
+                        let answersToSend = []
+                        possibleAnswers.forEach(function (possibleAnswer) {
+                            answerToSend = {
+                                "answer": $(possibleAnswer).find("input").val(),
+                                "isTrue": ("True" == $(possibleAnswer).find("select").val())
+                            }
+                            answersToSend.push(answerToSend)
+                        })
+                        question = {
+                            "questionType": "multiSolution",
+                            "question": $(entry).find(".question").val(),
+                            "options": answersToSend
+                        }
+                        allQuestions.push(question)
+                    }
+                }
+                else if ($(entry).hasClass("oldQuestion")) {
+
+                    // If the question is short answer add to API in this way
+
+                    if ($(entry).hasClass("shortAnswer")) {
+                        question = {
+                            "questionType": "shortAnswer",
+                            "question": $(entry).find(".question").val(),
+                            "answer": $(entry).find(".answer").val(),
+                            "shortAnswerId": $(entry).find("input").attr("id").replace("shortAnswerId_", ""),
+                            "questionId": $(entry).find("textarea").attr("id").replace("questionId_", "")
+                        }
+                        allQuestions.push(question)
+                    }
+
+                    // If the question is a multiple-choice question add to API in this way
+                    else if ($(entry).hasClass("multiSolution")) {
+                        let possibleAnswers = $(entry).find(".possibleAnswers").children("div").toArray()
+                        let answersToSend = []
+                        possibleAnswers.forEach(function (possibleAnswer) {
+                            answerToSend = {
+                                "answer": $(possibleAnswer).find("input").val(),
+                                "isTrue": ("True" == $(possibleAnswer).find("select").val()),
+                                "choiceId" : $(possibleAnswer).find("input").attr("id").replace("choice_","")
+                            }
+                            answersToSend.push(answerToSend)
+                        })
+                        question = {
+                            "questionType": "multiSolution",
+                            "question": $(entry).find(".question").val(),
+                            "questionId" : $(entry).find("textarea").attr("id").replace("questionId_", ""),
+                            "options": answersToSend
+                        }
+                        allQuestions.push(question)
+                    }
+                }
+            });
+
+            // Store the data in an API
+            data = {
+                "body": $("#quizBody").val(),
+                "name": $("#quizName").val(),
+                "questions": allQuestions
+            };
+
+            console.log(data)
+
+
+
+            // Asynchronously add to the API and database
+            $.ajax({
+                url: `/api/quizzes/edit/${quizId}`,
+                type: "post",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                headers: { "Authorization": 'Bearer ' + token },
+                success: function (data) {
+                    window.location.href = "/home"
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+
+            })
+        }
     });
 
 });
