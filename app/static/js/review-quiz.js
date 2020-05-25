@@ -45,21 +45,39 @@ $(document).ready(() => {
             // If the question is a multiple-choice, append to the page like this
             else if (entry.questionType == "multiSolution") {
 
+                console.log(entry)
+
                 let answers = "<br>"
 
                 entry.answers.forEach(function (answer) {
                     answers += `<span>${answer}</span><br>`
                 });
 
-                $('#completedQuiz').append(`
-                <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                <h5 class="questionTitle">Question: ${qNum}</h5><br>
-                <p class="pb-1">
-                    <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
-                    <p>Your Answer: <span class="reviewSubmittedAnswer">${entry.submittedAnswer}</span></p>
-                    <span>Correct Answers: <span class="reviewPageAnswer">${answers}</span></span>
-                </p>
-                </div><br><hr>`);
+                if (entry.answers.includes(entry.submittedAnswer)) {
+
+                    $('#completedQuiz').append(`
+                    <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
+                    <h5 class="questionTitle">Question: ${qNum}</h5><br>
+                    <p class="pb-1">
+                        <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
+                        <p>Your Answer: <span class="reviewCorrectAnswer">${entry.submittedAnswer}</span><span style='font-size:18px; padding-left: 0.5%'>&#9989;</span></p>
+                        <span>Correct Answers: <span class="reviewPageAnswer">${answers}</span></span>
+                    </p>
+                    </div><br><hr>`);
+                }
+                else {
+
+                    $('#completedQuiz').append(`
+                    <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
+                    <h5 class="questionTitle">Question: ${qNum}</h5><br>
+                    <p class="pb-1">
+                        <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
+                        <p>Your Answer: <span class="reviewFalseAnswer">${entry.submittedAnswer}</span><span style='font-size:18px; padding-left: 0.5%'>&#10060;</span></p>
+                        <span>Correct Answers: <span class="reviewPageAnswer">${answers}</span></span>
+                    </p>
+                    </div><br><hr>`);
+
+                }
             }
             qNum = qNum + 1;
         });
