@@ -15,8 +15,8 @@
 {% block content %}
 
 <div class="loginPage pt-4">
-    <div class="col-md-4 featureContainer" style="text-align: center;">
-        <h1>Assign Student to {{ Quiz.query.filter_by(id=id).first().name }} Quiz</h1>
+    <div class="col-md-4 p-4 featureContainer" style="text-align: center;">
+        <h1>Assign Student to {{ Quiz.query.filter_by(id=id).first().name }}</h1>
         <br>
         <!-- Form to assign the student -->
         <form action="" method="post">

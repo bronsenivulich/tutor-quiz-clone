@@ -19,7 +19,7 @@ $(document).ready(() => {
 
                     $('#completedQuiz').append(`
                     <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                    <h5 class="question-title">Question: ${qNum}</h5><br>
+                    <h5 class="questionTitle">Question: ${qNum}</h5><br>
                     <p class="pb-1">
                         <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                         <p>Your Answer: <span class="reviewCorrectAnswer">${entry.submittedAnswer}</span><span style='font-size:18px; padding-left: 0.5%'>&#9989;</span></p>
@@ -31,7 +31,7 @@ $(document).ready(() => {
 
                     $('#completedQuiz').append(`
                     <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
-                    <h5 class="question-title">Question: ${qNum}</h5><br>
+                    <h5 class="questionTitle">Question: ${qNum}</h5><br>
                     <p class="pb-1">
                         <span class="question" id="questionId_${entry.questionId}">${entry.question}</span><br><br>
                         <p>Your Answer: <span class="reviewFalseAnswer">${entry.submittedAnswer}</span><span style='font-size:18px; padding-left: 0.5%'>&#10060;</span></p>
