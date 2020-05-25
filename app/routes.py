@@ -164,7 +164,6 @@ def student_assignment(id):
     # Check user authentication
     if current_user.is_authenticated:
         form = AssignStudentForm()
-        
         # If form is valid add assignment to database
         if form.validate_on_submit():
             studentId = User.query.filter_by(username=form.student.data).first().id
