@@ -18,13 +18,13 @@ background-attachment: fixed;
 
 .logo {
     max-width: 90%;
-    opacity: 1;
-    transition: 0.3s;
+    opacity: 0.9;
+    transition: 0.5s;
     transform: scale(1.00);
 }
 
 .logo:hover {
-    opacity: 0.5;
+    opacity: 1;
     transform: scale(1.15);
 }
 
