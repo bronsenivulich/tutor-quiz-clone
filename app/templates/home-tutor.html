@@ -66,14 +66,14 @@
     <!-- Container for quizzes students are yet to complete -->
     <div class="container p-2">
         <div class="card">
-            <h3 class="card-header" data-unsp-sanitized="clean">Uncompleted Quizzes</h3>
+            <h3 class="card-header" data-unsp-sanitized="clean">Created Quizzes</h3>
             <div class="card-body">
                 <div class="row d-flex justify-content-between">
 
                     <!-- Checks for creates and assigned quizzes -->
-                    {% if uncompletedQuizzes|length == 0 %}
+                    {% if tutorQuizzes|length == 0 %}
                     <div class="col-sm-12" style="text-align: left;">
-                        No incomplete quizzes
+                        No created quizzes
                     </div>
                     {% else %}
                     <div class="col-sm-4 pb-2" style="text-align: left;"><strong>Quiz</strong></div>
@@ -81,17 +81,29 @@
                     <div class="col-sm-4 pb-2"></div>
 
                     <!-- Itterates through uncompleted quizzes and render information to the page -->
-                    {% for uncompletedQuiz in uncompletedQuizzes %}
-                    <div class="col-sm-4 pt-2" style="text-align: left;">
-                        {{Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().name }}
+                    {% for quiz in tutorQuizzes %}
+                    <div class="col-sm-3 pt-2" style="text-align: left;">
+                        {{ quiz.name }}
                     </div>
-                    <div class="col-sm-4 pt-2" style="text-align: center;">
-                        {{User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=uncompletedQuiz.quizId).first().studentId).first().username}}
+                    <div class="col-sm-3 pt-2" style="text-align: center;">
+                        {% for student in StudentQuiz.query.filter_by(quizId=quiz.id) %}
+
+                        <p>{{User.query.filter_by(id=student.studentId).first().username}}</p>
+
+                        {% endfor %}
+
                     </div>
-                    <div class="col-sm-4 pt-2" style="text-align: right;">
-                        <a href="{{ url_for('edit_quiz', id=Quiz.query.filter_by(id=uncompletedQuiz.quizId).first().id) }} ">
+                    <div class="col-sm-3 pt-2" style="text-align: right;">
+                        <a href="{{ url_for('student_assignment', id=quiz.id) }} ">
                             <button class="assigned-quiz">
-                                Review Quiz
+                                Assign New student Quiz
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 pt-2" style="text-align: right;">
+                        <a href="{{ url_for('edit_quiz', id=quiz.id) }} ">
+                            <button class="assigned-quiz">
+                                Edit Quiz
                             </button>
                         </a>
                     </div>
