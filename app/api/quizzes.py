@@ -138,6 +138,7 @@ def create_quiz():
             db.session.add(question)
             db.session.commit()
             for option in questionAndAnswer["options"]:
+                print(option)
                 answer_data = {}
                 answer_data["questionId"] = question.id
                 answer_data["possibleAnswer"] = option["answer"]
@@ -158,6 +159,85 @@ def create_quiz():
     response.headers["Location"] = url_for('api.get_quiz', id=quiz.id)
     return data
 
+
+@bp.route('/quizzes/edit/<int:id>', methods=['POST'])
+@token_auth.login_required(role="tutor")
+def edit_quiz(id):
+    data = request.get_json() or {}
+    if 'name' not in data or 'body' not in data or 'questions' not in data:
+        return bad_request('must include quiz name, body and questions fields')
+    quiz = Quiz.query.filter_by(id=id).first()
+    quiz.name = data["name"]
+    quiz.body = data["body"]
+    # token = request.headers["Authorization"].replace('Bearer ', '')
+    db.session.add(quiz)
+    db.session.commit()
+    for questionAndAnswer in data["questions"]:
+        if "questionId" in questionAndAnswer:
+            if questionAndAnswer["questionType"] == "shortAnswer":
+                question = Question.query.filter_by(id=questionAndAnswer["questionId"]).first()
+                question.question = questionAndAnswer["question"]
+                shortAnswer = ShortAnswer.query.filter_by(id=questionAndAnswer["shortAnswerId"]).first()
+                shortAnswer.correctAnswer = questionAndAnswer["answer"]
+                db.session.add(question, shortAnswer)
+                db.session.commit()
+            elif questionAndAnswer["questionType"] == "multiSolution":
+                question = Question.query.filter_by(id=questionAndAnswer["questionId"]).first()
+                question.question = questionAndAnswer["question"]
+                db.session.add(question)
+                db.session.commit()
+                options = questionAndAnswer["options"]
+                for option in options:
+                    multiSolution = MultiSolution.query.filter_by(id=option["choiceId"]).first()
+                    multiSolution.possibleAnswer = option["answer"]
+                    multiSolution.correctAnswer = bool(option["isTrue"])
+                    db.session.add(multiSolution)
+                    db.session.commit()
+
+        else:
+            print(questionAndAnswer)
+            if questionAndAnswer["questionType"] == "shortAnswer":
+                question_data = {}
+                question_data["question"] = questionAndAnswer["question"]
+                question_data["quizId"] = quiz.id
+                question = Question()
+                question.from_dict(question_data, new_question=True)
+                db.session.add(question)
+                db.session.commit()
+                answer_data = {}
+                answer_data["correctAnswer"] = questionAndAnswer["answer"]
+                answer_data["questionId"] = question.id
+                shortAnswer = ShortAnswer()
+                shortAnswer.from_dict(answer_data, new_answer=True)
+                db.session.add(shortAnswer)
+                db.session.commit()
+            elif questionAndAnswer["questionType"] == "multiSolution":
+                question_data = {}
+                question_data["question"] = questionAndAnswer["question"]
+                question_data["quizId"] = quiz.id
+                question = Question()
+                question.from_dict(question_data, new_question=True)
+                db.session.add(question)
+                db.session.commit()
+                for option in questionAndAnswer["options"]:
+                    answer_data = {}
+                    answer_data["questionId"] = question.id
+                    answer_data["possibleAnswer"] = option["answer"]
+                    answer_data["correctAnswer"] = bool(option["isTrue"])
+                    multiSolution = MultiSolution()
+                    multiSolution.from_dict(answer_data, new_answer=True)
+                    db.session.add(multiSolution)
+                    db.session.commit()
+    
+    # studentQuiz = StudentQuiz()
+    # studentQuiz.quizId = quiz.id
+    # studentQuiz.studentId = User.query.filter_by(username=studentName).first().id
+    # db.session.add(studentQuiz)
+    # db.session.commit()
+    response = jsonify(quiz.to_dict())
+    response.status_code = 201
+    response.headers["Location"] = url_for('api.get_quiz', id=quiz.id)
+    return data
 
 @bp.route('/quizzes/submit/<int:id>', methods=['POST'])
 @token_auth.login_required(role="student")

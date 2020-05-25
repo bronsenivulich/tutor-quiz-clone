@@ -66,7 +66,7 @@ $(document).ready(() => {
         error = false
 
         // Check the number of questions
-        if (qNum <= 1) {
+        if ($("#newQuiz").find(".wholeQuestion").toArray().length == 0) {
             if (!$("#qNumError").length) {
                 $('#newQuiz').append(`
                     <span id="qNumError" style="color: red;">Cannot submit a quiz with no questions.</span>
