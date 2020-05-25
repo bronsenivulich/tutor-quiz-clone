@@ -133,7 +133,7 @@ def request_student():
             db.session.commit()
             flash('Your request has been sent')
             return redirect(url_for('home'))
-        return render_template('request.html', form=form)
+        return render_template('request.html', title='Request a student', form=form)
     else:
         return redirect(url_for('index'))
 
@@ -226,7 +226,7 @@ def review_quiz(id):
             flash("This quiz has not been completed.")
             return redirect(url_for("home"))
 
-        return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz, score=score, student=student)
+        return render_template('review-quiz.html', title='Review a quiz', id=id, token=token, Quiz=Quiz, score=score, student=student)
 
     else:
         return redirect(url_for('index'))
@@ -240,7 +240,7 @@ def edit_quiz(id):
         token = current_user.get_token()
         
         # Ensure quiz has been completed
-        return render_template('edit-quiz.html', title='Edut a quiz', id=id, token=token)
+        return render_template('edit-quiz.html', title='Edit a quiz', id=id, token=token)
 
     else:
         return redirect(url_for('index'))
