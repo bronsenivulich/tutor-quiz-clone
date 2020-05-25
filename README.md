@@ -21,7 +21,7 @@ To make the development of out backend easier and more efficeint we employed the
 
 
 ## Installing
-After clone repo, use following command to create your own virtualenv. 
+After installing the repository, use following command to create your own virtualenv. 
 On mac or Linux:
 ```
 $ virtualenv env
