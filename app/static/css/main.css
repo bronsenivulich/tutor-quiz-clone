@@ -36,7 +36,7 @@ background-attachment: fixed;
 }
 
 .nav-link {
-    color: #181818;
+    color: #181818 !important /* necessary to overide bootstrap styling */;
 }
 
 .nav-link:hover {
@@ -119,7 +119,7 @@ background-attachment: fixed;
 
 .homeContainer .card button {
     background-color: #c4c4c4;
-    border: 1px solid black;
+    border: 0px solid black;
     text-align: center;
     padding-left: 2%;
     padding-right: 2%;
@@ -141,18 +141,21 @@ background-attachment: fixed;
 }
 
 #homeHeader button {
-    background-color: #efefef;
     display: block;
     width: 100%;
-    border: 1px solid black;
+    border: 0px solid black;
     text-align: center;
-    border-radius: 12px;
-    cursor: pointer;
+    border-radius: 20px;
+    cursor: pointer;    
+    background-image: linear-gradient(to right, #F68686 , #ffb6b6, #F68686);
 }
 
+
 #homeHeader button:hover {
-    background-color: #c4c4c4;
+    background-color: #FFECEC;
     cursor: pointer;
+    transform: translateY(5px);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
 }
 
 #homeHeader button:active {
@@ -189,6 +192,21 @@ background-attachment: fixed;
     font-size: 120%;
 }
 
-.nav-link {
-    color: black !important; 
+.card{
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.25), 0 17px 50px 0 rgba(0,0,0,0.20);
+    filter: blur(0px);
+    transition-property: filter;
+    border: 0px solid black;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.card-header {
+    background-color: #F68686;
+}
+
+.card-body {
+    background-color: #FFECEC;
 }
