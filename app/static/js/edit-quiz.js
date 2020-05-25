@@ -3,9 +3,10 @@ $(document).ready(() => {
     let quizId = $("#data").data("quiz-id")
     let token = $("#data").data("token")
 
+    let qNum = 1
+
     function showQuiz(quizData) {
         let questions = quizData.questions
-        let qNum = 1
 
         $("#quizName").val(quizData.name);
         $("#quizBody").val(quizData.body);
@@ -17,7 +18,7 @@ $(document).ready(() => {
             if (entry.questionType == "shortAnswer") {
                 console.log(entry.currentAnswer)
                 $('#editQuiz').append(`
-                <div id="quizQuestion_${qNum}" class="wholeQuestion shortAnswer">
+                <div id="question_${qNum}" class="wholeQuestion shortAnswer">
                 <h5 class="questionTitle">Question: ${qNum}</h5><br>
                 <p class="pb-1">
                     <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
@@ -25,7 +26,8 @@ $(document).ready(() => {
                     <label class="formHeaders mt-2 mr-2">Answer</label>
                     <input type='text' class="formFields answer" id="shortAnswerId_${entry.shortAnswerId}"></input>
                 </p>
-                </div><br><hr>`);
+                <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+                <br><hr></div>`);
 
                 $(`.wholeQuestion #questionId_${entry.questionId}`).val(entry.question);
                 $(`.wholeQuestion #shortAnswerId_${entry.shortAnswerId}`).val(entry.currentAnswer);
@@ -72,6 +74,60 @@ $(document).ready(() => {
             qNum = qNum + 1;
         });
     }
+
+        // Append short answer forms to page when button is clicked
+        $('#questionButton').click(function () {
+
+            $('#editQuiz').append(`
+            <div id="question_${qNum}" class="wholeQuestion shortAnswer">
+            <h5 class="questionTitle">Question: ${qNum}</h5>
+            <p class="pb-1">
+                <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
+                <textarea class="formFields question"></textarea><br>
+                <label class="formHeaders" style="font-weight: 500;">Answer:</label><br>
+                <input type='text' class="formFields answer"></input>
+            </p>
+            <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+            <br><hr></div>`);
+    
+            qNum = qNum + 1;
+        });
+    
+        // Append multiple choice forms to page when button is clicked
+        $('#multiQuestionButton').click(function () {
+            $('#editQuiz').append(`
+            <div id="question_${qNum}" class="wholeQuestion multiSolution">
+            <h5 class="questionTitle">Question: ${qNum}</h5>
+            <p class="pb-1">
+                <label class="formHeaders" style="font-weight: 500;">Question:</label><br>
+                <textarea class="formFields question"></textarea><br><br>
+                <label class="formHeaders" style="font-weight: 500;">Possible Answers:</label>
+                <div class="possibleAnswers">
+                    <div id="optionA">
+                        <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    </div>
+                    <div id="optionB">
+                        <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    </div>
+                    <div id="optionC">
+                        <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    </div>
+                    <div id="optionD">
+                        <input type='text' class="formFields possibleAnswer mb-2"></input><select class="correct ml-3"><option>False</option><option>True</option></select>
+                    </div>
+                </div>
+                </p>
+                <button class='submitButton removeQuestion' type='button'>Remove Question</button>
+            <br><hr></div>
+            `);
+    
+            qNum = qNum + 1;
+        });
+
+    $(document).on("click", ".removeQuestion" , function() {
+        $(this).parent().remove();
+        qNum = qNum - 1;
+    });
 
     // Get the data from the quiz questions
     $.ajax({
