@@ -49,12 +49,16 @@ To run the tests you will need to open the root directory for the project in a t
 ```
 python test.py
 ```
-To run the automated tests. 
-**Ensure that the virtual environmnet is not active when you run the automated tests, it will give ou an error**
+**Ensure that the virtual environmnet is not active when you run the automated tests, it will give you an error**
 
 This is a list of tests that can be conducted:
-   - quiz model to completeness 
-   - 
+- Test proper useage of tutor ID in Quiz model when creating quizzes
+- When a student is assigned to a quiz the correct ID is assigned to the database
+- Ensure the correct answer is marked for short answer and multiple choice
+- Check that when a student completes a quiz, a score is added to the database and that it is shown as a completed quiz
+- Check if a student has completed a quiz, that they have a score for that quiz
+- When a second student is added to a quiz that you can still complete it
+
 
 ## Deployment
 To run this server locally, assuming correct installation, set the virtual environment variables by opening the terminal at the root directory of the project and enter:
@@ -140,7 +144,7 @@ Password: test
 * WTForms==2.3.1
 
 ## Authors
-* Lauren Campbell
-* Julius Hinchliffe
-* Bronsen Ivulich
-* Benjamin Podmore
+* Lauren Campbell - 22498451
+* Julius Hinchliffe - 22487283
+* Bronsen Ivulich - 22494115
+* Benjamin Podmore - 22504617
