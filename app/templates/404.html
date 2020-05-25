@@ -1,6 +1,7 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h1>Page not found</h1>
-    <p><a href="{{ url_for('index') }}">Back</a></p>
+{% block content %} 
+    <meta http-equiv="refresh" content="5;URL=http://localhost:5000/">
+    <body class="bg"
+    style="background-image: url({{ url_for('static', filename='img/errorgif.gif') }}); opacity: 1;"></body>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <p>You will be redirected in 5 seconds. If this doesn't happen, please click <a href="http://localhost:5000/">here</a></p>
 {% endblock %}
