@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField, TextAreaField, FieldList
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
-from app.models import User, UserType, Request, Quiz, UserRelationship
+from app.models import User, UserType, Request, Quiz, UserRelationship, StudentQuiz
 from flask_login import current_user
 
 # Form for log in page
@@ -55,7 +55,6 @@ class RequestStudentForm(FlaskForm):
         
         # check current user is a tutor
         checkCurrentUserType = User.query.filter_by(id=current_user.id).first().userType
-        print(checkCurrentUserType)
         if checkCurrentUserType != 1:
             raise ValidationError('Current user is not a tutor')
 
@@ -78,7 +77,6 @@ class RequestStudentForm(FlaskForm):
 # Form to assign a student to a quiz
 class AssignStudentForm(FlaskForm):
     student = StringField('Student Username', validators=[DataRequired()])
-    quizName = StringField('Quiz Name', validators=[DataRequired()])
     submit = SubmitField('Assign Student')
 
     def validate_student(self, student):
@@ -97,16 +95,22 @@ class AssignStudentForm(FlaskForm):
         checkUserRelation = UserRelationship.query.filter_by(tutorId=current_user.id, studentId=checkUserName.id)
         if checkUserRelation is None:
             raise ValidationError('This is not your student')
+
+        # Check student hasn't already been assigned to this quiz
+        studentId = User.query.filter_by(username=student.data).first().id
+        checkAssign = StudentQuiz(quizId=id, studentId=studentId)
+        if checkAssign is not None:
+            raise ValidationError('Student has already been assigned to this quiz')
    
     def validate_quizName(self, quizName): 
 
         # Check quiz exists   
-        checkQuizName = Quiz.query.filter_by(name=quizName.data).first()
+        checkQuizName = Quiz.query.filter_by(id=id).first()
         if checkQuizName is None:
             raise ValidationError('Quiz does not exist')
 
         # Ensure the tutor created such quiz
-        checkQuizCreator = Quiz.query.filter_by(name=quizName.data).first().tutorId
+        checkQuizCreator = Quiz.query.filter_by(id=id).first().tutorId
         if checkQuizCreator != current_user.Id:
             raise ValidationError('Quiz does not exist')
 

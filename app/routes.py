@@ -50,22 +50,24 @@ def home():
     # Render tutor home page
     elif userType == "tutor":
         students = UserRelationship.query.filter_by(tutorId=current_user.id)
-        tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id)
+        tutorQuizzes = Quiz.query.filter_by(tutorId=current_user.id).all()
         token = current_user.get_token()
 
+        totalQuizzes = []
         completedQuizzes = []
         uncompletedQuizzes = []
         for tutorQuiz in tutorQuizzes:
             studentQuiz = StudentQuiz.query.filter_by(quizId=tutorQuiz.id).first()
+            totalQuizzes.append(studentQuiz)
             if Score.query.filter_by(studentQuizId=studentQuiz.id).first() is not None:
                 completedQuizzes.append(studentQuiz)
             else :
                 uncompletedQuizzes.append(studentQuiz)
-        for uc in uncompletedQuizzes:
-            print("id", uc.id)
+        
     return render_template("home-tutor.html", title="Home Page", userType=userType, token=token,
                            User=User, students=students, tutorQuizzes=tutorQuizzes, StudentQuiz=StudentQuiz,
-                           Score = Score, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Quiz=Quiz)
+                           Score = Score, completedQuizzes=completedQuizzes, uncompletedQuizzes=uncompletedQuizzes, Quiz=Quiz,
+                           totalQuizzes = totalQuizzes)
 
 
 # Log in page
@@ -136,8 +138,8 @@ def request_student():
             db.session.add(request)
             db.session.commit()
             flash('Your request has been sent')
-        return redirect(url_for('home'))
-
+            return redirect(url_for('home'))
+        return render_template('request.html', form=form)
     else:
         return redirect(url_for('index'))
 
@@ -162,8 +164,8 @@ def create_quiz():
         return redirect(url_for('index'))
 
 # Page to assign student to a quiz
-@app.route('/assign-student', methods=['GET', 'POST'])
-def student_assignment():
+@app.route('/assign-student/<int:id>', methods=['GET', 'POST'])
+def student_assignment(id):
     
     # Check user authentication
     if current_user.is_authenticated:
@@ -172,13 +174,11 @@ def student_assignment():
         # If form is valid add assignment to database
         if form.validate_on_submit():
             studentId = User.query.filter_by(username=form.student.data).first().id
-            checkQuizName = Quiz.query.filter_by(name=form.quizName.data).first()
-            quizId = checkQuizName.id
-            studentQuiz = StudentQuiz(quizId=quizId, studentId=studentId)
+            studentQuiz = StudentQuiz(quizId=id, studentId=studentId)
             db.session.add(studentQuiz)
             db.session.commit()
             flash('Student has been assigned')
-        return render_template('assign-student.html', title='Assign Student to a Quiz', form=form)
+        return render_template('assign-student.html', title='Assign Student to a Quiz', form=form, Quiz=Quiz, id=id)
 
     else:
         return redirect(url_for('index'))

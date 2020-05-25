@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="loginPage">
+<div class="loginPage pt-4">
     <div class="col-md-4 featureContainer" style="text-align: center;">
-        <h1>Assign Student</h1>
+        <h1>Assign Student to {{ Quiz.query.filter_by(id=id).first().name }} Quiz</h1>
         <br>
         <!-- Form to assign the student -->
         <form action="" method="post">
@@ -17,16 +17,6 @@
 
                 <!-- Any raised errors for this field will appear here -->
                 {% for error in form.student.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-            <p>
-                
-                {{ form.quizName.label(class="formHeaders") }}<br>
-                {{ form.quizName(class="formFields") }}<br>
-
-                <!-- Any raised errors for this field will appear here -->
-                {% for error in form.quizName.errors %}
                 <span style="color: red;">[{{ error }}]</span>
                 {% endfor %}
             </p>
