@@ -4,7 +4,7 @@ import unittest
 
 from config import basedir
 from app import app, db
-from app.models import User, Quiz, UserRelationship, StudentQuiz, Question, ShortAnswer, MultiSolution
+from app.models import User, Quiz, UserRelationship, StudentQuiz, Question, ShortAnswer, MultiSolution, ShortSolution, Score
 
 class TestCase(unittest.TestCase):
     def setUp(self):
@@ -71,6 +71,42 @@ class TestCase(unittest.TestCase):
             MultiSolution.query.filter_by(questionId=question.id,correctAnswer=False).first().id == incorrectAnswer
 
 
+    def test_completed_quiz(self):
+        quiz = Quiz.query.filter_by(name="Test Quiz").first()
+        student = User.query.filter_by(username="test_student").first()
+        studentQuiz = StudentQuiz(quizId=1, studentId=2)
+        question = Question(id=1, quizId=1,question="What is 1+1?")
+        shortAnswer = ShortAnswer(id=1, questionId=1, correctAnswer="2")
+        shortSolution = ShortSolution(studentAnswer="2", questionId=1, studentQuizId=1)
+        score = Score(score="1/1",studentQuizId=1)
+        db.session.add(studentQuiz)
+        db.session.add(question)
+        db.session.add(shortAnswer)
+        db.session.add(shortSolution)
+        db.session.add(score)
+        db.session.commit()
+
+
+        assert Score.query.filter_by(studentQuizId=StudentQuiz.query.filter_by(quizId=quiz.id,studentId=student.id).first().id).first() is not None
+
+    def test_adding_second_student(self):
+        quiz = Quiz.query.filter_by(name="Test Quiz").first()
+        student = User.query.filter_by(username="test_student").first()
+        studentQuiz = StudentQuiz(quizId=1, studentId=2)
+        db.session.add(studentQuiz)
+        db.session.commit()
+
+        studentTwo = User(id=3, username="test_student2", userType=2)
+        db.session.add(studentTwo)
+        db.session.commit()
+        studentQuizTwo = StudentQuiz(quizId=1, studentId=3)
+        db.session.add(studentQuizTwo)
+        db.session.commit()
+
+        assert StudentQuiz.query.filter_by(quizId=quiz.id,studentId=student.id).first() is not None and StudentQuiz.query.filter_by(quizId=quiz.id,studentId=studentTwo.id).first() is not None
+
+    def test_(self):
+        
 
 if __name__ == '__main__':
     unittest.main()
