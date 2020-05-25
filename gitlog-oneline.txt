@@ -1,0 +1,356 @@
+a85d2f1 Merge pull request #132 from benjaminpodmore/hotfix/add-more-tests-and-fix-spelling
+5e28b37 Add all tests that are completed and fix some spelling errors
+8078d45 Merge pull request #131 from benjaminpodmore/feature/add-unit-testing
+bc1964e Finish off quiz model testing
+ecc0c46 Merge pull request #130 from benjaminpodmore/hotfix/db
+cdedd84 Merge pull request #128 from benjaminpodmore/feature/further-styling-to-home-pages
+d3cb970 Fixed the db for demonstration purposes
+9abc031 Merge pull request #127 from benjaminpodmore/hotfix/assign-student-quiz-validation
+1ac7f38 Change StudentQuiz query to object
+2778ee6 Third pass
+3b9b791 Merge pull request #125 from benjaminpodmore/feature/add-demonstration-quizzes
+dff58c7 Merge pull request #126 from benjaminpodmore/feature/add-readme
+3593312 Merge pull request #124 from benjaminpodmore/hotfix/fix-question-text-size
+1206eb2 Second pass
+7283c87 Add detailed outline to README.md
+64377bd First pass on navbar / home styling
+f016f49 update db with new tutor
+5d08873 update db with new quizzes and students
+880653e Change question classes to remove styling clash
+83c8b78 Add basic quiz testing
+26545c3 fixed review quiz bug
+50aa483 added tab titles to all routes
+1dd2eb0 fixed assign student to quiz bug
+b51cc1a Merge pull request #123 from benjaminpodmore/feature/add-unit-testing
+56803de Create gitlogs.txt
+f60c143 Merge pull request #122 from benjaminpodmore/feature/add-style-to-error-pages
+b4a2267 Added styling to 404 and 505 error pages
+bf2af2b Merge pull request #121 from benjaminpodmore/feature/test-styling
+4783795 Reorganise main.css file
+e86abaa Create tests.py for unit testing
+b91f1c1 Merge pull request #117 from benjaminpodmore/hotfix/style-feature-container
+d95887e styled feature containers
+8c8d6c4 Merge pull request #115 from benjaminpodmore/hotfix/tutor-home
+312ee59 Merge pull request #114 from benjaminpodmore/feature/tutor-editing-quizzes-frontend
+750af8d Fix tutor home page styling
+58ae9a0 Add js logic for posting quiz edit to api
+ae2d638 Merge pull request #113 from benjaminpodmore/feature/style-home-pages
+aeaacb4 Merge pull request #112 from benjaminpodmore/hotfix/clean-routes
+4cb3673 styled home pages
+a4ab29c Clean routes file
+d6773fb Merge pull request #111 from benjaminpodmore/feature/fix-assign-student-validation
+2d5c37f Add quizId field to assign student
+e26352d Merge pull request #110 from benjaminpodmore/feature/cleanse-db
+7410ad4 Add test data
+58442a1 Add test users to db
+cab78fe Remove all data from db
+c1cdf73 Merge pull request #109 from benjaminpodmore/feature/tutor-editing-quizzes
+fdac21d Merge pull request #108 from benjaminpodmore/feature/add-student-assignment-to-tutor-home
+ce91bf8 Add backend for quiz editing
+86185e9 Add student assignment to tutor home
+edae30e Merge pull request #107 from benjaminpodmore/feature/tutor-editing-quizzes
+7f7cb60 Merge branch 'develop' into feature/tutor-editing-quizzes
+ace79df Merge pull request #105 from benjaminpodmore/feature/add-form-redirects
+7b75687 Merge pull request #106 from benjaminpodmore/feature/remove-redundant-features
+8cf583c Get existing Qs and As to show in edit page
+800b8a2 Remove forgotten password and email features
+2ff7460 Merge pull request #104 from benjaminpodmore/hotfix/hamburger-menu
+3d268d9 Add quiz complete reroute. Fix request accepting
+c9a569b hotfix hamburger
+264c761 Add tutor quiz creation redirect
+3820e30 Merge pull request #103 from benjaminpodmore/feature/style-review-page
+852fe05 Merge branch 'feature/style-review-page' of https://github.com/benjaminpodmore/tutor-quiz into feature/style-review-page
+7b80c09 made language english
+0955033 ignore this commit
+d55c0b6 fixed base.html bug
+9b4f817 Merge pull request #102 from benjaminpodmore/hotfix/username-typo
+cc4ed98 Change User Name to Username in request form
+a3fe0c0 Merge pull request #101 from benjaminpodmore/hotfix/request-student-validation
+86686d0 Merge pull request #100 from benjaminpodmore/feature/quiz-create-remove-question
+a4fe884 Merge branch 'develop' into feature/quiz-create-remove-question
+e300edd Move .request property to fix error
+b78853f Merge pull request #99 from benjaminpodmore/feature/style-review-page
+68a2f63 Merge branch 'develop' into feature/style-review-page
+10aca14 Merge pull request #98 from benjaminpodmore/hotfix/add-comments-for-understandability
+c62ca71 Fix typos in landing-style.css
+9cd1eca Merge branch 'develop' into hotfix/add-comments-for-understandability
+3e111c1 fixed css bug
+93c43d2 fixed styling bug
+ef29682 Merge pull request #96 from benjaminpodmore/feature/standardize-names
+b883eda Merge branch 'develop' into feature/standardize-names
+64e829f Add remove question button to create-quiz.html
+b4c483c Merge pull request #97 from benjaminpodmore/feature/style-review-page
+f66e159 Add comments and adjustments to HTML files
+601afd2 styled review page
+43a090f Merge pull request #95 from benjaminpodmore/feature/link-tutor-review
+1c07926 Estabish naming convention
+9912024 Add comments and adjustments for CSS files
+1eebee9 Comment and adjust the JavaScript files
+58c69c0 Comment and adjust models.py and forms.py
+9080f20 Add route to review quiz buttons on tutor homepage
+1644029 Merge pull request #94 from benjaminpodmore/feature/add-quiz-completion-authentication
+75bd259 Add quiz completion authentication and fix uncompleted quiz error
+9226373 Merge pull request #93 from benjaminpodmore/feature/add-student-review-page
+2973909 Add html and api for student to see their answers and the correct answer
+8522ada Merge pull request #92 from benjaminpodmore/hotfix/remove-quiz-import
+eaef971 Remove import for CreateQuizForm
+b66cd92 Merge pull request #88 from benjaminpodmore/hotfix/remove-request-quiz-forms
+8b4f670 Merge branch 'develop' into hotfix/remove-request-quiz-forms
+dfeaf2b Merge pull request #89 from benjaminpodmore/feature/consolidate-css-classes
+31973a7 Merge pull request #90 from benjaminpodmore/feature/stop-background-scrolling
+367123e Merge pull request #91 from benjaminpodmore/feature/add-validation
+ff604aa add quiz completion validation
+11fffd6 add quiz creation validation
+b27ca73 Add fixed css style to .bg to attach image to background
+445d56d Refactor css
+1c7f44d Remove Create Quiz form
+466a509 Merge pull request #86 from benjaminpodmore/feature/fix-mc-boolean
+745e349 Merge branch 'develop' into feature/fix-mc-boolean
+434bfa5 Merge pull request #87 from benjaminpodmore/feature/create-quiz-polish
+03957bb changed some css to inline
+6350360 styled create quiz page
+745a8da styled complete quiz page
+f2db2d2 Merge pull request #84 from benjaminpodmore/feature/add-view-student-score-to-tutor-home
+c5829f4 Merge branch 'develop' into feature/add-view-student-score-to-tutor-home
+74edac6 Clean up padding and proper button classes
+de907c2 Parse mc choice value in completeQuiz.js to get True or False
+fdf12b1 Merge pull request #85 from benjaminpodmore/feature/completing-quizzes
+3580a1f Add api and html code for students to complete quizzes and get a score
+71b70fe add ability for tutors to see completed quizzes and their score
+06e3772 Change get api for quizzes to return questions too
+a8751d0 Merge pull request #83 from benjaminpodmore/feature/add-multi-choice-questions
+36f4097 Change create quizzes route
+6c7a333 add ability to write multi choice quizzes
+21f2e3d Merge pull request #82 from benjaminpodmore/feature/add-multi-choice-questions
+a45735d Merge branch 'develop' into feature/add-multi-choice-questions
+bdc1b8f Fix adding multiSolution to db in quizzes api
+1334e41 Merge pull request #81 from benjaminpodmore/feature/complete-quiz-html
+1cad727 Add api backend and form logic for multi choice questions
+0e7f8de updated complete-quiz page
+8ad74dd added complete quiz route, html, and button
+1d7a9ca added card titles and css
+a340297 Merge pull request #79 from benjaminpodmore/feature/home-add-tutor-quizzes
+56e3600 Add created quizzes to tutor home
+341825c Merge pull request #78 from benjaminpodmore/hotfix/fix-quiz-padding
+353583d Add scores to student home
+3d50a91 fix annoucement padding on tutor home page
+6e746fc Add tutors with proper padding
+c4e8b12 Merge pull request #76 from benjaminpodmore/feature/add-tutor-list-to-student-home
+5dd8492 add tutor list to student home
+cf0adf3 Merge pull request #75 from benjaminpodmore/hotfix/fix-homepage-padding
+4527076 Rename tutor requests to students in tutor home
+e0ac8e3 Refactor home tutor html
+17806e6 Refactor home student page
+2083a6b Merge pull request #74 from benjaminpodmore/feature/add-homepage-function
+d032663 Merge pull request #73 from benjaminpodmore/feature/add-short-solution-model
+f1819c8 Merge branch 'develop' into feature/add-short-solution-model
+449574e viewing completed/uncompleted quizzes
+35bcec8 added uncompleted quizzes function
+ab70d2f add short solution model
+914692c Merge pull request #72 from benjaminpodmore/feature/add-quiz-assigning
+2f06988 Add assigning student option to quiz creation and handle in api
+28824be Merge pull request #71 from benjaminpodmore/feature/list-students-and-tutors
+9298320 add ability for students to see their tutors and tutors to see their students
+271ed9e Merge pull request #70 from benjaminpodmore/hotfix/delete-uneccessary-routes
+65640b8 fix some small errors
+09ae6d4 Merge pull request #69 from benjaminpodmore/feature/student-accept-tutor-request
+05fbb0c Merge branch 'develop' into feature/student-accept-tutor-request
+338ac4e add ability to accept tutor request
+a549590 Merge pull request #68 from benjaminpodmore/feature/create-quiz-id
+3f97105 remove printing token from create route
+c50318d Capture tutorId for creating quizzes
+8b13c17 Merge pull request #67 from benjaminpodmore/hotfix/add-httpauth-to-requirements
+506b168 add httpauth to reuirements
+b7fd91b Merge pull request #66 from benjaminpodmore/feature/api-token-authentication
+634f362 add token authentication and 0Q error to add-question
+a83da1f redirect index to signed-in user
+d0da111 Add friendly errors for api
+511cd1b Add token authentication
+8f36c74 Merge pull request #65 from benjaminpodmore/feature/consolidate-css
+977ca85 restyle pages
+9596c80 Merge pull request #63 from benjaminpodmore/feature/create-multichoice-quiz
+f686e8d Merge pull request #64 from benjaminpodmore/feature/fix-css-spacing
+92e96aa Move css to individual sheets, fix some padding with relative navbar
+8268f7a Merge branch 'feature/create-multichoice-quiz' of https://github.com/benjaminpodmore/tutor-quiz into feature/create-multichoice-quiz
+069227c Consolidate add-question and create-quiz
+cdd9f64 Merge pull request #62 from benjaminpodmore/feature/create-multichoice-quiz
+a37bd57 Merge branch 'develop' into feature/create-multichoice-quiz
+e368a0d Establish backend and html page for creating short answer quizzes
+2c85570 add javascript to append questions
+15942f7 Pass question id to add-question route
+b25915f Merge pull request #61 from benjaminpodmore/feature/html-touchup
+18291f1 fixed logo, fixed div bug
+09515d1 polished assign student page
+09c5709 added student request functionality
+c7375a7 Merge pull request #60 from benjaminpodmore/add-favicon
+7395f30 Added favicon to base.html & changed logo colours
+69c6b62 Merge pull request #58 from benjaminpodmore/feature/update-password-pages
+7453a9e updated reset password page
+828ba1c Merge pull request #56 from benjaminpodmore/feature/add-quiz-student-assignment-form
+6f4c1e7 updated error pages
+ec098f0 updated password reset page
+b5e0aa4 Merge pull request #57 from benjaminpodmore/feature/add-student-request
+1f929cb updated navbar
+81081fb updated navbar and forms
+247db36 styled landing page and navbar logo
+f47e45c Merge branch 'develop' into feature/add-quiz-student-assignment-form
+676db36 create HTML and form to assign students to quizzes
+e5a38b3 Merge pull request #55 from benjaminpodmore/feature/check-if-request-exists
+80d4c50 Add validation for checking if a request already exists
+5629f3a Merge pull request #53 from benjaminpodmore/feature/add-home-routes
+cadc6ee Merge branch 'develop' into feature/add-home-routes
+80d4bf6 Merge pull request #54 from benjaminpodmore/hotfix/fix-db-for-score
+db5cb67 add test_tutor and test_student to db
+4863dfb Merge pull request #51 from benjaminpodmore/feature/add-tutor-student-assignment-form
+17d1270 Merge branch 'develop' into feature/add-tutor-student-assignment-form
+b5e79ba Add user type filtering for home pages
+32037cf Merge pull request #52 from benjaminpodmore/feature/updating-html
+6a7246f styled various pages, added images
+8622c66 create feature/add-tutor-student-assignment-form
+219dc2d Merge pull request #50 from benjaminpodmore/hotfix/register-form-sizing
+8a19857 add form-fields class to register form
+75ecdc9 Merge pull request #49 from benjaminpodmore/feature/add-test-users
+5058b5e Add test users in to db, test_tutor and test_student
+9b26ff2 Merge pull request #48 from benjaminpodmore/feature/add-score-db
+615fce1 Add feature/add-score-db
+e9e6e0d Merge pull request #47 from benjaminpodmore/feature/add-student-quiz-relationship-model
+96e0c67 create feature/add-student-quiz-relationship-model
+e120d32 Merge pull request #46 from benjaminpodmore/hotfix/fix-login-sizing
+26317cb Merge branch 'develop' into hotfix/fix-login-sizing
+1abca49 Merge pull request #45 from benjaminpodmore/feature/style-multiple-pages
+19b04d1 add a css class to form fields to fix sizing
+19a9524 Added styling to multiple pages
+843870b Merge pull request #43 from benjaminpodmore/feature/add-relationship-request
+8950090 Merge pull request #44 from benjaminpodmore/feature/add-reset-email
+473b63c spelling fix
+40c8e06 add relationship request model
+18809bb Merge pull request #41 from benjaminpodmore/hotfix/fix-broken-links
+cc1f8ab Merge pull request #42 from benjaminpodmore/feature/add-relationship-request
+894d82a fix multiple head error
+9b2d120 Fix circular import error on __init__.py
+af5db3e Add flask-email and pyjwt to requirements.txt
+248d704 fix jinja typo in register file
+a8c4347 made password reset email asynchronous
+84c3279 added reset password email and html pages
+be335bd added file logging
+560acbc added error email support
+60c9cdc added error handling pages
+baa0e53 Merge pull request #33 from benjaminpodmore/feature/add-home-page
+e9dd5f7 Merge branch 'develop' into feature/add-home-page
+8017f3d Merge pull request #40 from benjaminpodmore/feature/rename-models
+bf58d02 Merge branch 'develop' into feature/rename-models
+3ae711f rename models
+94695e0 rename models
+6a93068 Merge pull request #39 from benjaminpodmore/feature/add-short-answer-table
+9780e9e add short answer model
+13a1a91 Merge pull request #38 from benjaminpodmore/feature/restructure-models
+e0a05e3 restructure models
+fddb1b8 Merge pull request #37 from benjaminpodmore/feature/restructure-tables-with-tutorId
+60bd2c8 Remake table to have tutorId
+0bd9fef Merge pull request #36 from benjaminpodmore/hotfix/rename-quiz-userId
+c7916b9 Rename tutorId to userId
+e984bd3 Merge pull request #35 from benjaminpodmore/feature/add-question-table
+9094985 create feature/add-question-table
+e57110c Merge pull request #34 from benjaminpodmore/feature/add-pairings-table
+f054371 Merge branch 'develop' into feature/add-pairings-table
+5f96ed8 Add Job table to represent tutor-student pairing
+44ea495 Merge pull request #32 from benjaminpodmore/feature/add-names-to-registration
+499cc3a Styled login and signup pages 1st draft
+261b19e made footer less obnoxious
+2b4538c First draft of student home page
+405c455 added footer
+bac050f Add first and last name to registration form
+077d5d0 Merge pull request #29 from benjaminpodmore/feature/add-userType-to-registration
+3a74f9e Merge branch 'develop' into feature/add-userType-to-registration
+6b1a0b2 Merge pull request #31 from benjaminpodmore/feature/add-home-page
+a2b4dcc Merge branch 'develop' into feature/add-userType-to-registration
+c50362a fixed routes to home page
+432a2b0 Merge branch 'feature/add-home-page' of https://github.com/benjaminpodmore/tutor-quiz into develop
+68a80a9 Recreate database to have naming convention, change to camelCase
+f70786e added main.css file again
+d377964 changed home to home_student
+727d974 Add registration option for userType
+ece0633 Merge pull request #28 from benjaminpodmore/feature/add-userType-table
+abf55eb create feature/add-userType-table
+707f720 Merge pull request #27 from benjaminpodmore/feature/readme-flask-steps
+e13a6d0 Add flask env steps to README.md
+55990e6 Merge pull request #26 from benjaminpodmore/feature/add-landing-page
+e9d2cbf Deleted Bronsen test file
+4b4ee47 Merge branch 'develop' of https://github.com/benjaminpodmore/tutor-quiz into develop
+a7b58d9 Merge pull request #25 from benjaminpodmore/feature/add-landing-page
+907aed5 Add email_validator to requirements
+d31a9dd Merge branch 'develop' of https://github.com/benjaminpodmore/tutor-quiz into develop
+fbb2412 Create separation between index and home page
+e2aa236 Merge pull request #23 from benjaminpodmore/feature/user-login
+ed83a1e Add user registration functionality
+4274256 Fix rememberMe typo
+ae9e9e2 Add user integration to index.html
+82bf016 Add request and url_parse import statements
+48d669a Add redirected after accessing protected page and logging in
+bc5d228 Make index.html protected by login
+6b161d5 Add logout route and update nav-bar
+707fee1 Login now checks if user exists
+207dc56 Add Flask-login
+5f53cc7 Add password set and check methods to user
+3be53d6 Merge pull request #21 from benjaminpodmore/feature/add-python-dotenv
+a8d9ec0 Merge branch 'develop' into feature/add-python-dotenv
+60295e7 Merge pull request #20 from benjaminpodmore/feature/add-database
+329218c Merge pull request #19 from benjaminpodmore/feature/add-login-nav
+6fd02c4 Add python-dotenv to requirements, .env to .gitignore
+08a81f8 Configure tutor-quiz.py for flask shell command
+65db3ab Add ending brace to db tables __repr__
+542c8bd Create quizzes table
+36a997f Create user table
+1557f49 Configure app for database
+df841ed Add migrations directory from Flask-Migrate
+9055915 Add database requirement
+3305f2e Add logins as flashed messages
+daee832 Add login to nav
+304e9f6 Merge pull request #16 from benjaminpodmore/hotfix/add-requirement-wtf-flask
+77f9685 Merge pull request #17 from benjaminpodmore/feature/links-as-functions
+8d3823b Import url_for and use for links
+4969e11 Add comment above .vscode in .gitignore
+a3e27bf Add Flask-WTF and WTForms to requirements.txt
+c8b3299 Merge branch 'develop' into feature/gitignore-add-pycache
+d166c0c Merge branch 'feature/create-login-page' into develop
+60b59af Remove env and pycache to match .gitignore
+0613dbe Merge pull request #12 from benjaminpodmore/feature/add-content-container
+5cad06a Merge branch 'develop' into feature/add-content-container
+3b8c4d3 Merge pull request #13 from benjaminpodmore/feature/change-flask-to-debug
+2d4b68d Merge pull request #9 from benjaminpodmore/feature/add-pylinter
+fdad80b Merge pull request #11 from benjaminpodmore/feature/create-footer
+0c0d0c7 Merge pull request #10 from benjaminpodmore/feature/add-license-file
+b0a3708 Reflect requirements.txt changes in README.md
+da94be6 Create requirements.txt file
+36f30a2 Add tweaked python boilerplate .gitignore file
+5cda8e9 Create login.html page and add /login as a route
+a9e8cfa Add forms.py file with form fields and validators
+03882a7 Add import statement for config to __init__.py
+217285e Create config.py file
+7de6cf5 Change FLASK_ENV to DEVELOPMENT
+3f31f0e Add container div to house content in base
+5004b5d Add vanilla bootstrap footer
+c2a46aa Delete skeleton.md
+6e2ee1f Added MIT license with each collaborator's name
+f58a0ae Added basic pages to skeleton file
+27fa652 Add pylinter
+f7b85bf Merge pull request #1 from benjaminpodmore/feature/add-readme
+5bd3502 Merge pull request #7 from benjaminpodmore/hotfix/delete-test-files
+989069c Delete files from test branches
+8b9ae8b Merge branch 'feature/Bronsen-Test-Branch' into develop
+99cd309 Merge pull request #4 from benjaminpodmore/feature/benjamin-test-branch
+308bb23 Merge pull request #6 from benjaminpodmore/feature/lauren-test-branch
+9b9f807 Merge pull request #5 from benjaminpodmore/feature/julius-test-branch
+bc37623 create lauren-test-file
+d92ee18 added julius.txt and julius_text.txt
+d62ab72 Created benjamin.txt file
+69dbd4d Tested committing something
+f43e5de Merge pull request #2 from benjaminpodmore/feature/add-logo
+75088d8 create logo file
+68749aa Add members and usage to README.md
+3e6f6fc Add vanilla bootstrap navbar
+d02f7b4 Add bootstrap and script links
+067bed5 Get first working code for app
+010c477 Add framework for flask app
+dff0386 Add README.md file
+0aeb6c3 Initial commit
