@@ -58,15 +58,12 @@ $(document).ready(() => {
         }
     });
 
-    // When the submit button is pressed, run the submit function
-    $("#submitQuiz").click(function () {
-        $("#completeQuiz").submit();
-    });
+
 
     let errorChecked = false
 
     // Submit function
-    $("#completeQuiz").submit(function () {
+    $("#submitQuiz").click(function () {
 
         // Keep track of whether there is an error in the form
         error = false
@@ -134,7 +131,7 @@ $(document).ready(() => {
                 contentType: "application/json",
                 headers: { "Authorization": 'Bearer ' + token },
                 success: function (data) {
-                    // console.log(data)
+                    window.location.href = "/home"
                 },
                 error: function (resp) {
                     // console.log(resp)

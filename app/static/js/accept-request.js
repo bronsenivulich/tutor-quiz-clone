@@ -1,19 +1,23 @@
 $(document).ready(() => { 
 
+
     let token = $("#token").data("token")
 
-    $('#request button').click(function () {
+    $('.requestButton').click(function () {
+
+        requestToRemove = $(this).parent()
+
         data = {
             requestId: $(this).parent().attr("id"),
         };
 
         // Update requets database to show the student accepted the request
-        if( $(this).attr("class") == "accept") {
+        if( $(this).hasClass("accept") ) {
             data.accept = true
         }
 
         // Update request database to show the student declined the request
-        else if ($(this).attr("class") == "decline") {
+        else if( $(this).hasClass("decline") ) {
             data.accept = false
         }
 
@@ -25,7 +29,9 @@ $(document).ready(() => {
             contentType: "application/json",
             headers: { "Authorization": 'Bearer ' + token },
             success: function (data) {
-                console.log(data);
+                requestToRemove.remove()
+            },
+            error: function(error) {
             }
         });
     });

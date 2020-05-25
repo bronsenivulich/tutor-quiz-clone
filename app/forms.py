@@ -45,23 +45,6 @@ class RegistrationForm(FlaskForm):
         if checkedUserType is None:
             raise ValidationError("Please enter a valid User Type.")
 
-# Form for requesting password
-class ResetPasswordRequestForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    submit = SubmitField('Request Password Reset')
-
-    # Ensure a user has such email
-    def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
-        if user is not None:
-            raise ValidationError('Invalid email address.')
-        
-# Form to reset password
-class ResetPasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')
 
 # Form to request a new student
 class RequestStudentForm(FlaskForm):

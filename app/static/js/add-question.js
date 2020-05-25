@@ -60,14 +60,7 @@ $(document).ready(() => {
     });
 
 
-
-    // When the submit button is clicked perform the submit function
     $("#submitQuiz").click(function () {
-        $("#newQuiz").submit();
-    });
-
-    // The submit function
-    $("#newQuiz").submit(function () {
 
         // Keep track of whether there is an error in the form
         error = false
@@ -167,7 +160,10 @@ $(document).ready(() => {
                 contentType: "application/json",
                 headers: { "Authorization": 'Bearer ' + token },
                 success: function (data) {
-                    console.log(data);
+                    window.location.href = "/home"
+                },
+                error: function(error) {
+                    alert(error)
                 }
 
             })
