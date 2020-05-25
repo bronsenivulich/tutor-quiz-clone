@@ -80,8 +80,8 @@ class AssignStudentForm(FlaskForm):
     quizId = StringField("Quiz ID", validators=[DataRequired()])
     submit = SubmitField('Assign Student')
 
-    def validate_student_quizId(self, student, quizId):
-        
+    def validate_student(self, student):
+        quizId = self.quizId
         # Check user exists
         checkUserName = User.query.filter_by(username=student.data).first()
         if checkUserName is None:
@@ -93,12 +93,12 @@ class AssignStudentForm(FlaskForm):
             raise ValidationError('User is not a student')
         
         # Check the student has accepted a request from the tutor
-        checkUserRelation = UserRelationship.query.filter_by(tutorId=current_user.id, studentId=checkUserName.id)
+        checkUserRelation = UserRelationship.query.filter_by(tutorId=current_user.id, studentId=checkUserName.id).first()
         if checkUserRelation is None:
             raise ValidationError('This is not your student')
         # Check student hasn't already been assigned to this quiz
         studentId = User.query.filter_by(username=student.data).first().id
-        checkAssign = StudentQuiz(quizId=quizId.data, studentId=studentId)
+        checkAssign = StudentQuiz.query.filter_by(quizId=quizId.data,studentId=studentId).first()
         if checkAssign is not None:
             raise ValidationError('Student has already been assigned to this quiz')
    
