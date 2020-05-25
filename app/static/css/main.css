@@ -20,10 +20,12 @@ background-attachment: fixed;
     max-width: 90%;
     opacity: 1;
     transition: 0.3s;
+    transform: scale(1.00);
 }
 
 .logo:hover {
     opacity: 0.5;
+    transform: scale(1.15);
 }
 
 .welcomeMessage {
@@ -42,13 +44,13 @@ background-attachment: fixed;
 }
 
 .nav-link {
-    background-color: black !important /* necessary to overide bootstrap styling */;
+    color: #000000 !important /* necessary to overide bootstrap styling */;
     opacity: 1;
     transition: 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #C03D50;
+    color: #C03D50;
     cursor: pointer;
     opacity: 0.5;
 }
