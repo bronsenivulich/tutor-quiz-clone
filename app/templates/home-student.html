@@ -2,6 +2,10 @@
 
 {% extends 'base.html' %}
 
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/accept-request.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
 
@@ -26,7 +30,7 @@
           {% for request in requests %}
           <div id="{{ request.id }}">
             <span>You have a request from {{User.query.filter_by(id=request.tutorId).first().username}}</span>
-            <button class="accept">Accept</button><button class="decline">Decline</button>
+            <button class="requestButton accept">Accept</button><button class="requestButton decline">Decline</button>
           </div>
           {% endfor %}
           {% endif %}
