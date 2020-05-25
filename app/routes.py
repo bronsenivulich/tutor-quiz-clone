@@ -220,7 +220,7 @@ def complete_quiz(id):
 @app.route('/quiz/review/<int:id>')
 def review_quiz(id):
     
-    # Check user authentication z
+    # Check user authentication
     if current_user.is_authenticated:
         token = current_user.get_token()
         
@@ -232,6 +232,20 @@ def review_quiz(id):
             return redirect(url_for("home"))
 
         return render_template('review-quiz.html', title='Complete a quiz', id=id, token=token, Quiz=Quiz, score=score, student=student)
+
+    else:
+        return redirect(url_for('index'))
+
+# Quiz editing page
+@app.route('/quiz/edit/<int:id>')
+def edit_quiz(id):
+    
+    # Check user authentication 
+    if current_user.is_authenticated:
+        token = current_user.get_token()
+        
+        # Ensure quiz has been completed
+        return render_template('edit-quiz.html', title='Edut a quiz', id=id, token=token)
 
     else:
         return redirect(url_for('index'))
