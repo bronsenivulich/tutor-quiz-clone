@@ -28,6 +28,9 @@ class TestCase(unittest.TestCase):
         db.session.remove()
         db.drop_all()
 
+
+
+    # Test proper useage of tutor ID in Quiz model when creating quizzes
     def test_quiz_tutor_id(self):
 
         quiz = Quiz.query.filter_by(name="Test Quiz").first()
@@ -35,6 +38,7 @@ class TestCase(unittest.TestCase):
 
         assert quiz.tutorId == tutor.id
 
+    # When a student is assigned to a quiz the correct ID is assigned to the database
     def test_quiz_student_access(self):
         quiz = Quiz.query.filter_by(name="Test Quiz").first()
         student = User.query.filter_by(username="test_student").first()
@@ -44,8 +48,8 @@ class TestCase(unittest.TestCase):
 
         assert student.id == User.query.filter_by(id=StudentQuiz.query.filter_by(quizId=1,studentId=2).first().studentId).first().id
 
-
-    def test_short_answer_questio(self):
+    # Ensure the correct answer is marked for short answer and multiple choice
+    def test_short_answer_question(self):
         question = Question(id=1, quizId=1,question="What is 1+1?")
         shortAnswer = ShortAnswer(questionId=1, correctAnswer="2")
         db.session.add(question)
@@ -53,7 +57,6 @@ class TestCase(unittest.TestCase):
         db.session.commit()
 
         assert "2" == shortAnswer.query.filter_by(questionId=question.id).first().correctAnswer
-
 
     def test_multi_choice_question(self):
         question = Question(id=1, quizId=1,question="What is 1+1?")
@@ -70,7 +73,7 @@ class TestCase(unittest.TestCase):
         assert (MultiSolution.query.filter_by(questionId=question.id,correctAnswer=True).first().id == correctAnswer) and \
             MultiSolution.query.filter_by(questionId=question.id,correctAnswer=False).first().id == incorrectAnswer
 
-
+    # Check that when a student completes a quiz, a score is added to the database and that it is shown as a completed quiz
     def test_completed_quiz(self):
         quiz = Quiz.query.filter_by(name="Test Quiz").first()
         student = User.query.filter_by(username="test_student").first()
@@ -89,6 +92,8 @@ class TestCase(unittest.TestCase):
 
         assert Score.query.filter_by(studentQuizId=StudentQuiz.query.filter_by(quizId=quiz.id,studentId=student.id).first().id).first() is not None
 
+
+    # When a second student is added to a quiz that you can still complete it
     def test_adding_second_student(self):
         quiz = Quiz.query.filter_by(name="Test Quiz").first()
         student = User.query.filter_by(username="test_student").first()
