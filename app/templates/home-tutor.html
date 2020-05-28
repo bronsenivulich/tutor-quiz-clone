@@ -136,13 +136,13 @@
                     <!-- Itterates through completed quizzes and render the information to the page -->
                     {% for completedQuiz in completedQuizzes %}
                     <div class="col-sm-3 pt-2" style="text-align: left;">
-                        {{Quiz.query.filter_by(id=completedQuiz.id).first().name }}
+                        {{ Quiz.query.filter_by(id=completedQuiz.quizId).first().name }}
                     </div>
                     <div class="col-sm-3 pt-2" style="text-align: center;">
                         {{ User.query.filter_by(id=completedQuiz.studentId).first().username }}
                     </div>
                     <div class="col-sm-3 pt-2" style="text-align: center;">
-                        {{Score.query.filter_by(studentQuizId=completedQuiz.id).first().score}}
+                        {{ Score.query.filter_by(studentQuizId=completedQuiz.id).first().score }}
                     </div>
                     <div class="col-sm-3 pt-2" style="text-align: right;">
                         <a href="{{ url_for('review_quiz',id=completedQuiz.id) }}" style="text-decoration: none;">
